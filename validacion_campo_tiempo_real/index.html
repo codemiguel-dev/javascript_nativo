@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Validación de Campos Vacíos</title>
+    <script>
+        function validarCampos() {
+            var nombre = document.getElementById("nombre").value;
+            var email = document.getElementById("email").value;
+            
+            if (nombre === "" || email === "") {
+                document.getElementById("error").textContent = "Por favor, completa todos e";
+            } else {
+                document.getElementById("error").textContent = nombre;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Formulario de Registro</h1>
+    
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" onkeyup="validarCampos()"><br><br>
+        
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" onkeyup="validarCampos()"><br><br>
+        
+    <p id="error" style="color: red;"></p>
+</body>
+</html>

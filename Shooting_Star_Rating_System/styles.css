@@ -1,0 +1,107 @@
+body {
+    box-sizing: border-box;
+    background-color: rgb(32, 32, 32);
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    font-family: system-ui;
+    color: #f2bf4a;
+  }
+  
+  /* values for each star position */
+  input[value='0']::-webkit-slider-runnable-track {
+    --color: #fbdda1;
+    --loc: 7.5%;
+    --scale: scale(0.5);
+    --track-scale: 12px;
+  }
+  input[value='25']::-webkit-slider-runnable-track {
+    --color: #f8ce78;
+    --loc: 30%;
+    --scale: scale(0.75);
+    --track-scale: 16px;
+  }
+  input[value='50']::-webkit-slider-runnable-track {
+    --color: #f2bf4a;
+    --loc: 50%;
+    --scale: scale(1);
+    --track-scale: 20px;
+  }
+  input[value='75']::-webkit-slider-runnable-track {
+    --color: #f3b933;
+    --loc: 70%;
+    --scale: scale(1.25);
+    --track-scale: 24px;
+  }
+  input[value='100']::-webkit-slider-runnable-track {
+    --color: #f3b411;
+    --loc: 95%;
+    --scale: scale(1.5);
+    --track-scale: 28px;
+  }
+  
+  div {
+    width: 50%;
+  }
+  
+  p {
+    margin-bottom: 3rem;
+  }
+  
+  input[type='range'] {
+    -webkit-appearance: none;
+    width: 100%;
+    background: transparent;
+    transform: rotate(-15deg);
+  }
+  input[type='range']:focus {
+    outline: none;
+  }
+  
+  input[type='range']::-webkit-slider-runnable-track {
+    width: 100%;
+    height: var(--track-scale);
+    cursor: pointer;
+    background: linear-gradient(
+        to bottom,
+        transparent 25%,
+        rgb(32, 32, 32) 25% 50%,
+        transparent 50% 75%,
+        rgb(32, 32, 32) 75% 100%
+      ),
+      linear-gradient(
+        to right,
+        transparent,
+        var(--color) var(--loc),
+        transparent var(--loc)
+      ),
+      rgb(32, 32, 32);
+    image-rendering: pixelate;
+    border-radius: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  input[type='range']::-webkit-slider-thumb {
+    box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+    border: 0px solid #000000;
+    width: 75px;
+    aspect-ratio: 1/1;
+    border-radius: 7px;
+    background: var(--color);
+    cursor: pointer;
+    -webkit-appearance: none;
+    transform: translateY(-45%) rotate(0deg) var(--scale);
+    clip-path: polygon(
+      50% 0%,
+      61% 35%,
+      98% 35%,
+      68% 57%,
+      79% 91%,
+      50% 70%,
+      21% 91%,
+      32% 57%,
+      2% 35%,
+      39% 35%
+    );
+  }
