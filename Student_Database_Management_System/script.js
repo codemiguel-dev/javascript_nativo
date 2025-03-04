@@ -13,9 +13,8 @@ const API_BASE_URL = 'http://localhost/api/Student_Database_Management_System';
 async function fetchRecords() {
     try {
         const response = await fetch(`${API_BASE_URL}/get.php`);
-        if (!response.ok) {
-            throw new Error(`Error HTTP: ${response.status}`);
-        }
+        if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
+
         const records = await response.json();
         displayRecords(records);
     } catch (error) {
@@ -27,21 +26,53 @@ async function fetchRecords() {
 // Mostrar registros en la tabla
 function displayRecords(records) {
     recordList.innerHTML = '';
-    if (records.length === 0) {
+    if (!records.length) {
         recordList.innerHTML = '<tr><td colspan="5" style="text-align:center;color:red;">No Record Found</td></tr>';
-    } else {
-        records.forEach((record) => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${record.name}</td>
-                <td>${record.age}</td>
-                <td>${record.email}</td>
-                <td><button onclick="editRecord(${record.id}, '${record.name}', ${record.age}, '${record.email}')">Edit</button></td>
-                <td><button onclick="deleteRecord(${record.id})">Delete</button></td>
-            `;
-            recordList.appendChild(row);
-        });
+        return;
     }
+
+    records.forEach((record) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${escapeHtml(record.name)}</td>
+            <td>${escapeHtml(record.age)}</td>
+            <td>${escapeHtml(record.email)}</td>
+            <td><button class="edit-btn" data-id="${record.id}" data-name="${escapeHtml(record.name)}" data-age="${record.age}" data-email="${escapeHtml(record.email)}">Edit</button></td>
+            <td><button class="delete-btn" data-id="${record.id}">Delete</button></td>
+        `;
+        recordList.appendChild(row);
+    });
+
+    // Agregar event listeners para evitar inline JavaScript
+    document.querySelectorAll('.edit-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+            editRecord(
+                e.target.dataset.id,
+                e.target.dataset.name,
+                e.target.dataset.age,
+                e.target.dataset.email
+            );
+        });
+    });
+
+    document.querySelectorAll('.delete-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+            deleteRecord(e.target.dataset.id);
+        });
+    });
+}
+
+// Escapar HTML para prevenir XSS
+function escapeHtml(text) {
+    const element = document.createElement('div');
+    element.textContent = text;
+    return element.innerHTML;
+}
+
+// Validación de entrada del formulario
+function isValidInput(name, age, email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return name.length > 1 && !isNaN(age) && emailRegex.test(email);
 }
 
 // Agregar o actualizar un registro
@@ -52,9 +83,8 @@ recordForm.addEventListener('submit', async function (e) {
     const email = emailInput.value.trim();
     const editId = editIndexInput.value;
 
-    // Validar campos
-    if (!name || !age || !email) {
-        alert('Por favor, completa todos los campos.');
+    if (!isValidInput(name, age, email)) {
+        alert('Por favor, ingresa datos válidos.');
         return;
     }
 
@@ -69,9 +99,7 @@ recordForm.addEventListener('submit', async function (e) {
             body: body,
         });
 
-        if (!response.ok) {
-            throw new Error(`Error HTTP: ${response.status}`);
-        }
+        if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
 
         const result = await response.json();
         alert(result.mensaje || result.error);
@@ -80,7 +108,7 @@ recordForm.addEventListener('submit', async function (e) {
         fetchRecords();
     } catch (error) {
         console.error('Error al guardar:', error);
-        alert('Error al guardar el registro. Por favor, intenta nuevamente.');
+        alert('Error al guardar el registro.');
     }
 });
 
@@ -103,16 +131,14 @@ async function deleteRecord(id) {
             body: JSON.stringify({ id }),
         });
 
-        if (!response.ok) {
-            throw new Error(`Error HTTP: ${response.status}`);
-        }
+        if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
 
         const result = await response.json();
         alert(result.mensaje || result.error);
         fetchRecords();
     } catch (error) {
         console.error('Error al eliminar:', error);
-        alert('Error al eliminar el registro. Por favor, intenta nuevamente.');
+        alert('Error al eliminar el registro.');
     }
 }
 
