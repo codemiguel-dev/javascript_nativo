@@ -1,0 +1,5 @@
+CREATE TABLE ventas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    fecha DATE NOT NULL,
+    monto DECIMAL(10, 2) NOT NULL
+);

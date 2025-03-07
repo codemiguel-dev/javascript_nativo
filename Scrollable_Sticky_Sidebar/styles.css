@@ -1,0 +1,81 @@
+* {
+    font-size: 16px;
+  }
+  
+  .page-header{
+    margin-bottom: 25px;
+  }
+  
+  .page-header h1{
+    font-size: 35px;
+    margin-top: 15px;
+  }
+  
+  .static-bar .segment {
+    padding-left: 15px;
+    text-align: left;
+  }
+  
+  .static-bar .segment img{
+    width: 35px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  .static-bar .heading{
+    display: inline-block;
+    text-align: left;
+    font-size:  20px;
+    padding-left:  10px;
+    color: #000;
+  }
+  
+  .static-bar p{
+    text-align: left;
+    font-size: 14px;
+    padding-top: 10px;
+    color: #000;
+  }
+  
+  .body-content .segment{
+    text-align: left;
+  }
+  
+  .body-content .segment img{
+    width: 35px;
+    display: inline-block;
+    vertical-align: top;
+  }
+  
+  .body-content .segment h2{
+    line-height: 35px;
+    display: inline-block;
+    margin: 0px 0px 15px 10px;
+    font-size: 25px;
+  }
+  
+  .body-content .segment .subtext{
+    color: #aaa;
+    display: block;
+  }
+  
+  .body-content .segment .ui.accordion{
+    margin-top: 20px;
+  }
+  
+  .ui.accordion .item {
+    border-bottom: 1px #aaa solid;
+    padding: 5px 0px;
+  }
+  
+  .ui.accordion .item:last-child{
+    border-bottom: 0px;
+  }
+  
+  .ui.accordion .item .title{
+    color: #A966AA;
+  }
+  
+  .ui.accordion .item p {
+    padding-bottom: 10px;
+  }
