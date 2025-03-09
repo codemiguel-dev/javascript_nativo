@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TYRE FITTING SERVICE LANDING PAGE</title>
+
+<!--FONT AWESOME-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!--GOOGLE FONTS-->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo&family=Archivo+Black&family=Archivo+Narrow&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="banner">
+    <span>
+    <a href="emailto:"><i class="fa fa-envelope"></i> info@domain.com</a>
+    <a href="tel:xxxxxxxxxx"><i class="fa fa-phone"></i> XXXX-XXX-XXXX</a>
+    </span>
+    <span>
+    <a href=""><i class="fa fa-facebook"></i></a>
+    <a href=""><i class="fa fa-twitter"></i></a>
+    <a href=""><i class="fa fa-instagram"></i></a>
+    <a href=""><i class="fa fa-youtube"></i></a>
+    </span>
+    </div>
+    <!--NAVIGATION-->
+    <div class="topnav" id="myTopnav">
+    <a href="#" id="logo"><img src="https://i.ibb.co/G31gG9y/Screenshot-2020-10-20-My-Brand-New-Logo-My-Brand-New-Logo-Create-a-logo-removebg-preview.png"></a>
+    <a href="#contact">ContactUs</a>
+    <a href="#gallery">Gallery</a>
+    <div class="dropdown">
+    <button class="dropbtn">Shop
+    <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+    <a href="#">Levioosa Store</a>
+    <a href="#">Ebay Store</a>
+    </div>
+    </div>
+    <div class="dropdown">
+    <button class="dropbtn">Prestige Hire
+    <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+    <a href="#">PCO Car Rental</a>
+    <a href="#">Luxury Car Rental</a>
+    </div>
+    </div>
+    <a href="#about">Home</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">☰</a>
+    </div>
+    </header>
+
+
+    <div id="navbar">
+    <a href="#" id="logo">LEVIOOSA.</a>
+    <a href="#contact">ContactUs</a>
+    <a href="#gallery">Gallery</a>
+    <div class="dropdown">
+    <button class="dropbtn">Shop
+    <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+    <a href="#">Levioosa Store</a>
+    <a href="#">Ebay Store</a>
+    </div>
+    </div>
+    <div class="dropdown">
+    <button class="dropbtn">Prestige Hire
+    <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+    <a href="#">PCO Car Rental</a>
+    <a href="#">Luxury Car Rental</a>
+    </div>
+    </div>
+    <a href="#about">Home</a>
+    </div>
+
+    <!--CONTAINER-->
+    <div class="container">
+    <section class="">
+    <em>Look no further, you’re on the right page.</em>
+    <h1 class="title">24 Hour Mobile Tyre Fitting Service</h1>
+    <span class="sub-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+    </section>
+    </div>
+
+    <section class="form ">
+    <img src="https://i.ibb.co/vj27Z2p/tyre.png" class="tyre " alt="PICK THE SIZE">
+    <div class="tyre_size">
+    <table>
+    </table>
+    <table>
+    <tr>
+    <td><h1 class="title">TYRE SIZE</h1></td>
+    </tr>
+    <tr>
+    <td>
+    <label for="width">WIDTH</label>
+    <select name="width" id="width">
+    <option value="115">115</option>
+    <option value="135">135</option>
+    <option value="145">145</option>
+    </select>
+    </td>
+    <td>
+    <label for="profile">PROFILE</label>
+    <select name="profile" id="profile">
+    <option value="115">25</option>
+    <option value="135">30</option>
+    <option value="145">35</option>
+    </select>
+    </td>
+    <td>
+    <label for="size">SIZE</label>
+    <select name="size" id="size">
+    <option value="115">25</option>
+    <option value="135">30</option>
+    <option value="145">35</option>
+    </select>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <label for="regno">VEHICLE REG NO.</label>
+    <input type="text" name="regno" id="regno" placeholder="Enter your regno*" required />
+    </td>
+    <td>
+    <label for="postcode">YOUR POST CODE</label>
+    <input type="text" name="postcode" id="postcode" placeholder="Enter your postcode*" required />
+    </td>
+    <td>
+    <label for="time">PICK A TIME SLOT</label>
+    <select name="time" id="time">
+    <option value="0:00-4:00">0:00-4:00</option>
+    <option value="4:00-8:00">4:00-8:00</option>
+    <option value="8:00-12:00">8:00-12:00</option>
+    </select>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <label for="usname">FULL NAME</label>
+    <input type="text" name="usname" id="usname" placeholder="Enter your full name*" required />
+    </td>
+    <td>
+    <label for="mobile">CONTACT NUMBER</label>
+    <input type="tel" name="mobile" id="mobile" placeholder="Enter your contact no*" required />
+    </td>
+    <td>
+    <label for="email">EMAIL ADDRESS</label>
+    <input type="email" name="email" id="email" placeholder="Enter your email address*" required />
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <button type="submit" class="btn1">SUBMIT</button>
+    </td>
+    </tr>
+    </table>
+    </div>
+    </section>
+
+    <!--ABOUT US-->
+    <section class="about_us" id="aboutus">
+    <table>
+    <tr>
+    <td>
+    <em class="">24 Hour Mobile Tyre Fitting Service</em>
+    <h1 class="title">Levioosa provides a 24 hour mobile and drive-in tyre service</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <button href="#" class="btn1">CONTACT US</button>
+    </td>
+    <td>
+    <img src="https://i.ibb.co/LZc4KYN/car2.png" class="">
+    </td>
+    </tr>
+    </table>
+    </section>
+
+    <!--PRODUCTS-->
+    <!--SECTION3-->
+    <center>
+    <div class='section3 fade' id='section3'>
+    <!--CARD STARTS-->
+    <figure class="snip1428 ">
+    <img src="https://source.unsplash.com/315x220/?car" alt="ANGEL GROUP" />
+    <figcaption>
+    <h3>Savage &<br> Recycling</h3>
+    <p>More Info...</p>
+    </figcaption>
+    <a href="#"></a>
+    </figure>
+    <!--CARD ENDS-->
+    <!--CARD STARTS-->
+    <figure class="snip1428 ">
+    <img src="https://source.unsplash.com/315x220/?tyre,repair" alt="ANGEL GROUP" />
+    <figcaption>
+    <h3>24hr Vehicle<br> Recovery</h3>
+    <p>More Info...</p>
+    </figcaption>
+    <a href="#"></a>
+    </figure>
+    <!--CARD ENDS-->
+    <!--CARD STARTS-->
+    <figure class="snip1428 ">
+    <img src="https://source.unsplash.com/315x220/?garage,repair" alt="ANGEL GROUP" />
+    <figcaption>
+    <h3>24hr Service<br>& Repair</h3>
+    <p>More Info...</p>
+    </figcaption>
+    <a href="#"></a>
+    </figure>
+    <!--CARD ENDS-->
+    <!--CARD STARTS-->
+    <figure class="snip1428 ">
+    <img src="https://source.unsplash.com/315x220/?car,repair" alt="ANGEL GROUP" />
+    <figcaption>
+    <h3>Prestige<br>Car Hire</h3>
+    <p>More Info...</p>
+    </figcaption>
+    <a href="#"></a>
+    </figure>
+    <!--CARD ENDS-->
+    <!--CARD STARTS-->
+    <figure class="snip1428 ">
+    <img src="https://source.unsplash.com/315x220/?vehicle,repair" alt="ANGEL GROUP" />
+    <figcaption>
+    <h3>24hr Mobile<br>Tyre Service</h3>
+    <p>More Info...</p>
+    </figcaption>
+    <a href="#"></a>
+    </figure>
+    <!--CARD ENDS-->
+    <!--CARD STARTS-->
+    <figure class="snip1428 ">
+    <img src="https://source.unsplash.com/315x220/?tyre,car" alt="ANGEL GROUP" />
+    <figcaption>
+    <h3>Online<br>Shop</h3>
+    <p>More Info...</p>
+    </figcaption>
+    <a href="#"></a>
+    </figure>
+    <!--CARD ENDS-->
+    <!--CARDBUTTONS-->
+    <i class='fa fa-angle-double-left angles' onclick='scrollleft()'></i>
+    <i class='fa fa-angle-double-right angles' onclick='scrollright()'></i>
+    <!--CARDBUTTONENDS-->
+    </div>
+    </center>
+    <!--SECTION3ENDS-->
+
+    <!--CLIENT SECTION-->
+    <div id="ourclients">
+    <div class="clients-wrap">
+    <ul id="clientlogo" class="clearfix">
+    <li>
+            <img src="https://i.ibb.co/N92D9G3/Screenshot-2020-10-20-My-Brand-New-Logo-My-Brand-New-Logo-Logo-design-proposals-removebg-preview.png" alt="Logo">
+          </li>
+          <li>
+            <img src="https://i.ibb.co/G31gG9y/Screenshot-2020-10-20-My-Brand-New-Logo-My-Brand-New-Logo-Create-a-logo-removebg-preview.png" alt="Logo">
+          </li>
+          <li>
+            <img src="https://i.ibb.co/jkSTBVP/Screenshot-2020-10-20-My-Brand-New-Logo-My-Brand-New-Logo-Logo-design-proposals-2-removebg-preview.png" alt="Logo">
+          </li>
+          <li>
+            <img src="https://i.ibb.co/KNFTLHv/Screenshot-2020-10-20-My-Brand-New-Logo-My-Brand-New-Logo-Logo-design-proposals-1.png" alt="Logo">
+          </li>
+          <li>
+            <img src="https://i.ibb.co/G31gG9y/Screenshot-2020-10-20-My-Brand-New-Logo-My-Brand-New-Logo-Create-a-logo-removebg-preview.png" alt="Logo" hspace='100'>
+          </li>
+          <li>
+            <img src="https://i.ibb.co/G31gG9y/Screenshot-2020-10-20-My-Brand-New-Logo-My-Brand-New-Logo-Create-a-logo-removebg-preview.png" alt="Logo" hspace='100'>
+          </li>
+    <li>
+    </li>
+    </ul>
+    </div>
+    </div>
+
+    <!--FOOTER-->
+    <footer>
+    <div class="footer">
+    <div class="column">
+    <ul>
+    <li class="title"><img src="images/icon.png" alt="ANGEL GROUP"></li>
+    <li>Registered country Company No. xxxx</li>
+    <li>VAT Registered No. xxxxxxxxx</li>
+    <li>Regulated by the ICO for the Data Protection Act 1998</li>
+    </ul>
+    </div>
+
+    <div class="column">
+    <ul>
+    <li class="title">OTHER LINKS</li>
+    <li><a href="#">Terms & Conditions</a></li>
+    <li><a href="#">Privacy Policy</a></li>
+    <li><a href="#">Cookie Policy</a></li>
+    <li><a href="#">Tickets</a></li>
+    </ul>
+    </div>
+
+    <div class="column">
+    <ul>
+    <li class="title">SHORT CUT</li>
+    <li><a href="#">Contact Us</a></li>
+    <li><a href="#">Apex Training</a></li>
+    <li><a href="#">Career</a></li>
+    <li><a href="#">About Us</a></li>
+    </ul>
+    </div>
+
+    <div class="column">
+    <ul>
+    <li class="title">CARDS ACCEPTED</li>
+    <li><i class="fa fa-cc-visa"></i> <i class="fa fa-cc-mastercard"></i> <i class="fa fa-cc-paypal"></i></li>
+    <li>Head office, address, country, pincode</li>
+    <li>Tel: xxx xxx xxxx</li>
+    </ul>
+    </div>
+    </div>
+    </footer>
+    <div class="sub-footer">
+    © Levioosa Recovery Ltd. 2021 - All rights reserved || Designed By: Mahesh
+    </div>
+
+    <a href="#" id="scroll-up" class="animate"><i class="fa fa-angle-up"></i></a>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
