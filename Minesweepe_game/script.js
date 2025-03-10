@@ -419,5 +419,5 @@ $(document).ready(function() {
         $('html').on('click', '#score-reset', clearScores);
       }
   
-      _init();
+      _init()
     });
