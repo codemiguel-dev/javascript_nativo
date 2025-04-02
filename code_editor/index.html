@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor HTML con Colores Mejorados</title>
+    
+    <!-- ✅ Estilos de CodeMirror -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/dracula.min.css">
+
+    <!-- ✅ Scripts de CodeMirror -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/htmlmixed/htmlmixed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/css/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            background: #121212; /* 🔹 Fondo oscuro */
+            color: white;
+        }
+        #editor-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: left;
+        }
+        .CodeMirror {
+            height: auto;
+            min-height: 300px;
+            font-size: 16px;
+            text-align: left;
+            background: #1e1e1e; /* 🔹 Fondo oscuro */
+            color: #f8f8f2; /* 🔹 Color del texto */
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Editor de Código con Colores</h2>
+    <button id="preview">Vista Previa</button>
+    
+    <div id="editor-container">
+        <textarea id="editor"></textarea>
+    </div>
+
+    <iframe id="preview-frame" style="width: 90%; max-width: 800px; height: 800px; border: 1px solid #ccc; background: white;"></iframe>
+
+    <script>
+        var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
+            mode: "htmlmixed",
+            theme: "dracula",  // 🔹 Tema oscuro con colores vivos
+            lineNumbers: true,
+            lineWrapping: true,
+            autoCloseTags: true,   
+            matchBrackets: true,   
+            styleActiveLine: true, 
+            autoCloseBrackets: true 
+        });
+
+        document.getElementById("preview").addEventListener("click", function() {
+            var iframe = document.getElementById("preview-frame").contentWindow.document;
+            iframe.open();
+            iframe.write(editor.getValue());
+            iframe.close();
+        });
+    </script>
+
+</body>
+</html>

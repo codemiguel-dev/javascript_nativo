@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Clases con JavaScript</title>
+    <style>
+        .yellow-blue {
+            background-color: yellow;
+            color: blue;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .blue-yellow {
+            background-color: blue;
+            color: yellow;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="toggleButton" class="yellow-blue">Cambiar Color</button>
+
+    <script>
+        document.getElementById("toggleButton").addEventListener("click", function() {
+            if (this.classList.contains("yellow-blue")) {
+                this.classList.remove("yellow-blue");
+                this.classList.add("blue-yellow");
+            } else {
+                this.classList.remove("blue-yellow");
+                this.classList.add("yellow-blue");
+            }
+        });
+    </script>
+
+</body>
+</html>
