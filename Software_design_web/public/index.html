@@ -4,36 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Software de Diseño Web</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <!-- Sidebar CSS-->
-    <link href="css/sidebar-menu.css" rel="stylesheet" />
+    <title id="dynamic-title"></title>
+
     <!-- Custom Style-->
 </head>
 <body>
-
-    <div class="sidebar">
-         <!--start color switcher-->
+    <!--start color switcher-->
     <div class="right-sidebar">
         <div class="switcher-icon">
           <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
         </div>
         <div class="right-sidebar-content">
   
-          <p class="mb-0">Gaussion Texture</p>
-          <hr>
-  
           <ul class="switcher">
-            <li id=""></li>
+            <li>
+                <a class="label" id="agregarPanel">
+                    Agregar panel superior
+                </a>
+            </li>
           </ul>
-  
-          <p class="mb-0">Gradient Background</p>
-          <hr>
-  
-          <ul class="switcher">
-            <li id="theme7"></li>
-          </ul>
-  
         </div>
       </div>
       <!--end color switcher-->
@@ -168,19 +157,21 @@
         </div>
     </div>
 
+<div id="container">
+    
+</div>
+
+
     <script src="js/script.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <!-- sidebar-menu js -->
+    <script src="js/sidebar-menu.js"></script>
+    <!-- Custom scripts -->
+    <script src="js/app-script.js"></script>
+    <script src="js/configuration_html.js"></script>
+    <script src="js/configuration_navbar.js"></script>
 
-    <!-- Bootstrap core JavaScript-->
-  <script src="js/jquery.min.js"></script>
-  <script src="js/popper.min.js"></script>
-
-
-  <!-- sidebar-menu js -->
-  <script src="js/sidebar-menu.js"></script>
-  <!-- loader scripts -->
-  <!-- Custom scripts -->
-  <script src="js/app-script.js"></script>
-  <!-- Chart js -->
 
 </body>
 </html>
