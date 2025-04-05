@@ -26,7 +26,7 @@ fetch('html.json')
     }
 
     // Mostrar contenido inicial
-    document.getElementById("container").innerHTML = data.page.navbar;
+    document.getElementById("container").innerHTML = data.page.navbar.html;
   })
   .catch(error => {
     console.error("Error al cargar el JSON:", error);
