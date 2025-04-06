@@ -1,4 +1,4 @@
-document.getElementById("deletePanel").addEventListener("click", () => {
+document.getElementById("deletecarousel").addEventListener("click", () => {
     if (!pageData || !pageData.page || !pageData.page.navbar) {
       console.warn("Datos no válidos: pageData o navbar no encontrado");
       return;
@@ -8,16 +8,17 @@ document.getElementById("deletePanel").addEventListener("click", () => {
     const navbarIdToDelete = 1; // Este sería el ID 1 que aparece en tu JSON
   
     // Verificar si el navbar existe y coincide con el ID
-    if (pageData.page.navbar.id === navbarIdToDelete) {
+    if (pageData.page.carousel.id === navbarIdToDelete) {
       // 1. Limpiar el HTML visualmente
-      document.getElementById("container").innerHTML = ""+ pageData.page.carousel.html;
+      document.getElementById("container").innerHTML = pageData.page.navbar.html + pageData.page.carousel.html;
+
       
       // 2. Actualizar el JSON (ambas opciones disponibles)
       // Opción A: Eliminar completamente el objeto navbar
       //delete pageData.page.navbar;
       
       // Opción B: Mantener la estructura vacía (descomenta si prefieres esta)
-      pageData.page.navbar = { id: 1, html: "" };
+      pageData.page.carousel = { id: 1, html: "" };
   
       // 3. Enviar cambios al servidor
       fetch('/guardar-json', {
@@ -30,7 +31,7 @@ document.getElementById("deletePanel").addEventListener("click", () => {
         return response.json();
       })
       .then(data => {
-        console.log("Navbar eliminado correctamente", data);
+        console.log("Carousel eliminado correctamente", data);
         // Opcional: Recargar datos o actualizar UI
       })
       .catch(error => {

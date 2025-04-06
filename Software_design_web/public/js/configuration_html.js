@@ -26,8 +26,9 @@ fetch('html.json')
     }
 
     // Mostrar contenido inicial
-    document.getElementById("container").innerHTML = data.page.navbar.html;
-  })
+    document.getElementById("container").innerHTML = 
+    data.page.navbar.html + data.page.carousel.html;
+    })
   .catch(error => {
     console.error("Error al cargar el JSON:", error);
   });
