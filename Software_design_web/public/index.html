@@ -15,48 +15,47 @@
           <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
         </div>
         <div class="right-sidebar-content">
-            <a class="label" id="deletePanel">
+           
+          <ul class="switcher">
+            <a class="btn btn-danger" id="deletePanel">
                 Borrar navbar
             </a></br>
-          <ul class="switcher">
             <details class="dropdown">
                 <summary role="button">
-                    <a class="button">Panel superior (navbar)</a>
+                    <a class="button btn btn-info">Panel superior (navbar)</a>
                 </summary>
                 <ul>
-                    <a class="label" id="deletePanel">
-                        Borrar navbar
-                    </a></br>
-                    <strong class="text-light">Colores de navbar</strong>
                     <ul class="nav-style-options">
-                        <li>
-                            <a class="label" id="addPanelprimary">
-                                Navbar primary
-                            </a>
+                        <li class="text-light">
+                            Colores del fondo
                         </li>
                         <li>
-                            <a class="label" id="addPanelsuccess">
+                            <a id="addPanelprimary" class="btn text-light" role="button" data-bs-toggle="button">  Navbar primary</a>
+
+                        </li>
+                        <li>
+                            <a id="addPanelsuccess"  class="btn text-light" role="button" data-bs-toggle="button">
                                 Navbar success
                             </a>
                         </li>
                         <li>
-                            <a class="label" id="addPaneldanger">
+                            <a id="addPaneldanger" class="btn text-light" role="button" data-bs-toggle="button">
                                 Navbar danger
                             </a>
                         </li>
 
                         <li>
-                            <a class="label" id="addPanelwarning">
+                            <a id="addPanelwarning" class="btn text-light" role="button" data-bs-toggle="button">
                                 Navbar warning
                             </a>
                         </li>
                         <li>
-                            <a class="label" id="addPanelinfo">
+                            <a id="addPanelinfo"  class="btn text-light" role="button" data-bs-toggle="button">
                                 Navbar info
                             </a>
                         </li>
                         <li>
-                            <a class="label" id="addPaneldark">
+                            <a id="addPaneldark"  class="btn text-light" role="button" data-bs-toggle="button">
                                 Navbar dark
                             </a>
                         </li>
@@ -66,17 +65,8 @@
          
           
         
-            <li>
-                <a class="label" id="addPaneldanger">
-                    Navbar danger
-                </a>
-            </li>
-            <li>
-                <a class="label" id="addPanelwarning">
-                    Navbar warning
-                </a>
-            </li>
-      
+        
+         
            
 
       
@@ -233,7 +223,53 @@
     <!-- Custom scripts -->
     <script src="js/app-script.js"></script>
     <script src="js/configuration_html.js"></script>
+
     <script type="module" src="js/configuration_navbar.js"></script>
+
+    <script type="module">// Borrar el navbar por ID
+        document.getElementById("deletePanel").addEventListener("click", () => {
+          if (!pageData || !pageData.page || !pageData.page.navbar) {
+            console.warn("Datos no válidos: pageData o navbar no encontrado");
+            return;
+          }
+        
+          // ID del navbar que quieres borrar (podría venir de un input o ser fijo)
+          const navbarIdToDelete = 1; // Este sería el ID 1 que aparece en tu JSON
+        
+          // Verificar si el navbar existe y coincide con el ID
+          if (pageData.page.navbar.id === navbarIdToDelete) {
+            // 1. Limpiar el HTML visualmente
+            document.getElementById("container").innerHTML = "";
+            
+            // 2. Actualizar el JSON (ambas opciones disponibles)
+            // Opción A: Eliminar completamente el objeto navbar
+            //delete pageData.page.navbar;
+            
+            // Opción B: Mantener la estructura vacía (descomenta si prefieres esta)
+            pageData.page.navbar = { id: 1, html: "" };
+        
+            // 3. Enviar cambios al servidor
+            fetch('/guardar-json', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(pageData)
+            })
+            .then(response => {
+              if (!response.ok) throw new Error("Error en la respuesta del servidor");
+              return response.json();
+            })
+            .then(data => {
+              console.log("Navbar eliminado correctamente", data);
+              // Opcional: Recargar datos o actualizar UI
+            })
+            .catch(error => {
+              console.error("Error:", error);
+              // Opcional: Mostrar mensaje al usuario
+            });
+          } else {
+            console.warn(`No se encontró navbar con ID ${navbarIdToDelete}`);
+          }
+        });</script>
    
 </body>
 </html>
