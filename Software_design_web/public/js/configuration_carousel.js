@@ -1,6 +1,6 @@
 // Importar las variables desde el archivo components/navbar-primary.js
 import { 
-    carouselHTML
+  generateCarouselHTML
   } from './components/carousel.js';
 import { guardarJSON } from './function/save_json.js';
 
@@ -22,6 +22,14 @@ document.getElementById("addcarousel").addEventListener("click", () => {
       console.log("El carousel ya está presente.");
     }
   }
+});
+
+document.getElementById('updateCarousel').addEventListener('click', () => {
+  const title = document.getElementById('title').value;
+  const header = document.getElementById('header').value;
+
+  const html = generateCarouselHTML(title, header);
+  document.getElementById('carouselContainer').innerHTML = html;
 });
 
 

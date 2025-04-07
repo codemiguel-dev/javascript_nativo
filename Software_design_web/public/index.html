@@ -97,8 +97,10 @@
                             </a>
                         </li>
                         <li>
-                            <input type="text" id="" placeholder="Ingrese Título"/>   
-                            <input type="text" id=""placeholder="Ingrese Encabezado"/>     
+                            <input type="text" id="title" placeholder="Ingrese Título"/>   
+                            <input type="text" id="header" placeholder="Ingrese Encabezado"/>  
+                            <button id="updateCarousel">Actualizar Carrusel</button> 
+   
                         </li>
                 </ul>
             </details>
@@ -135,6 +137,9 @@
     
 </div>
 
+<!-- Aquí se renderizará el carrusel -->
+<div id="carouselContainer"></div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
@@ -154,8 +159,10 @@
     <script type="module" src="js/configuration_navbar.js"></script>
 
     <script type="module" src="js/function/delete_navbar.js"></script>
-    <script type="module" src="js/function/delete_carousel.js">// Borrar el navbar por ID</script>
+    <script type="module" src="js/function/delete_carousel.js"></script>
     <script type="module" src="js/configuration_carousel.js"></script>
+    <script type="module" src="js/components/carousel.js"></script>
+
 
 </body>
 </html>
