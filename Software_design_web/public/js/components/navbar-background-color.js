@@ -12,10 +12,6 @@ export const navbarHTMLprimary = `
           <a class="nav-link text-light active" aria-current="page" href="#">Inicio</a>
         </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
     </div>
   </div>
 </nav>
@@ -35,10 +31,6 @@ export const navbarHTMLsuccess = `
           <a class="nav-link text-light active" aria-current="page" href="#">Inicio</a>
         </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
     </div>
   </div>
 </nav>
@@ -57,10 +49,6 @@ export const navbarHTMLsecondary = `
           <a class="nav-link text-light active" aria-current="page" href="#">Inicio</a>
         </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
     </div>
   </div>
 </nav>
@@ -79,10 +67,6 @@ export const navbarHTMLdanger = `
           <a class="nav-link text-light active" aria-current="page" href="#">Inicio</a>
         </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
     </div>
   </div>
 </nav>
@@ -101,10 +85,6 @@ export const navbarHTMLwarning = `
           <a class="nav-link text-light active" aria-current="page" href="#">Inicio</a>
         </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
     </div>
   </div>
 </nav>
@@ -123,10 +103,6 @@ export const navbarHTMLinfo = `
           <a class="nav-link text-light active" aria-current="page" href="#">Inicio</a>
         </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
     </div>
   </div>
 </nav>
@@ -145,10 +121,6 @@ export const navbarHTMLdark = `
           <a class="nav-link text-light active" aria-current="page" href="#">Inicio</a>
         </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
     </div>
   </div>
 </nav>
