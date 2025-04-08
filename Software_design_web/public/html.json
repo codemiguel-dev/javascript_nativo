@@ -1,10 +1,10 @@
 {
   "page": {
     "title": {
-      "html": "<title>Mi página</title>"
+      "html": "<title>jjj</title>"
     },
     "titleimage": {
-      "html": ""
+      "html": "<link rel=\"icon\" href=\"file/img/C:\\fakepath\\shopping_cart.svg\" type=\"image/x-icon\"></link>"
     },
     "navbar": {
       "id": 1,

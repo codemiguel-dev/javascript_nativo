@@ -1,22 +1,22 @@
-import { generateTitleHTML } from "./components/title-image.js";
+import { generateTitleImageHTML } from "./components/title-image.js";
 import { guardarJSON } from './function/save_json.js';
 
 
 document
-  .getElementById("pagetitle")
+  .getElementById("pagetitleimage")
   .addEventListener("click", async () => {
-    const title = document.getElementById("titletxt").value;
+    const image = document.getElementById("titleimagetxt").value;
 
     // 1. Generar el HTML del carrusel con los valores
-    const carouselHTML = generateTitleHTML(title);
+    const carouselHTML = generateTitleImageHTML(image);
 
     if (pageData) {
       // Verificar si el carrusel ya existe para evitar duplicados
-      if (!pageData.page.title.html.includes(carouselHTML)) {
+      if (!pageData.page.titleimage.html.includes(carouselHTML)) {
         // Agregar el nuevo título al inicio del contenido existente
-        pageData.page.title.html = carouselHTML;
+        pageData.page.titleimage.html = carouselHTML;
 
-        document.getElementById("dynamic-title").innerHTML = pageData.page.title.html;
+        document.getElementById("dynamic-title-image").innerHTML = pageData.page.titleimage.html;
 
         try {
           const resultado = await guardarJSON(pageData);
