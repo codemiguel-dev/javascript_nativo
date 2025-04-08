@@ -18,8 +18,13 @@ document.getElementById("addPanelprimary").addEventListener("click", () => {
       // Agregar el navbar al contenido
       pageData.page.navbar.html = navbarHTMLprimary + pageData.page.navbar.html;
 
+      document.getElementById("dynamic-title").innerHTML = pageData.page.title.html;
+
       // Actualizar visualmente el contenido
-      document.getElementById("container").innerHTML = pageData.page.navbar.html + pageData.page.carousel.html;
+      document.getElementById("container").innerHTML = 
+      pageData.page.title.html + 
+      pageData.page.navbar.html + 
+      pageData.page.carousel.html;
 
       // Guardar los cambios usando la función modularizada
       const resultado = guardarJSON(pageData);
