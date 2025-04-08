@@ -26,7 +26,7 @@ fetch('html.json')
     }
 
     // Mostrar contenido inicial
-    document.getElementById("container").innerHTML = 
+    document.getElementById("container").innerHTML = data.page.title.html +
     data.page.navbar.html + data.page.carousel.html;
     })
   .catch(error => {

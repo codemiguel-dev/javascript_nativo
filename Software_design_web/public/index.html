@@ -4,11 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <div id="dynamic-title">
-    
-    </div>
-
+    <div id="dynamic-title"></div>
     <!-- Custom Style-->
 </head>
 <body>
@@ -20,6 +16,11 @@
         <div class="right-sidebar-content">
            
           <ul class="switcher">
+
+            <div class="input-group mb-3">
+                <input type="text" id="titletxt"class="form-control" placeholder="Ingresa el título de su página" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary" type="button" id="pagetitle">Ingresar</button>
+              </div>
 
             <!-- navbar -->
             <a class="btn btn-danger" id="deletePanel">
@@ -214,7 +215,6 @@
     <script type="module" src="js/function/delete_carousel.js"></script>
     <script type="module" src="js/configuration_carousel.js"></script>
     <script type="module" src="js/components/carousel.js"></script>
-
-
+    <script type="module" src="js/configuration_title.js"></script>
 </body>
 </html>
