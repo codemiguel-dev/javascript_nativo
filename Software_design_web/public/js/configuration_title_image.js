@@ -1,4 +1,4 @@
-import { generateTitleHTML } from "./components/title.js";
+import { generateTitleHTML } from "./components/title-image.js";
 import { guardarJSON } from './function/save_json.js';
 
 
