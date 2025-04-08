@@ -104,15 +104,10 @@
                     </br>
                     </br>
                         <li>
-                            <a id="addcarousel" class="text-light" role="button" data-bs-toggle="button">  
-                                <img src="file/img/carousel1.png" width="180px" height="100px"/>
-                            </a>
-                        </li>
-                        <li>
-                            <input type="text" id="title" placeholder="Ingrese Título"/>   
-                            <input type="text" id="header" placeholder="Ingrese Encabezado"/>  
-                            <button id="updateCarousel">Actualizar Carrusel</button> 
-   
+                            <!-- Botón -->
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#miModal">
+                                <img src="file/img/carousel1.png" width="120px" height="120px"/>
+                            </button>
                         </li>
                 </ul>
             </details>
@@ -173,7 +168,25 @@
       </div>
       <!--end color switcher-->
     </div>
-
+<!-- Modal -->
+<div class="modal fade" id="miModal" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="miModalLabel">Título del Modal</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+            <input type="text" id="title" placeholder="Ingrese Título"/>   
+            <input type="text" id="header" placeholder="Ingrese Encabezado"/>  
+            <button id="updateCarousel">Actualizar Carrusel</button> 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
     <!-- Sidebar -->
     <div class="sidebar">
         <div class="fixedSidebar fixedSidebarLeft">
@@ -225,6 +238,8 @@
     <script type="module" src="js/components/carousel.js"></script>
     <script type="module" src="js/configuration_title.js"></script>
     <script type="module" src="js/configuration_title_image.js"></script>
+
+
 
 </body>
 </html>
