@@ -1,4 +1,4 @@
-export function generateCarouselHTML(title, header) {
+export function generateCarouselHTML(title, header, image) {
   return `
   <div id="carouselExampleDark" class="carousel carousel-dark slide">
     <div class="carousel-indicators">
@@ -8,7 +8,7 @@ export function generateCarouselHTML(title, header) {
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active" data-bs-interval="10000">
-        <img src="file/carousel/teclado.jpg" class="d-block w-100" alt="..." height="900px">
+        <img src="file/carousel/${image}" class="d-block w-100" alt="..." height="900px">
         <div class="carousel-caption d-none d-md-block">
           <h5 class="text-light">${title}</h5>
           <p class="text-light">${header}</p>
@@ -19,14 +19,6 @@ export function generateCarouselHTML(title, header) {
         <div class="carousel-caption d-none d-md-block">
           <h5>Second slide label</h5>
           <p>Some representative placeholder content for the second slide.</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="..." class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Third slide label</h5>
-          <p>Some representative placeholder content for the third slide.</p>
-        </div>
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">

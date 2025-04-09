@@ -5,11 +5,12 @@ import {
 import { guardarJSON } from './function/save_json.js';
 
 document.getElementById('updateCarousel').addEventListener('click', async () => {
+  const image = document.getElementById('image').value;
   const title = document.getElementById('title').value;
   const header = document.getElementById('header').value;
 
   // 1. Generar el HTML del carrusel con los valores
-  const carouselHTML = generateCarouselHTML(title, header);
+  const carouselHTML = generateCarouselHTML(title, header, image);
 
   if (pageData) {
     // Verificar si el carrusel ya existe para evitar duplicados
