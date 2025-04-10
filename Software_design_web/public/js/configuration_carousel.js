@@ -5,12 +5,37 @@ import {
 import { guardarJSON } from './function/save_json.js';
 
 document.getElementById('updateCarousel').addEventListener('click', async () => {
-  const image = document.getElementById('image').value;
+  const imageInput = document.getElementById('image');
+  const fileName = imageInput.files[0].name;
   const title = document.getElementById('title').value;
   const header = document.getElementById('header').value;
+  imageInput.addEventListener('change', async () => {
+    const file = imageInput.files[0];
+    const formData = new FormData();
+    formData.append('image', file);
+    console.log(file);
+
+    // Enviar la imagen al servidor
+    const response = await fetch('/upload', {
+        method: 'POST',
+        body: formData,
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+        const imageUrl = result.imageUrl;
+
+        // Generar el HTML del carrusel con la URL de la imagen
+        const carouselHTML = generateCarouselHTML(title, header, imageUrl);
+        console.log(carouselHTML); // Solo para verificar el resultado
+    } else {
+        console.error('Error al cargar la imagen');
+    }
+  });
 
   // 1. Generar el HTML del carrusel con los valores
-  const carouselHTML = generateCarouselHTML(title, header, image);
+  const carouselHTML = generateCarouselHTML(title, header, fileName);
 
   if (pageData) {
     // Verificar si el carrusel ya existe para evitar duplicados

@@ -1,4 +1,4 @@
-export function generateCarouselHTML(title, header, image) {
+export function generateCarouselHTML(title, header, fileName) {
   return `
   <div id="carouselExampleDark" class="carousel carousel-dark slide">
     <div class="carousel-indicators">
@@ -8,7 +8,7 @@ export function generateCarouselHTML(title, header, image) {
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active" data-bs-interval="10000">
-        <img src="file/carousel/${image}" class="d-block w-100" alt="..." height="900px">
+        <img src="file/carousel/${fileName}" class="d-block w-100" alt="..." height="900px">
         <div class="carousel-caption d-none d-md-block">
           <h5 class="text-light">${title}</h5>
           <p class="text-light">${header}</p>

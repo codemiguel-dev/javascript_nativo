@@ -33,6 +33,37 @@ app.post('/guardar-json', (req, res) => {
   });
 });
 
+// Configuración de Multer para guardar las imágenes en la carpeta public/file/carousel
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+      cb(null, path.join(__dirname, 'public/file/carousel'));
+  },
+  filename: (req, file, cb) => {
+      cb(null, `${Date.now()}-${file.originalname}`);
+  },
+});
+
+const upload = multer({ storage });
+
+app.post('/upload', upload.single('image'), (req, res) => {
+  if (req.file) {
+      const imageUrl = `/file/carousel/${req.file.filename}`;
+      res.json({ success: true, imageUrl });
+  } else {
+      res.json({ success: false });
+  }
+});
+
+// Servir archivos estáticos desde la carpeta "public"
+app.use(express.static(path.join(__dirname, 'public')));
+
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`Servidor ejecutándose en http://localhost:${PORT}`);
+});
+
+
+
 // Iniciar el servidor en el puerto 3000
 app.listen(port, () => {
   console.log(`Servidor Express escuchando en http://localhost:${port}`);
