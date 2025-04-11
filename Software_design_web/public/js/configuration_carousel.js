@@ -11,18 +11,22 @@ document.getElementById('image').addEventListener('change', async (e) => {
   const formData = new FormData();
   formData.append('image', file);
 
-  const response = await fetch('/upload', {
-    method: 'POST',
-    body: formData,
-  });
+  try {
+    const response = await fetch('/upload', {
+      method: 'POST',
+      body: formData,
+    });
 
-  const result = await response.json();
+    const result = await response.json();
 
-  if (result.success) {
-    uploadedImageUrl = result.imageUrl;
-    console.log('Imagen subida:', uploadedImageUrl);
-  } else {
-    console.error('Error al cargar la imagen');
+    if (result.success) {
+      uploadedImageUrl = result.imageUrl;
+      console.log('Imagen subida:', uploadedImageUrl);
+    } else {
+      console.error('Error al cargar la imagen');
+    }
+  } catch (err) {
+    console.error('Error en la subida:', err);
   }
 });
 
