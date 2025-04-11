@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const path = require('path');
+const multer = require('multer'); // Importación del módulo multer
 
 const app = express();
 const port = 3000;
@@ -9,8 +10,8 @@ const port = 3000;
 // Middleware para parsear el cuerpo de la solicitud como JSON
 app.use(bodyParser.json());
 
-// Servir archivos estáticos (como HTML, CSS, JS) desde una carpeta pública
-app.use(express.static(path.join(__dirname, 'public')));  // Asumiendo que tienes una carpeta 'public'
+// Servir archivos estáticos desde una carpeta pública
+app.use(express.static(path.join(__dirname, 'public'))); // Carpeta 'public'
 
 // Ruta para el archivo HTML
 app.get('/', (req, res) => {
@@ -19,7 +20,7 @@ app.get('/', (req, res) => {
 
 // Ruta para guardar el JSON actualizado
 app.post('/guardar-json', (req, res) => {
-  const data = req.body;  // Obtener el JSON del cuerpo de la solicitud
+  const data = req.body; // Obtener el JSON del cuerpo de la solicitud
 
   // Ruta donde se guardará el archivo html.json
   const filePath = path.join(__dirname, 'public/html.json');
@@ -33,38 +34,38 @@ app.post('/guardar-json', (req, res) => {
   });
 });
 
+const carouselDir = path.join(__dirname, 'public/file/carousel');
+if (!fs.existsSync(carouselDir)) {
+  fs.mkdirSync(carouselDir, { recursive: true });
+}
+
+
 // Configuración de Multer para guardar las imágenes en la carpeta public/file/carousel
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-      cb(null, path.join(__dirname, 'public/file/carousel'));
+    cb(null, path.join(__dirname, 'public/file/carousel'));
   },
   filename: (req, file, cb) => {
-      cb(null, `${Date.now()}-${file.originalname}`);
+    cb(null, `${Date.now()}-${file.originalname}`);
   },
 });
 
 const upload = multer({ storage });
 
+// Ruta para manejar la subida de imágenes
 app.post('/upload', upload.single('image'), (req, res) => {
   if (req.file) {
-      const imageUrl = `/file/carousel/${req.file.filename}`;
-      res.json({ success: true, imageUrl });
+    const imageUrl = `public/file/carousel/${req.file.filename}`;
+    res.json({ success: true, imageUrl });
   } else {
-      res.json({ success: false });
+    res.json({ success: false, message: 'No file uploaded.' });
   }
 });
 
 // Servir archivos estáticos desde la carpeta "public"
 app.use(express.static(path.join(__dirname, 'public')));
 
-const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`Servidor ejecutándose en http://localhost:${PORT}`);
-});
-
-
-
 // Iniciar el servidor en el puerto 3000
 app.listen(port, () => {
-  console.log(`Servidor Express escuchando en http://localhost:${port}`);
+  console.log(`Servidor ejecutándose en http://localhost:${port}`);
 });
