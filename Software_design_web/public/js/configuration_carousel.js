@@ -5,7 +5,7 @@ import {
 import { guardarJSON } from './function/save_json.js';
 
 let uploadedImageUrl = '';
-
+//fuction input
 document.getElementById('image').addEventListener('change', async (e) => {
   const file = e.target.files[0];
   const formData = new FormData();
@@ -31,11 +31,15 @@ document.getElementById('image').addEventListener('change', async (e) => {
   }
 });
 
+
+// fuction buton
 document.getElementById('updateCarousel').addEventListener('click', async () => {
   const imageInput = document.getElementById('image');
   const fileName = imageInput.files[0].name;
   const title = document.getElementById('title').value;
   const header = document.getElementById('header').value;
+
+  console.log(fileName)
 
   if (!uploadedImageUrl) {
     console.warn("La imagen no ha sido cargada aún");

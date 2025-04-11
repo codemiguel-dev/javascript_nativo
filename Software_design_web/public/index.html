@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <div id="dynamic-title"></div>
+    <div id="dynamic-title-image"></div>
+
 
     <!-- Custom Style-->
 </head>
@@ -110,9 +112,12 @@
         </br>
                         <li>
                             <!-- Botón -->
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#miModal">
+                            <button type="button" class="btn btn-primary position-relative" data-bs-toggle="modal" data-bs-target="#miModal">
                                 <img src="file/img/carousel1.png" width="120px" height="120px"/>
-                          
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    +1
+                                    <span class="visually-hidden">unread messages</span>
+                                  </span>
                             </button>
                         </li>
                         
@@ -178,30 +183,65 @@
       </div>
       <!--end color switcher-->
     </div>
-<!-- Modal -->
-<div class="modal fade" id="miModal" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
+
+
+    <!-- Modal +1 imagen -->
+    <div class="modal fade" id="miModal" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
+    <div class="modal-content">
+    <div class="modal-header">
+    <h5 class="modal-title" id="miModalLabel">Configura tu galería en en carousel</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+    </div>
+    <div class="modal-body"> 
+    <div class="card" style="width: 18rem;">
+    <div class="card-body">
+    <p class="text-dark">Ingresa Imagen</p>
+    <input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="image" placeholder="Ingrese Imagen"/> 
+    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="title" placeholder="Ingrese Título"/> 
+    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="header" placeholder="Ingrese Encabezado"/>   
+    <a href="#" id="updateCarousel" class="btn btn-primary">Actualizar Carrusel</a>
+    </div>
+    </div>
+
+    </div>
+    <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+    </div>
+    </div>
+    </div>
+    </div>
+    <!-- end Modal +1 image -->
+
+    <!-- Modal +1 imagen -->
+    <div class="modal fade" id="miModal" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="miModalLabel">Configura tu galería en en carousel</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        <h5 class="modal-title" id="miModalLabel">Configura tu galería en en carousel</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
         </div>
         <div class="modal-body"> 
-
-        <a id="addcardmodal" class="btn btn-primary" role="button" data-bs-toggle="button">  
-            <img src="file/img/add.png" width="50px" height="50px"/>
-        </a>
-
-            <div id="card-modal">
-            
-            </div>
+        <div class="card" style="width: 18rem;">
+        <div class="card-body">
+        <p class="text-dark">Ingresa Imagen</p>
+        <input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="image" placeholder="Ingrese Imagen"/> 
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="title" placeholder="Ingrese Título"/> 
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="header" placeholder="Ingrese Encabezado"/>   
+        <a href="#" id="updateCarousel" class="btn btn-primary">Actualizar Carrusel</a>
+        </div>
+        </div>
+    
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
         </div>
-      </div>
+        </div>
+        </div>
     </div>
-  </div>
+    <!-- end Modal +1 image -->
+
+
     <!-- Sidebar -->
     <div class="sidebar">
         <div class="fixedSidebar fixedSidebarLeft">
@@ -224,7 +264,8 @@
         </div>
     </div>
 
-<div id="container">
+
+    <div id="container">
     
 </div>
 

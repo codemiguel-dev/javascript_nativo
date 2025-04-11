@@ -1,6 +1,6 @@
 let pageData; // Variable global para almacenar los datos del JSON cargado
 
-fetch('html.json')
+fetch('data/page.json')
   .then(response => response.json())
   .then(data => {
     pageData = data; // Guardamos los datos cargados
@@ -24,6 +24,9 @@ fetch('html.json')
         document.head.appendChild(link);
       });
     }
+    document.getElementById("dynamic-title-image").innerHTML = data.page.titleimage.html;
+
+    // Mostrar contenido inicial
 
     // Mostrar contenido inicial
     document.getElementById("container").innerHTML = data.page.title.html +

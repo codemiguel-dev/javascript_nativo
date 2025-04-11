@@ -1,0 +1,30 @@
+{
+  "page": {
+    "title": {
+      "html": "<title>Mi página web</title>"
+    },
+    "titleimage": {
+      "html": "<link rel=\"icon\" href=\"file/img/EmprendeSoft_icon.png\" type=\"image/x-icon\"></link>"
+    },
+    "navbar": {
+      "id": 1,
+      "html": "\n<nav class=\"navbar navbar-expand-lg bg-primary\">\n  <div class=\"container-fluid\">\n    <a class=\"navbar-brand text-light\" href=\"#\">Navbar</a>\n    <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n      <ul class=\"navbar-nav me-auto mb-2 mb-lg-0\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link text-light active\" aria-current=\"page\" href=\"#\">Inicio</a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</nav>\n"
+    },
+    "cardmodal": {
+      "id": 1,
+      "html": "\n    <div class=\"card\" style=\"width: 18rem;\">\n            <div class=\"card-body\">\n            <p class=\"text-dark\">Ingresa Imagen</p>\n            <input type=\"file\" class=\"form-control\" aria-label=\"Sizing example input\" aria-describedby=\"inputGroup-sizing-default\" id=\"image\" placeholder=\"Ingrese Imagen\"/> \n            <input type=\"text\" class=\"form-control\" aria-label=\"Sizing example input\" aria-describedby=\"inputGroup-sizing-default\" id=\"title\" placeholder=\"Ingrese Título\"/> \n            <input type=\"text\" class=\"form-control\" aria-label=\"Sizing example input\" aria-describedby=\"inputGroup-sizing-default\" id=\"header\" placeholder=\"Ingrese Encabezado\"/>   \n            <a href=\"#\" id=\"updateCarousel\" class=\"btn btn-primary\">Actualizar Carrusel</a>\n        </div>\n    </div>\n    "
+    },
+    "carousel": {
+      "id": 1,
+      "html": ""
+    },
+    "localStyles": [
+      "css/styles.css",
+      "css/sidebar-menu.css"
+    ],
+    "cdnStyles": [
+      "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css",
+      "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    ]
+  }
+}
