@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,233 +11,239 @@
 
     <!-- Custom Style-->
 </head>
+
 <body>
     <!--start color switcher-->
     <div class="right-sidebar">
         <div class="switcher-icon">
-          <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+            <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
         </div>
         <div class="right-sidebar-content">
-           
-          <ul class="switcher">
 
-            <div class="input-group mb-3">
-                <input type="text" id="titletxt"class="form-control" placeholder="Título página" aria-label="Recipient's username" aria-describedby="button-addon2">
-                <button class="btn btn-outline-secondary" type="button" id="pagetitle">Ingresar</button>
-            </div>
+            <ul class="switcher">
 
-            <div class="input-group mb-3">
-                <input type="file" id="titleimagetxt" class="form-control" placeholder="Imagen de pestaña" aria-label="Recipient's username" aria-describedby="button-addon2">
-                <div class="input-group-append">
-                  <button class="btn btn-outline-info" type="button" id="pagetitleimage">Ingresar</button>
+                <div class="input-group mb-3">
+                    <input type="text" id="titletxt" class="form-control" placeholder="Título página" aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <button class="btn btn-outline-secondary" type="button" id="pagetitle">Ingresar</button>
                 </div>
-            </div>
-            <details class="dropdown">
-                <summary role="button">
-                    <a class="button btn btn-outline-primary text-light">Panel superior (navbar)</a>
-                </summary>
-                <ul>
-                    <ul class="nav-style-options">
-                <li>
-                       <!-- navbar -->
-            <a class="btn btn-danger" id="deletePanel">
-                <img src="file/img/delete.svg" width="20px" height="20px"/>   
-            </a>
-        </li>
-                    </br>
-                    </br>
-                    </br>
 
-                        <a id="addPanelprimary" class="text-light" role="button" data-bs-toggle="button">  
-                            <li class="bg-primary">
-                                Navbar primary
+                <div class="input-group mb-3">
+                    <input type="file" id="titleimagetxt" class="form-control" placeholder="Imagen de pestaña" aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-info" type="button" id="pagetitleimage">Ingresar</button>
+                    </div>
+                </div>
+
+                <!-- button (panel superior) -->
+                <details class="dropdown">
+                    <summary role="button">
+                        <a class="button btn btn-outline-primary text-light">Panel superior (navbar)</a>
+                    </summary>
+                    <ul>
+                        <ul class="nav-style-options">
+                            <li>
+                                <!-- navbar -->
+                                <a class="btn btn-danger" id="deletePanel">
+                                    <img src="file/img/delete.svg" width="20px" height="20px" />
+                                </a>
                             </li>
-                        </a>
-                        <a id="addPanelsuccess"  class="text-light" role="button" data-bs-toggle="button">
-                        <li class="bg-success">
-                                Navbar success
-                        </li>
-                        </a>
-                        <a id="addPaneldanger" class="text-light" role="button" data-bs-toggle="button">
+                            </br>
+                            </br>
+                            </br>
 
-                        <li class="bg-danger">
-                                Navbar danger
-                        </li>
-                        </a>
+                            <a id="addPanelprimary" class="text-light" role="button" data-bs-toggle="button">
+                                <li class="bg-primary">
+                                    Navbar primary
+                                </li>
+                            </a>
+                            <a id="addPanelsuccess" class="text-light" role="button" data-bs-toggle="button">
+                                <li class="bg-success">
+                                    Navbar success
+                                </li>
+                            </a>
+                            <a id="addPaneldanger" class="text-light" role="button" data-bs-toggle="button">
 
-                    <a id="addPanelwarning" class="text-light" role="button" data-bs-toggle="button">
+                                <li class="bg-danger">
+                                    Navbar danger
+                                </li>
+                            </a>
 
-                        <li class="bg-warning">
-                                Navbar warning
-                        </li>
-                    </a>
-                    <a id="addPanelinfo"  class="text-light" role="button" data-bs-toggle="button">
-                        <li class="bg-info">
-                                Navbar info
-                        </li>
-                    </a>
-                    <a id="addPanelsecondary"  class="text-light" role="button" data-bs-toggle="button">
-                        <li class="bg-secondary">
-                                Navbar secondary
-                        </li>
-                    </a>
-                    <a id="addPaneldark" class="text-light" role="button" data-bs-toggle="button">
+                            <a id="addPanelwarning" class="text-light" role="button" data-bs-toggle="button">
 
-                        <li class="bg-dark">
-                                Navbar dark
-                        </li>
-                    </a>
+                                <li class="bg-warning">
+                                    Navbar warning
+                                </li>
+                            </a>
+                            <a id="addPanelinfo" class="text-light" role="button" data-bs-toggle="button">
+                                <li class="bg-info">
+                                    Navbar info
+                                </li>
+                            </a>
+                            <a id="addPanelsecondary" class="text-light" role="button" data-bs-toggle="button">
+                                <li class="bg-secondary">
+                                    Navbar secondary
+                                </li>
+                            </a>
+                            <a id="addPaneldark" class="text-light" role="button" data-bs-toggle="button">
 
+                                <li class="bg-dark">
+                                    Navbar dark
+                                </li>
+                            </a>
+
+                        </ul>
                     </ul>
-                </ul>
-            </details>
-            <!-- end navbar -->
-            </br>
-            </br>
-            </br>
-            <details class="dropdown">
-                <summary role="button">
-                    <a class="button btn btn-outline-primary text-light">Carusel de imagenes (carousel)</a>
-                </summary>
-                <ul>
-                    </br>
-                <li>
+                </details>
+                <!-- end button (panel superior) -->
 
-                    <!-- carousel -->
-            <a class="btn btn-danger" id="deletecarousel">
-                <img src="file/img/delete.svg" width="20px" height="20px"/>   
-            </a>
-        </li>
+                </br>
+                </br>
+                </br>
 
-        </br>
-        </br>
+                <!-- button (carusel de imagenes) -->
+                <details class="dropdown">
+                    <summary role="button">
+                        <a class="button btn btn-outline-primary text-light">Carusel de imagenes (carousel)</a>
+                    </summary>
+                    <ul>
+                        </br>
+                        <li>
+
+                            <!-- carousel -->
+                            <a class="btn btn-danger" id="deletecarousel">
+                                <img src="file/img/delete.svg" width="20px" height="20px" />
+                            </a>
+                        </li>
+
+                        </br>
+                        </br>
                         <li>
                             <!-- Botón -->
                             <button type="button" class="btn btn-primary position-relative" data-bs-toggle="modal" data-bs-target="#miModal">
-                                <img src="file/img/carousel1.png" width="120px" height="120px"/>
+                                <img src="file/img/carousel1.png" width="120px" height="120px" />
                                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                                     +1
                                     <span class="visually-hidden">unread messages</span>
-                                  </span>
+                                </span>
                             </button>
                         </li>
-                        
-                </ul>
-            </details>
-            <!-- end carousel -->
 
-        </br>
-        </br>
-        </br>
-        </br>
-            <details class="dropdown">
-                <summary role="button">
-                    <a class="button btn btn-outline-primary text-light">Tarjeta (card)</a>
-                </summary>
-                <ul>
-                    </br>
-                    </br>
-                <li> 
+                    </ul>
+                </details>
+                <!-- end button (carusel de imagenes) -->
 
-                     <!-- carousel -->
-        <a class="btn btn-danger" id="deletecard">
-            <img src="file/img/delete.svg" width="20px" height="20px"/>   
-        </a>
-    </li>
-
+                </br>
+                </br>
+                </br>
+                </br>
+                <details class="dropdown">
+                    <summary role="button">
+                        <a class="button btn btn-outline-primary text-light">Tarjeta (card)</a>
+                    </summary>
+                    <ul>
+                        </br>
+                        </br>
                         <li>
-                            <a id="addcard" class="text-light" role="button" data-bs-toggle="button">  
-                                <img src="file/img/Capturacard.png" width="100px" height="85px"/>
+
+                            <!-- carousel -->
+                            <a class="btn btn-danger" id="deletecard">
+                                <img src="file/img/delete.svg" width="20px" height="20px" />
                             </a>
                         </li>
-                    </br>
-                    </br>
-                    </br>
-                    </br>
+
                         <li>
-                            <a id="addcard" class="text-light" role="button" data-bs-toggle="button">  
-                                <img src="file/img/Capturacardlink.png" width="100px" height="85px"/>
+                            <a id="addcard" class="text-light" role="button" data-bs-toggle="button">
+                                <img src="file/img/Capturacard.png" width="100px" height="85px" />
                             </a>
                         </li>
-                    </br>
-                </br>
-                </br>
-                </br>
-                    <li>
-                        <a id="addcard" class="text-light" role="button" data-bs-toggle="button">  
-                            <img src="file/img/Capturacardparrafo.png" width="100px" height="85px"/>
-                        </a>
-                    </li>
-                </br>
-            </br>
-            </br>
-            </br>
-                <li>
-                    <a id="addcard" class="text-light" role="button" data-bs-toggle="button">  
-                        <img src="file/img/Capturacardheaderandfooter.png" width="150px" height="100px"/>
-                    </a>
-                </li>
-                </ul>
-            </details>
-        </ul>
+                        </br>
+                        </br>
+                        </br>
+                        </br>
+                        <li>
+                            <a id="addcard" class="text-light" role="button" data-bs-toggle="button">
+                                <img src="file/img/Capturacardlink.png" width="100px" height="85px" />
+                            </a>
+                        </li>
+                        </br>
+                        </br>
+                        </br>
+                        </br>
+                        <li>
+                            <a id="addcard" class="text-light" role="button" data-bs-toggle="button">
+                                <img src="file/img/Capturacardparrafo.png" width="100px" height="85px" />
+                            </a>
+                        </li>
+                        </br>
+                        </br>
+                        </br>
+                        </br>
+                        <li>
+                            <a id="addcard" class="text-light" role="button" data-bs-toggle="button">
+                                <img src="file/img/Capturacardheaderandfooter.png" width="150px" height="100px" />
+                            </a>
+                        </li>
+                    </ul>
+                </details>
+            </ul>
         </div>
-      </div>
-      <!--end color switcher-->
+    </div>
+    <!--end color switcher-->
     </div>
 
-
-    <!-- Modal +1 imagen -->
-    <div class="modal fade" id="miModal" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-    <div class="modal-content">
-    <div class="modal-header">
-    <h5 class="modal-title" id="miModalLabel">Configura tu galería en en carousel</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-    </div>
-    <div class="modal-body"> 
-    <div class="card" style="width: 18rem;">
-    <div class="card-body">
-    <p class="text-dark">Ingresa Imagen</p>
-    <input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="image" placeholder="Ingrese Imagen"/> 
-    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="title" placeholder="Ingrese Título"/> 
-    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="header" placeholder="Ingrese Encabezado"/>   
-    <a href="#" id="updateCarousel" class="btn btn-primary">Actualizar Carrusel</a>
-    </div>
-    </div>
-
-    </div>
-    <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-    </div>
-    </div>
-    </div>
-    </div>
-    <!-- end Modal +1 image -->
 
     <!-- Modal +1 imagen -->
     <div class="modal fade" id="miModal" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-        <div class="modal-content">
-        <div class="modal-header">
-        <h5 class="modal-title" id="miModalLabel">Configura tu galería en en carousel</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="miModalLabel">Configura tu galería en en carousel</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <p class="text-dark">Ingresa Imagen</p>
+                            <input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="image" placeholder="Ingrese Imagen" />
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="title" placeholder="Ingrese Título" />
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="header" placeholder="Ingrese Encabezado" />
+                            <a href="#" id="updateCarousel" class="btn btn-primary">Actualizar Carrusel</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-body"> 
-        <div class="card" style="width: 18rem;">
-        <div class="card-body">
-        <p class="text-dark">Ingresa Imagen</p>
-        <input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="image" placeholder="Ingrese Imagen"/> 
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="title" placeholder="Ingrese Título"/> 
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="header" placeholder="Ingrese Encabezado"/>   
-        <a href="#" id="updateCarousel" class="btn btn-primary">Actualizar Carrusel</a>
-        </div>
-        </div>
-    
-        </div>
-        <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        </div>
-        </div>
+    </div>
+    <!-- end Modal +1 image -->
+
+    <!-- Modal +2 imagen -->
+    <div class="modal fade" id="miModal" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="miModalLabel">Configura tu galería en en carousel</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <p class="text-dark">Ingresa Imagen</p>
+                            <input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="image" placeholder="Ingrese Imagen" />
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="title" placeholder="Ingrese Título" />
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="header" placeholder="Ingrese Encabezado" />
+                            <a href="#" id="updateCarousel" class="btn btn-primary">Actualizar Carrusel</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
         </div>
     </div>
     <!-- end Modal +1 image -->
@@ -246,30 +253,28 @@
     <div class="sidebar">
         <div class="fixedSidebar fixedSidebarLeft">
             <a href="" class="sidebarItem" data-tooltip="Tracking Order">
-                <img src="file/img/tracking_order.svg" width="30px" height="30px"/>   
+                <img src="file/img/tracking_order.svg" width="30px" height="30px" />
             </a>
             <a href="" class="sidebarItem" data-tooltip="Promotion Program">
-                <img src="file/img/promotion_program.svg" width="30px" height="30px"/>   
+                <img src="file/img/promotion_program.svg" width="30px" height="30px" />
             </a>
             <a href="" class="sidebarItem" data-tooltip="Facebook Messnger">
-                <img src="file/img/facebook.svg" width="30px" height="30px"/>   
+                <img src="file/img/facebook.svg" width="30px" height="30px" />
             </a>
             <a href="" class="sidebarItem" data-tooltip="Shopping Cart">
-                <img src="file/img/shopping_cart.svg" width="30px" height="30px"/>   
+                <img src="file/img/shopping_cart.svg" width="30px" height="30px" />
             </a>
-   
+
             <a href="" class="buttonTrigger" data-tooltip="Hide">
-                <img src="file/img/hide.svg" width="30px" height="30px"/>   
+                <img src="file/img/hide.svg" width="30px" height="30px" />
             </a>
         </div>
     </div>
 
-
+    <!-- page edit -->
     <div id="container">
-    
-</div>
 
-
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
@@ -299,4 +304,5 @@
 
 
 </body>
+
 </html>
