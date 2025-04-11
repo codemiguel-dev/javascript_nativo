@@ -18,6 +18,7 @@ document.getElementById('image').addEventListener('change', async (e) => {
     });
 
     const result = await response.json();
+    console.log(result);
 
     if (result.success) {
       uploadedImageUrl = result.imageUrl;
