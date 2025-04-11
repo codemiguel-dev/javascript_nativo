@@ -186,17 +186,15 @@
           <h5 class="modal-title" id="miModalLabel">Configura tu galería en en carousel</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
         </div>
-        <div class="modal-body">
-            <div class="card" style="width: 18rem;">
-                <img src="file/img/carousel1.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="text-dark">Ingresa Imagen</p>
-                    <input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="image" placeholder="Ingrese Imagen"/> 
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="title" placeholder="Ingrese Título"/> 
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="header" placeholder="Ingrese Encabezado"/>   
-                    <a href="#" id="updateCarousel" class="btn btn-primary">Actualizar Carrusel</a>
-                </div>
-              </div>
+        <div class="modal-body"> 
+
+        <a id="addcardmodal" class="btn btn-primary" role="button" data-bs-toggle="button">  
+            <img src="file/img/add.png" width="50px" height="50px"/>
+        </a>
+
+            <div id="card-modal">
+            
+            </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -255,6 +253,7 @@
     <script type="module" src="js/components/carousel.js"></script>
     <script type="module" src="js/configuration_title.js"></script>
     <script type="module" src="js/configuration_title_image.js"></script>
+    <script type="module" src="js/configuration_card_modal.js"></script>
 
 
 
