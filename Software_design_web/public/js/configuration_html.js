@@ -27,11 +27,10 @@ fetch('data/page.json')
     document.getElementById("dynamic-title-image").innerHTML = data.page.titleimage.html;
 
     // Mostrar contenido inicial
-
-    // Mostrar contenido inicial
-    document.getElementById("container").innerHTML = data.page.title.html +
-    data.page.navbar.html + data.page.carousel.html;
-    })
+    document.getElementById("container").innerHTML = data.page.container.html + data.page.title.html +
+    data.page.navbar.html + data.page.carousel.html + data.page.endcontainer.html;
+    
+  })
   .catch(error => {
     console.error("Error al cargar el JSON:", error);
   });

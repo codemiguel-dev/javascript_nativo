@@ -47,28 +47,45 @@ function setupCarouselUpdate(id) {
       return;
     }
 
-    const carouselHTML = generateCarouselHTML(title, header, fileName);
+    // Aseguramos el array de slides
+    if (!pageData.page.carousel.slides) {
+      pageData.page.carousel.slides = [];
+    }
 
-    if (pageData) {
-      if (!pageData.page.carousel.html.includes(carouselHTML)) {
-        pageData.page.carousel.html = carouselHTML + pageData.page.carousel.html;
-        document.getElementById("container").innerHTML =
-          (pageData.page.navbar?.html || "") + pageData.page.carousel.html;
+    // Evitar duplicados por imagen y título
+    const isDuplicate = pageData.page.carousel.slides.some(
+      (slide) => slide.image === fileName && slide.title === title && slide.header === header
+    );
+    if (isDuplicate) {
+      console.log(`El slide ${id} ya está presente.`);
+      return;
+    }
 
-        try {
-          const resultado = await guardarJSON(pageData);
-          console.log(`JSON (${id}) guardado correctamente:`, resultado);
-        } catch (error) {
-          console.error(`Error al guardar datos (${id}):`, error);
-        }
-      } else {
-        console.log(`El carrusel ${id} ya está presente.`);
-      }
-    } else {
-      console.error("No se encontró la variable pageData.");
+    // Añadir nuevo slide
+    pageData.page.carousel.slides.unshift({
+      image: fileName,
+      title,
+      header
+    });
+
+    // Generar el carrusel completo con todas las slides
+    const carouselHTML = generateCarouselHTML(pageData.page.carousel.slides);
+
+    // Actualizar visualmente
+    pageData.page.carousel.html = carouselHTML;
+    document.getElementById("container").innerHTML =
+      (pageData.page.navbar?.html || "") + pageData.page.carousel.html;
+
+    // Guardar
+    try {
+      const resultado = await guardarJSON(pageData);
+      console.log(`JSON (${id}) guardado correctamente:`, resultado);
+    } catch (error) {
+      console.error(`Error al guardar datos (${id}):`, error);
     }
   });
 }
+
 
 // Inicializar para varios IDs
 ['1', '2'].forEach(id => {
@@ -77,6 +94,6 @@ function setupCarouselUpdate(id) {
 });
 
 
-
+ 
 
 

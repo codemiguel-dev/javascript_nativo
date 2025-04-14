@@ -9,9 +9,10 @@ document.getElementById("deletecarousel").addEventListener("click", () => {
   
     // Verificar si el navbar existe y coincide con el ID
     if (pageData.page.carousel.id === navbarIdToDelete) {
-      // 1. Limpiar el HTML visualmente
-      document.getElementById("container").innerHTML = pageData.page.navbar.html + pageData.page.carousel.html;
-
+  
+      // Mostrar contenido inicial
+      document.getElementById("container").innerHTML = data.page.container.html + data.page.title.html +
+      data.page.navbar.html + data.page.carousel.html + data.page.endcontainer.html;
       
       // 2. Actualizar el JSON (ambas opciones disponibles)
       // Opción A: Eliminar completamente el objeto navbar
