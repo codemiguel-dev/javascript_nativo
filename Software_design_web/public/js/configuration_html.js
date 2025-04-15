@@ -1,8 +1,6 @@
-
-import { showJSON } from './function/show_page.js';
-
-
 let pageData; // Variable global para almacenar los datos del JSON cargado
+
+
 
 fetch('data/page.json')
   .then(response => response.json())
@@ -29,9 +27,11 @@ fetch('data/page.json')
       });
     }
     document.getElementById("dynamic-title-image").innerHTML = data.page.titleimage.html;
+    
 
-    showJSON(pageData);
-
+    // Mostrar contenido inicial
+    document.getElementById("container").innerHTML = data.page.container.html + data.page.title.html +
+    data.page.navbar.html + data.page.carousel.html + data.page.endcontainer.html;
     
   })
   .catch(error => {

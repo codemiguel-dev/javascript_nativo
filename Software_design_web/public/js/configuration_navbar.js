@@ -9,6 +9,9 @@ import {
   navbarHTMLdark
   } from './components/navbar-background-color.js';
 import { guardarJSON } from './function/save_json.js';
+      
+import { showJSON } from './function/show_page.js';
+
 
 
 document.getElementById("addPanelprimary").addEventListener("click", () => {
@@ -20,11 +23,7 @@ document.getElementById("addPanelprimary").addEventListener("click", () => {
 
       document.getElementById("dynamic-title").innerHTML = pageData.page.title.html;
 
-      // Actualizar visualmente el contenido
-      document.getElementById("container").innerHTML = 
-      pageData.page.title.html + 
-      pageData.page.navbar.html + 
-      pageData.page.carousel.html;
+      showJSON(pageData);
 
       // Guardar los cambios usando la función modularizada
       const resultado = guardarJSON(pageData);
@@ -43,7 +42,7 @@ document.getElementById("addPanelsuccess").addEventListener("click", () => {
       pageData.page.navbar.html = navbarHTMLsuccess + pageData.page.navbar.html;
 
       // Actualizar visualmente el contenido
-      document.getElementById("container").innerHTML = pageData.page.navbar.html + pageData.page.carousel.html;
+      showJSON(pageData);
 
       // Guardar los cambios usando la función modularizada
       const resultado = guardarJSON(pageData);
@@ -62,7 +61,7 @@ document.getElementById("addPanelinfo").addEventListener("click", () => {
       pageData.page.navbar.html = navbarHTMLinfo + pageData.page.navbar.html;
 
       // Actualizar visualmente el contenido
-      document.getElementById("container").innerHTML = pageData.page.navbar.html + pageData.page.carousel.html;
+      showJSON(pageData);
 
       // Guardar los cambios usando la función modularizada
       const resultado = guardarJSON(pageData);
@@ -81,7 +80,7 @@ document.getElementById("addPanelwarning").addEventListener("click", () => {
       pageData.page.navbar.html = navbarHTMLwarning + pageData.page.navbar.html;
 
       // Actualizar visualmente el contenido
-      document.getElementById("container").innerHTML = pageData.page.navbar.html + pageData.page.carousel.html;
+      showJSON(pageData);
 
       // Guardar los cambios usando la función modularizada
       const resultado = guardarJSON(pageData);
@@ -100,7 +99,7 @@ document.getElementById("addPaneldanger").addEventListener("click", () => {
       pageData.page.navbar.html = navbarHTMLdanger + pageData.page.navbar.html;
 
       // Actualizar visualmente el contenido
-      document.getElementById("container").innerHTML = pageData.page.navbar.html + pageData.page.carousel.html;
+      showJSON(pageData);
 
       // Guardar los cambios usando la función modularizada
       const resultado = guardarJSON(pageData);
@@ -119,7 +118,7 @@ document.getElementById("addPanelsecondary").addEventListener("click", () => {
       pageData.page.navbar.html = navbarHTMLsecondary + pageData.page.navbar.html;
 
       // Actualizar visualmente el contenido
-      document.getElementById("container").innerHTML = pageData.page.navbar.html;
+      showJSON(pageData);
 
       // Guardar los cambios usando la función modularizada
       const resultado = guardarJSON(pageData);
@@ -138,7 +137,7 @@ document.getElementById("addPaneldark").addEventListener("click", () => {
       pageData.page.navbar.html = navbarHTMLdark + pageData.page.navbar.html;
 
       // Actualizar visualmente el contenido
-      document.getElementById("container").innerHTML = pageData.page.navbar.html + pageData.page.carousel.html;
+      showJSON(pageData);
 
       // Guardar los cambios usando la función modularizada
       const resultado = guardarJSON(pageData);
