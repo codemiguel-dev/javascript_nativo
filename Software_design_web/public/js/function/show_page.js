@@ -6,13 +6,9 @@
  * @returns {Promise} - Promesa con la respuesta del servidor
  */
 // En tu función guardarJSON del frontend:
-export async function showJSON(data) {
-    document.getElementById("dynamic-title-image").innerHTML = data.page.titleimage.html;
-
-// Mostrar contenido inicial
-
-// Mostrar contenido inicial
-document.getElementById("container").innerHTML = data.page.container.html + data.page.title.html +
-data.page.navbar.html + data.page.carousel.html + data.page.endcontainer.html;
+export async function showJSON(pageData) {
+    // Mostrar contenido inicial
+    document.getElementById("container").innerHTML =   pageData.page.container.html +  pageData.page.title.html +
+    pageData.page.navbar.html +   pageData.page.carousel.html +   pageData.page.endcontainer.html;
 
   }
