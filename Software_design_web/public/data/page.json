@@ -16,7 +16,7 @@
     },
     "navbar": {
       "id": 1,
-      "html": "\n<nav class=\"navbar navbar-expand-lg bg-primary\">\n  <div class=\"container-fluid\">\n    <a class=\"navbar-brand text-light\" href=\"#\">Navbar</a>\n    <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n      <ul class=\"navbar-nav me-auto mb-2 mb-lg-0\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link text-light active\" aria-current=\"page\" href=\"#\">Inicio</a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</nav>\n"
+      "html": "\n<nav class=\"navbar navbar-expand-lg bg-secondary\">\n  <div class=\"container-fluid\">\n    <a class=\"navbar-brand text-light\" href=\"#\">Navbar</a>\n    <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n      <ul class=\"navbar-nav me-auto mb-2 mb-lg-0\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link text-light active\" aria-current=\"page\" href=\"#\">Inicio</a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</nav>\n"
     },
     "cardmodal": {
       "id": 1,

@@ -1,7 +1,5 @@
 let pageData; // Variable global para almacenar los datos del JSON cargado
 
-
-
 fetch('data/page.json')
   .then(response => response.json())
   .then(data => {

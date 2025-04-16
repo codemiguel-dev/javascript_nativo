@@ -5,13 +5,11 @@ import {
   navbarHTMLinfo,
   navbarHTMLwarning,
   navbarHTMLdanger,
-  navbarHTMLsecondary ,
+  navbarHTMLsecondary,
   navbarHTMLdark
   } from './components/navbar-background-color.js';
 import { guardarJSON } from './function/save_json.js';
-      
 import { showJSON } from './function/show_page.js';
-
 
 
 document.getElementById("addPanelprimary").addEventListener("click", () => {
