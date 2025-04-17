@@ -6,7 +6,7 @@ import { guardarJSON } from './function/save_json.js';
 import { showJSON } from './function/show_page.js';
 import { shownavbarJSON } from './function/show_navbar.js';
 
-document.getElementById("addPanel").addEventListener("click", () => {
+document.getElementById("updateColorbackground").addEventListener("click", () => {
 
   if (!pageData) {
     console.log("pageData no está disponible");
@@ -44,6 +44,8 @@ document.getElementById("addPanel").addEventListener("click", () => {
   }
 
 });
+
+
 
 
 
