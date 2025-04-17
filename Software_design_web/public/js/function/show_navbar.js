@@ -8,7 +8,7 @@
 // En tu función guardarJSON del frontend:
 export async function shownavbarJSON(pageData) {
     // Mostrar contenido inicial
-    document.getElementById("container-nav").innerHTML =   pageData.page.container.html +  pageData.page.title.html +
+    document.getElementById("container-nav").innerHTML =   pageData.page.container.html +
     pageData.page.navbar.html +   pageData.page.endcontainer.html;
 
   }
