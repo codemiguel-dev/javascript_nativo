@@ -4,6 +4,7 @@ import {
   } from './components/navbar-background-color.js';
 import { guardarJSON } from './function/save_json.js';
 import { showJSON } from './function/show_page.js';
+import { shownavbarJSON } from './function/show_navbar.js';
 
 document.getElementById("addPanel").addEventListener("click", () => {
 
@@ -35,6 +36,7 @@ document.getElementById("addPanel").addEventListener("click", () => {
     // Guardar el JSON
     const resultado = guardarJSON(pageData);
     console.log("JSON guardado correctamente:", resultado);
+    shownavbarJSON(pageData)
     showJSON(pageData);
 
   } catch (error) {

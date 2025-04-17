@@ -68,6 +68,9 @@
                     </ul>
                 </details>
                 <!-- end button (container) -->
+                </br>
+                </br>
+
 
                 <!-- button (panel superior) -->
                 <details class="dropdown">
@@ -76,6 +79,8 @@
                     </summary>
                     <ul>
                         <ul class="nav-style-options">
+                        </br>
+                        </br>
                             <li>
                                 <!-- navbar -->
                                 <a class="btn btn-danger" id="deletePanel">
@@ -84,49 +89,13 @@
                             </li>
                             </br>
                             </br>
-                            </br>
+                            
 
-                            <a id="addPanel" class="text-light" role="button" data-bs-toggle="button" >
-                                <li class="bg-primary">
-                                    Navbar primary
-                                    <input type="radio" name="radioGroup" value="primary">
-                                </li>
-                                <li class="bg-success">
-                                    Navbar success
-                                    <input type="radio" name="radioGroup" value="success">
-                                </li>
-                                <li class="bg-danger">
-                                    Navbar danger
-                                    <input type="radio" name="radioGroup" value="danger">
-                                </li>
-                                <li class="bg-warning">
-                                    Navbar warning
-                                    <input type="radio" name="radioGroup" value="warning">
-                                </li>
-                                <li class="bg-info">
-                                    Navbar info
-                                    <input type="radio" name="radioGroup" value="info">
-                                </li>
-                                <li class="bg-light text-dark">
-                                    Navbar light
-                                    <input type="radio" name="radioGroup" value="light">
-                                </li>
-
-                                <li class="bg-dark">
-                                    Navbar dark
-                                    <input type="radio" name="radioGroup" value="dark">
-                                </li>
-
-                                <li class="bg-secondary">
-                                    Navbar secondary
-                                    <input type="radio" name="radioGroup" value="secondary">
-                                </li>
-
-                                <li class="bg-black">
-                                    Navbar black
-                                    <input type="radio" name="radioGroup" value="black">
-                                </li>
-                            </a>
+                            <!-- Botón -->
+                            <button type="button" class="btn btn-primary position-relative" data-bs-toggle="modal" data-bs-target="#modalnav">
+                                <img src="file/img/navigation-bar.png" width="20px" height="20px" />
+                                Nav
+                            </button>
 
                         </br>
                     </br>
@@ -135,6 +104,9 @@
                     </ul>
                 </details>
                 <!-- end button (panel superior) -->
+
+                </br>
+                </br>
 
                 <!-- button (carusel de imagenes) -->
                 <details class="dropdown">
@@ -213,10 +185,13 @@
                 </details>
                 <!-- end button (carusel de imagenes) -->
 
+                </br>
+                </br>
+
                 <!-- button (tarjetas (card)) -->
                 <details class="dropdown">
                     <summary role="button">
-                        <a class="button btn btn-outline-primary text-light">Tarjeta (card)</a>
+                        <a class="button btn btn-outline-primary text-light">Tarjeta</a>
                     </summary>
                     <ul>
                         </br>
@@ -268,6 +243,73 @@
         </div>
     </div>
     <!--end color switcher-->
+
+    <!-- Modal navbar -->
+    <div class="modal fade" id="modalnav" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="miModalLabel">Configura tu galería con 6 imagenes</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <a id="addPanel" class="text-light" role="button" data-bs-toggle="button" >
+                                <li class="bg-primary">
+                                    Navbar primary
+                                    <input type="radio" name="radioGroup" value="primary">
+                                </li>
+                                <li class="bg-success">
+                                    Navbar success
+                                    <input type="radio" name="radioGroup" value="success">
+                                </li>
+                                <li class="bg-danger">
+                                    Navbar danger
+                                    <input type="radio" name="radioGroup" value="danger">
+                                </li>
+                                <li class="bg-warning">
+                                    Navbar warning
+                                    <input type="radio" name="radioGroup" value="warning">
+                                </li>
+                                <li class="bg-info">
+                                    Navbar info
+                                    <input type="radio" name="radioGroup" value="info">
+                                </li>
+                                <li class="bg-light text-dark">
+                                    Navbar light
+                                    <input type="radio" name="radioGroup" value="light">
+                                </li>
+
+                                <li class="bg-dark">
+                                    Navbar dark
+                                    <input type="radio" name="radioGroup" value="dark">
+                                </li>
+
+                                <li class="bg-secondary">
+                                    Navbar secondary
+                                    <input type="radio" name="radioGroup" value="secondary">
+                                </li>
+
+                                <li class="bg-black">
+                                    Navbar black
+                                    <input type="radio" name="radioGroup" value="black">
+                                </li>
+                            </a>
+                        </div>
+                    </div>
+                    <div id="container-nav">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end Modal navbar -->
+
 
 
     <!-- Modal +1 imagen -->
