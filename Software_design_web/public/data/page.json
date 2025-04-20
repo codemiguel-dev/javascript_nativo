@@ -8,7 +8,7 @@
     },
     "container": {
       "id": 1,
-      "html": "<div class=\"container-fluid\">"
+      "html": "<div class=\"container\">"
     },
     "endcontainer": {
       "id": 1,
@@ -16,7 +16,7 @@
     },
     "navbar": {
       "id": 1,
-      "html": "\n    <nav class=\"navbar navbar-expand-lg bg-danger\">\n      <div class=\"container-fluid\">\n        <a class=\"navbar-brand text-light\" href=\"#\">Navbar</a>\n        <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarSupportedContent\">\n          <span class=\"navbar-toggler-icon\"></span>\n        </button>\n        <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n          <ul class=\"navbar-nav me-auto mb-2 mb-lg-0\">\n            <li class=\"nav-item\">\n              <a class=\"nav-link text-light active\" href=\"#\">home</a>\n            </li>\n            <li class=\"nav-item\">\n              <a class=\"nav-link text-light active\" href=\"#\">noso</a>\n            </li>\n            <li class=\"nav-item\">\n              <a class=\"nav-link text-light active\" href=\"#\">contact</a>\n            </li>\n          </ul>\n        </div>\n      </div>\n    </nav>\n  "
+      "html": "\n    <nav class=\"navbar navbar-expand-lg bg-info\">\n      <div class=\"container-fluid\">\n        <a class=\"navbar-brand text-light\" href=\"#\">Navbar</a>\n        <button class=\"navbar-toggler navbar-dark\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarSupportedContent\">\n          <span class=\"navbar-toggler-icon\"></span>\n        </button>\n        <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n          <ul class=\"navbar-nav me-auto mb-2 mb-lg-0\">\n            <li class=\"nav-item\">\n              <a class=\"nav-link text-light active\" href=\"#\">Home</a>\n            </li>\n            <li class=\"nav-item\">\n              <a class=\"nav-link text-light active\" href=\"#\">Nosotros</a>\n            </li>\n            <li class=\"nav-item\">\n              <a class=\"nav-link text-light active\" href=\"#\">Contacto</a>\n            </li>\n            <li class=\"nav-item\">\n              <a class=\"nav-link text-light active\" href=\"#\"></a>\n            </li>\n            <li class=\"nav-item\">\n              <a class=\"nav-link text-light active\" href=\"#\"></a>\n            </li>\n            <li class=\"nav-item\">\n              <a class=\"nav-link text-light active\" href=\"#\"></a>\n            </li>\n          </ul>\n        </div>\n      </div>\n    </nav>\n  "
     },
     "cardmodal": {
       "id": 1,
