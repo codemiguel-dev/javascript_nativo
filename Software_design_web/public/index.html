@@ -21,6 +21,9 @@
         <div class="right-sidebar-content">
 
             <ul class="switcher">
+                <hr>
+                <hr>
+                <hr>
 
                 <!-- title input and image -->
                 <div class="input-group mb-3">
@@ -245,7 +248,16 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="miModalLabel">Configura tu navbar</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    
                 </div>
+
+                <h2 class="text-center">Diseño</h2>
+                
+                <p>
+                    <div id="container-nav">
+                    </div>
+                </p>
+              
                 
                 <div class="modal-body">
 
@@ -256,54 +268,105 @@
                               <div class="col-8 col-sm-6">
                                 <a id="updateNav" class="text-light" role="button" data-bs-toggle="button" >
                                     <li class="bg-primary">
-                                        <input type="radio" name="radioGroup" value="primary" class="design_radio_nav_color">
-                                        primary
+                                        <input type="radio" name="radioGroup" value="primary" class="design_radio_nav_color" checked> Primary
                                     </li>
                                     <li class="bg-success">
-                                        <input type="radio" name="radioGroup" value="success" class="design_radio_nav_color">
-                                        success
+                                        <input type="radio" name="radioGroup" value="success" class="design_radio_nav_color">Success
                                     </li>
                                     <li class="bg-danger">
-                                        <input type="radio" name="radioGroup" value="danger" class="design_radio_nav_color">
-                                        danger
+                                        <input type="radio" name="radioGroup" value="danger" class="design_radio_nav_color">Danger
                                     </li>
                                     <li class="bg-warning">
-                                        <input type="radio" name="radioGroup" value="warning" class="design_radio_nav_color">
-                                        warning
+                                        <input type="radio" name="radioGroup" value="warning" class="design_radio_nav_color">Warning
                                     </li>
                                     <li class="bg-info">
-                                        <input type="radio" name="radioGroup" value="info" class="design_radio_nav_color">
-                                        info
+                                        <input type="radio" name="radioGroup" value="info" class="design_radio_nav_color">Info
                                     </li>
                                     <li class="bg-light text-dark">
-                                        <input type="radio" name="radioGroup" value="light" class="design_radio_nav_color">
-                                        light
+                                        <input type="radio" name="radioGroup" value="light" class="design_radio_nav_color">Light
                                     </li>
     
                                     <li class="bg-dark">
-                                        <input type="radio" name="radioGroup" value="dark" class="design_radio_nav_color">
-                                        dark
+                                        <input type="radio" name="radioGroup" value="dark" class="design_radio_nav_color">Dark
                                     </li>
-    
+
                                     <li class="bg-secondary">
-                                        <input type="radio" name="radioGroup" value="secondary" class="design_radio_nav_color">
-                                        secondary
+                                        <input type="radio" name="radioGroup" value="secondary" class="design_radio_nav_color">Secondary
                                     </li>
     
                                     <li class="bg-black">
-                                        <input type="radio" name="radioGroup" value="black" class="design_radio_nav_color">
-                                        black
+                                        <input type="radio" name="radioGroup" value="black" class="design_radio_nav_color">Black
                                     </li>
-                                </a>                              
+                                    <hr>
+                                    <hr>
+                                    <h5 for="exampleInputEmail1" class="form-label text-dark">Tipo de panel</h5>
+                                    <!-- Grupo de posición -->
+                                    <input type="radio" id="fixedTop" name="radioGroupFixed" value="" class="design_radio_nav_color">
+                                    <label for="fixedTop" class="text-dark">Sin posición</label></br>
+
+                                    <input type="radio" id="fixedTop" name="radioGroupFixed" value="fixed-top" class="design_radio_nav_color">
+                                    <label for="fixedTop" class="text-dark">Fixed top</label></br>
+
+                                    <input type="radio" id="fixedTop" name="radioGroupFixed" value="fixed-bottom" class="design_radio_nav_color">
+                                    <label for="fixedTop" class="text-dark">Fixed bottom</label></br>
+
+                                    <input type="radio" id="fixedTop" name="radioGroupFixed" value="sticky-top" class="design_radio_nav_color">
+                                    <label for="fixedTop" class="text-dark">Sticky top</label></br>
+
+                                    <input type="radio" id="fixedTop" name="radioGroupFixed" value="sticky-sm-top" class="design_radio_nav_color">
+                                    <label for="fixedTop" class="text-dark">Sticky sm top</label></br>
+
+                                    <input type="radio" id="fixedTop" name="radioGroupFixed" value="sticky-md-top" class="design_radio_nav_color">
+                                    <label for="fixedTop" class="text-dark">Sticky md top</label></br>
+
+                                    <input type="radio" id="fixedTop" name="radioGroupFixed" value="sticky-lg-top" class="design_radio_nav_color">
+                                    <label for="fixedTop" class="text-dark">Sticky lg top</label></br>
+
+                                    <input type="radio" id="fixedTop" name="radioGroupFixed" value="sticky-xl-top" class="design_radio_nav_color">
+                                    <label for="fixedTop" class="text-dark">Sticky xl top</label></br>
+
+                                    <input type="radio" id="fixedTop" name="radioGroupFixed" value="sticky-xxl-top" class="design_radio_nav_color">
+                                    <label for="fixedTop" class="text-dark">Sticky xxl top</label></br>
+
+                                    <input type="radio" id="fixedTop" name="radioGroupFixed" value="sticky-bottom" class="design_radio_nav_color">
+                                    <label for="fixedTop" class="text-dark">Sticky bottom</label></br>
+
+                                    
+                                    <input type="radio" id="fixedTop" name="radioGroupFixed" value="sticky-sm-bottom" class="design_radio_nav_color">
+                                    <label for="fixedTop" class="text-dark">Sticky sm bottom</label></br>
+
+                                    
+                                    <input type="radio" id="fixedTop" name="radioGroupFixed" value="sticky-md-bottom" class="design_radio_nav_color">
+                                    <label for="fixedTop" class="text-dark">Sticky md bottom</label></br>
+
+                                    
+                                    <input type="radio" id="fixedTop" name="radioGroupFixed" value="sticky-lg-bottom" class="design_radio_nav_color">
+                                    <label for="fixedTop" class="text-dark">Sticky lg bottom</label></br>
+
+                                    
+                                    <input type="radio" id="fixedTop" name="radioGroupFixed" value="sticky-xl-bottom" class="design_radio_nav_color">
+                                    <label for="fixedTop" class="text-dark">Sticky xl bottom</label></br>
+
+                                </br>
+                                </a>                               
                                 </div>
                               <div class="col-4 col-sm-6">
                                 <h5 class="text-center">Elije una imagen</h5>
-                                <input type="file" name="" value="black" id="imagenav">
+                                <!-- HTML -->
+                            
+                                    <input type="file" id="imagenav" accept="image/*" id="uploadForm">
+                                    <img id="previewImage" src="#" alt="Vista previa de la imagen" style="display:none; max-width: 200px;">
+                                    <!-- O si usas el formulario tradicional: -->
+                         
+
                                 <hr>
                                 <div class="input-group mb-3">
                                     <div class="mb-3">
                                         <label for="exampleInputEmail1" class="form-label">opcion 1</label>
-                                        <input type="text" class="form-control" id="opc1" aria-describedby="emailHelp">
+                                        <input type="text" class="form-control" id="opc1">
+
+                                        <input type="text" class="form-control" id="opc1link" placeholder="ID">
+
                                         <!--
                                             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                                             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
@@ -312,24 +375,30 @@
                                       <div class="mb-3">
                                         <label for="exampleInputPassword1" class="form-label">opcion 2</label>
                                         <input type="text" class="form-control" id="opc2">
+                                        <input type="text" class="form-control" id="opc2link" placeholder="ID">
+
                                       </div>
 
                                       <div class="mb-3">
                                         <label for="exampleInputPassword1" class="form-label">opcion 3</label>
                                         <input type="text" class="form-control" id="opc3">
+                                        <input type="text" class="form-control" id="opc3link" placeholder="ID">
                                       </div>
 
                                       <div class="mb-3">
                                         <label for="exampleInputPassword1" class="form-label">opcion 4</label>
                                         <input type="text" class="form-control" id="opc4">
+                                        <input type="text" class="form-control" id="opc4link" placeholder="ID">
                                       </div>
                                       <div class="mb-3">
                                         <label for="exampleInputPassword1" class="form-label">opcion 5</label>
                                         <input type="text" class="form-control" id="opc5">
+                                        <input type="text" class="form-control" id="opc5link" placeholder="ID">
                                       </div>
                                       <div class="mb-3">
                                         <label for="exampleInputPassword1" class="form-label">opcion 6</label>
                                         <input type="text" class="form-control" id="opc6">
+                                        <input type="text" class="form-control" id="opc6link" placeholder="ID">
                                       </div>
                                 </div>
                               </div>
@@ -339,12 +408,7 @@
                       </div>
                 </div>
                 <hr>
-                <h2 class="text-center">Diseño</h2>
-                
-                <p>
-                    <div id="container-nav">
-                    </div>
-                </p>
+             
               
             </div>
         </div>

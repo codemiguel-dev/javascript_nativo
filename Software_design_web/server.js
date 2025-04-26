@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Configuración de Multer corregida
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    const uploadPath = path.join(__dirname, 'public/file/carousel'); // Añadí 'public' aquí
+    const uploadPath = path.join(__dirname, 'public/file/nav'); // Añadí 'public' aquí
     if (!fs.existsSync(uploadPath)) {
       fs.mkdirSync(uploadPath, { recursive: true });
     }
@@ -29,14 +29,15 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
+
 // Ruta para subida de imagen (mejorada)
-app.post('/upload', upload.single('image'), (req, res) => {
+app.post('/upload-image-nav', upload.single('image'), (req, res) => {
   try {
     if (!req.file) {
       return res.status(400).json({ success: false, message: 'No se subió ningún archivo' });
     }
 
-    const imageUrl = `/file/carousel/${req.file.filename}`; // Ruta relativa al public
+    const imageUrl = `/file/nav/${req.file.filename}`; // Ruta relativa al public
     res.json({ 
       success: true, 
       imageUrl,
@@ -47,6 +48,7 @@ app.post('/upload', upload.single('image'), (req, res) => {
     res.status(500).json({ success: false, error: error.message });
   }
 });
+
 
 // Ruta para guardar JSON (optimizada)
 app.post('/guardar-json', async (req, res) => {
