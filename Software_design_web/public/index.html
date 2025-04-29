@@ -7,8 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <div id="dynamic-title"></div>
     <div id="dynamic-title-image"></div>
-
-
     <!-- Custom Style-->
 </head>
 
@@ -127,64 +125,14 @@
                                 </span>
                             </button>
                         </li>
-
-                        <li>
-                            <!-- Botón -->
-                            <button type="button" class="btn btn-primary position-relative" data-bs-toggle="modal" data-bs-target="#miModal2">
-                                <img src="file/img/carousel1.png" width="120px" height="120px" />
-                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                    +2
-                                </span>
-                            </button>
-                        </li>
-
-                        <li>
-                            <!-- Botón -->
-                            <button type="button" class="btn btn-primary position-relative" data-bs-toggle="modal" data-bs-target="#miModal3">
-                                <img src="file/img/carousel1.png" width="120px" height="120px" />
-                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                    +3
-                                </span>
-                            </button>
-                        </li>
-
-                        <li>
-                            <!-- Botón -->
-                            <button type="button" class="btn btn-primary position-relative" data-bs-toggle="modal" data-bs-target="#miModal4">
-                                <img src="file/img/carousel1.png" width="120px" height="120px" />
-                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                    +4
-                                </span>
-                            </button>
-                        </li>
-
-                        <li>
-                            <!-- Botón -->
-                            <button type="button" class="btn btn-primary position-relative" data-bs-toggle="modal" data-bs-target="#miModal5">
-                                <img src="file/img/carousel1.png" width="120px" height="120px" />
-                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                    +5
-                                </span>
-                            </button>
-                        </li>
-
-                        <li>
-                            <!-- Botón -->
-                            <button type="button" class="btn btn-primary position-relative" data-bs-toggle="modal" data-bs-target="#miModal6">
-                                <img src="file/img/carousel1.png" width="120px" height="120px" />
-                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                    +6
-                                </span>
-                            </button>
-                        </li>
-
                     </ul>
                 </details>
                 <!-- end button (carusel de imagenes) -->
 
                 </br>
                 </br>
-
+            </br>
+        </br>
                 <!-- button (tarjetas (card)) -->
                 <details class="dropdown">
                     <summary role="button">
@@ -419,46 +367,114 @@
 
     <!-- Modal +1 imagen -->
     <div class="modal fade" id="miModal" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="miModalLabel">Configura tu galería en en carousel con 1 imagen</h5>
+                    <h5 class="modal-title" id="miModalLabel">Configura tu galería en en carousel</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                 </div>
-                <div class="modal-body">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <img id="preview1" width="250px" height="250px" />
 
-                            <p class="text-dark">Ingresa Imagen</p>
-                            <input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="image1" placeholder="Ingrese Imagen" />
-
-                            <script>
-                                const fileInput = document.getElementById('image1');
-                                const preview = document.getElementById('preview1');
-                              
-                                fileInput.addEventListener('change', function () {
-                                  const file = this.files[0];
-                              
-                                  if (file) {
-                                    const reader = new FileReader();
-                              
-                                    reader.onload = function (e) {
-                                      preview.src = e.target.result;
-                                      preview.style.display = 'block';
-                                    }
-                              
-                                    reader.readAsDataURL(file); // Convierte la imagen en base64
-                                  }
-                                });
-                              </script>
-
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="title1" placeholder="Ingrese Título" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="header1" placeholder="Ingrese Encabezado" />
-                        </div>
+                <div class="container swiper">
+                    <div class="card-wrapper">
+                        <ul class="card-list swiper-wrapper">
+                            <li class="card-item swiper-slide">
+                                <a href="#" class="card-link">
+                                    <img src="images/monitor.jpg" alt="Card Image" class="card-image">
+                                    <p class="badge">Developer</p>
+                                    <h2 class="card-title">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero mollitia
+                                        eius fugit vitae voluptatum porro nobis facere eveniet quidem dignissimos incidunt dolorem
+                                        recusandae aliquam pariatur, vero atque quia nostrum eum?</h2>
+                                    <button class="card-button
+                                    material-symbols-outlined">
+                                        arrow_forward
+                                    </button>
+                                </a>
+                            </li>
+            
+                            <li class="card-item swiper-slide">
+                                <a href="#" class="card-link">
+                                    <img src="images/monitor.jpg" alt="Card Image" class="card-image">
+                                    <p class="badge">Developer</p>
+                                    <h2 class="card-title">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero mollitia
+                                        eius fugit vitae voluptatum porro nobis facere eveniet quidem dignissimos incidunt dolorem
+                                        recusandae aliquam pariatur, vero atque quia nostrum eum?</h2>
+                                    <button class="card-button
+                                    material-symbols-outlined">
+                                        arrow_forward
+                                    </button>
+                                </a>
+                            </li>
+                        </ul>
+            
+                        <!-- If we need pagination -->
+                        <div class="swiper-pagination"></div>
+            
+                        <!-- If we need navigation buttons -->
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+            
+                        <!-- If we need scrollbar -->
+                        <div class="swiper-scrollbar"></div>
+            
                     </div>
-
                 </div>
+
+
+                <div style="grid-template-columns: 1fr 1fr;" class="d-grid gap-3">
+               
+                    <div class="p-2">   <div class="modal-body">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <img id="preview1" width="250px" height="250px" />
+    
+                                <p class="text-dark">Ingresa Imagen</p>
+                                <input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="image1" placeholder="Ingrese Imagen" />
+                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="title1" placeholder="Ingrese Título" />
+                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="header1" placeholder="Ingrese Encabezado" />
+                            </div>
+                        </div>
+    
+                    </div></div>
+                    <div class="p-2">
+                        <div class="modal-body">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <img id="preview2" width="250px" height="250px" />
+        
+                                    <p class="text-dark">Ingresa Imagen</p>
+                                    <input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="image2" placeholder="Ingrese Imagen" />
+        
+                                    <script>
+                                        const fileInput = document.getElementById('image2');
+                                        const preview = document.getElementById('preview2');
+                                      
+                                        fileInput.addEventListener('change', function () {
+                                          const file = this.files[0];
+                                      
+                                          if (file) {
+                                            const reader = new FileReader();
+                                      
+                                            reader.onload = function (e) {
+                                              preview.src = e.target.result;
+                                              preview.style.display = 'block';
+                                            }
+                                      
+                                            reader.readAsDataURL(file); // Convierte la imagen en base64
+                                          }
+                                        });
+                                      </script>
+        
+                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="title1" placeholder="Ingrese Título" />
+                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="header1" placeholder="Ingrese Encabezado" />
+                                </div>
+                            </div>
+        
+                        </div></div>
+                    <div class="p-2">Grid item 3</div>
+                    <div class="p-2">Grid item 4</div>
+                </div>
+
+
                 <div class="modal-footer">
                     <a href="#" id="updateCarousel1" class="btn btn-primary">Actualizar Carrusel</a>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -467,276 +483,6 @@
         </div>
     </div>
     <!-- end Modal +1 image -->
-
-    <!-- Modal +2 imagen -->
-    <div class="modal fade" id="miModal2" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="miModalLabel">Configura tu galería con 2 imagenes</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <p class="text-dark">Ingresa Imagen</p>
-                            <input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="image2" placeholder="Ingrese Imagen" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="title2" placeholder="Ingrese Título" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="header2" placeholder="Ingrese Encabezado" />
-
-                        </div>
-                    </div>
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <p class="text-dark">Ingresa Imagen 2</p>
-                            <input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="image3" placeholder="Ingrese Imagen" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="title3" placeholder="Ingrese Título" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="header3" placeholder="Ingrese Encabezado" />
-                            <a href="#" id="updateCarousel" class="btn btn-primary">Actualizar Carrusel</a>
-
-                        </div>
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end Modal +2 image -->
-
-    <!-- Modal +3 imagen -->
-    <div class="modal fade" id="miModal3" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="miModalLabel">Configura tu galería con 3 imagenes</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <p class="text-dark">Ingresa Imagen</p>
-                            <input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="image1" placeholder="Ingrese Imagen" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="title1" placeholder="Ingrese Título" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="header1" placeholder="Ingrese Encabezado" />
-                        </div>
-                        <div class="card-body">
-                            <p class="text-dark">Ingresa Imagen 2</p>
-                            <input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="image2" placeholder="Ingrese Imagen" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="title2" placeholder="Ingrese Título" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="header2" placeholder="Ingrese Encabezado" />
-                        </div>
-
-                        <div class="card-body">
-                            <p class="text-dark">Ingresa Imagen 3</p>
-                            <input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="image3" placeholder="Ingrese Imagen" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="title3" placeholder="Ingrese Título" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="header3" placeholder="Ingrese Encabezado" />
-                        </div>
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <a href="#" id="updateCarousel3" class="btn btn-primary">Actualizar Carrusel 3</a>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end Modal +3 image -->
-
-    <!-- Modal +4 imagen -->
-    <div class="modal fade" id="miModal4" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="miModalLabel">Configura tu galería con 4 imagenes</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <p class="text-dark">Ingresa Imagen</p>
-                            <input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="image1" placeholder="Ingrese Imagen" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="title1" placeholder="Ingrese Título" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="header1" placeholder="Ingrese Encabezado" />
-                        </div>
-                    </div>
-
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <p class="text-dark">Ingresa Imagen</p>
-                            <input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="image2" placeholder="Ingrese Imagen" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="title2" placeholder="Ingrese Título" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="header2" placeholder="Ingrese Encabezado" />
-                        </div>
-                    </div>
-
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <p class="text-dark">Ingresa Imagen</p>
-                            <input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="image3" placeholder="Ingrese Imagen" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="title3" placeholder="Ingrese Título" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="header3" placeholder="Ingrese Encabezado" />
-                        </div>
-                    </div>
-
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <p class="text-dark">Ingresa Imagen</p>
-                            <input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="image4" placeholder="Ingrese Imagen" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="title4" placeholder="Ingrese Título" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="header4" placeholder="Ingrese Encabezado" />
-                        </div>
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <a href="#" id="updateCarousel4" class="btn btn-primary">Actualizar Carrusel</a>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end Modal +4 image -->
-
-    <!-- Modal +5 imagen -->
-    <div class="modal fade" id="miModal5" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="miModalLabel">Configura tu galería con 5 imagenes</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <p class="text-dark">Ingresa Imagen</p>
-                            <input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="image" placeholder="Ingrese Imagen" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="title" placeholder="Ingrese Título" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="header" placeholder="Ingrese Encabezado" />
-                        </div>
-                    </div>
-
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <p class="text-dark">Ingresa Imagen</p>
-                            <input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="image" placeholder="Ingrese Imagen" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="title" placeholder="Ingrese Título" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="header" placeholder="Ingrese Encabezado" />
-                        </div>
-                    </div>
-
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <p class="text-dark">Ingresa Imagen</p>
-                            <input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="image" placeholder="Ingrese Imagen" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="title" placeholder="Ingrese Título" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="header" placeholder="Ingrese Encabezado" />
-                        </div>
-                    </div>
-
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <p class="text-dark">Ingresa Imagen</p>
-                            <input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="image" placeholder="Ingrese Imagen" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="title" placeholder="Ingrese Título" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="header" placeholder="Ingrese Encabezado" />
-                        </div>
-                    </div>
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <p class="text-dark">Ingresa Imagen</p>
-                            <input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="image" placeholder="Ingrese Imagen" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="title" placeholder="Ingrese Título" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="header" placeholder="Ingrese Encabezado" />
-                        </div>
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <a href="#" id="updateCarousel" class="btn btn-primary">Actualizar Carrusel</a>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end Modal +5 image -->
-
-    <!-- Modal +6 imagen -->
-    <div class="modal fade" id="miModal6" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="miModalLabel">Configura tu galería con 6 imagenes</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <p class="text-dark">Ingresa Imagen</p>
-                            <input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="image1" placeholder="Ingrese Imagen" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="title1" placeholder="Ingrese Título" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="header1" placeholder="Ingrese Encabezado" />
-                        </div>
-                    </div>
-
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <p class="text-dark">Ingresa Imagen</p>
-                            <input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="image2" placeholder="Ingrese Imagen" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="title2" placeholder="Ingrese Título" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="header2" placeholder="Ingrese Encabezado" />
-                        </div>
-                    </div>
-
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <p class="text-dark">Ingresa Imagen</p>
-                            <input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="image3" placeholder="Ingrese Imagen" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="title3" placeholder="Ingrese Título" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="header3" placeholder="Ingrese Encabezado" />
-                        </div>
-                    </div>
-
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <p class="text-dark">Ingresa Imagen</p>
-                            <input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="image4" placeholder="Ingrese Imagen" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="title4" placeholder="Ingrese Título" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="header4" placeholder="Ingrese Encabezado" />
-                        </div>
-                    </div>
-
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <p class="text-dark">Ingresa Imagen</p>
-                            <input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="image5" placeholder="Ingrese Imagen" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="title5" placeholder="Ingrese Título" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="header5" placeholder="Ingrese Encabezado" />
-                        </div>
-                    </div>
-
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <p class="text-dark">Ingresa Imagen</p>
-                            <input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="image6" placeholder="Ingrese Imagen" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="title6" placeholder="Ingrese Título" />
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="header6" placeholder="Ingrese Encabezado" />
-                        </div>
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <a href="#" id="updateCarousel6" class="btn btn-primary">Actualizar Carrusel</a>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end Modal +6 image -->
 
     <!-- Sidebar -->
     <div class="sidebar">
@@ -770,10 +516,16 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js" integrity="sha384-VQqxDN0EQCkWoxt/0vsQvZswzTHUVOImccYmSyhJTp7kGtPed0Qcx8rK9h9YEgx+" crossorigin="anonymous"></script>
 
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <!-- Bootstrap JS Bundle with Popper (ÚNICO SCRIPT NECESARIO) -->
 
-    <script src="js/script.js"></script>
     <script src="js/jquery.min.js"></script>
+
+
+
+    <script src="js/script.js"></script>
     <!-- sidebar-menu js -->
     <script src="js/sidebar-menu.js"></script>
     <!-- Custom scripts -->
@@ -787,6 +539,8 @@
     <script type="module" src="js/configuration_title.js"></script>
     <script type="module" src="js/configuration_title_image.js"></script>
     <script type="module" src="js/configuration_container.js"></script>
+
+   <script src="js/swiper.js"></script>
 </body>
 
 </html>
