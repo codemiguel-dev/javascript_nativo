@@ -1,101 +1,193 @@
-// Importar las variables desde el archivo components/navbar-primary.js
-import { 
-  generateCarouselHTML,
-  
-  } from './components/carousel.js';
+// Importar las variables desde los archivos necesarios
+import { generateCarouselHTML } from './components/carousel.js';
 import { guardarJSON } from './function/save_json.js';
+import { showJSON } from './function/show_page.js';
+import { shownavbarJSON } from './function/show_navbar.js';
 
-const uploadedImages = {}; // Almacena las URLs por ID
+// Variable global para almacenar los datos
+let pageData = null;
 
-function setupImageUploadnav(id) {
-  document.getElementById(`image${id}`).addEventListener('change', async (e) => {
-    const file = e.target.files[0];
+// Configuración inicial
+const DEFAULT_POSITION = ''; // 'no fixed' por defecto
+let currentPosition = ''; // Asegúrate de declarar esta variable
+let currentColor = 'primary'; // Color por defecto
+let currentImage = ''; // Almacenará la URL de la imagen
+
+// Elementos del DOM
+const fileInput = document.getElementById('imagecarousel');
+const previewImage = document.getElementById('previewcarousel');
+const uploadButton = document.getElementById('uploadButton');
+const form = document.getElementById('uploadForm');
+
+// Evento para manejar la selección de imagen
+fileInput.addEventListener('change', async function(e) {
+  const file = e.target.files[0]; // Obtiene el primer archivo seleccionado
+  
+  if (file) {
+    // Parte 1: Mostrar previsualización de la imagen
+    const reader = new FileReader(); // Crea un lector de archivos
+
+    reader.onload = function(event) {
+      previewImage.src = event.target.result; // Asigna la imagen al src
+      previewImage.style.display = 'block'; // Muestra la imagen
+    };
+
+    reader.readAsDataURL(file); // Lee el archivo como URL
+
+    // Parte 2: Subir la imagen al servidor
     const formData = new FormData();
-    formData.append('image', file);
-
-    try {
-      const response = await fetch('/upload-image-nav', {
-        method: 'POST',
-        body: formData,
-      });
-
-      const result = await response.json();
-      if (result.success) {
-        uploadedImages[id] = result.imageUrl;
-        console.log(`Imagen ${id} subida:`, result.imageUrl);
-      } else {
-        console.error(`Error al subir imagen ${id}`);
-      }
-    } catch (err) {
-      console.error(`Error en la subida (${id}):`, err);
-    }
-  });
-}
-
-function setupCarouselUpdate() {
-  document.getElementById(`updateCarousel`).addEventListener('click', async () => {
-    // Obtener datos de AMBAS imágenes
-    const image1 = document.getElementById('image1').files[0];
-    const image2 = document.getElementById('image2').files[0];
+    formData.append('image', file); // Usamos 'file' que ya tenemos
     
-    if (!image1 || !image2) {
-      console.warn('Ambas imágenes son requeridas');
-      return;
-    }
-
-    const title1 = document.getElementById('title1').value;
-    const header1 = document.getElementById('header1').value;
-    const title2 = document.getElementById('title2').value;
-    const header2 = document.getElementById('header2').value;
-
-    if (!uploadedImages['1'] || !uploadedImages['2']) {
-      console.warn('Ambas imágenes deben ser cargadas primero');
-      return;
-    }
-
-    // Crear un nuevo array de slides con ambas imágenes
-    const newSlides = [
-      {
-        image: image1.name,
-        title: title1,
-        header: header1
-      },
-      {
-        image: image2.name,
-        title: title2,
-        header: header2
-      }
-    ];
-
-    // Asignar el nuevo array completo
-    pageData.page.carousel.slides = newSlides;
-
-    // Generar el carrusel con ambas imágenes
-    const carouselHTML = generateCarouselHTML(pageData.page.carousel.slides);
-
-    // Actualizar visualmente
-    pageData.page.carousel.html = carouselHTML;
-    document.getElementById("container").innerHTML =
-      (pageData.page.navbar?.html || "") + pageData.page.carousel.html;
-
-    // Guardar
     try {
-      const resultado = await guardarJSON(pageData);
-      console.log('JSON guardado correctamente:', resultado);
+      const response = await fetch('/upload-image', {
+        method: 'POST',
+        body: formData
+      });
+  
+      const data = await response.json(); // Esperamos la conversión a JSON
+  
+      if (data.success) {
+        currentImage = data.imageUrl; // Almacenamos la URL de la imagen
+        console.log('URL de la imagen:', currentImage);
+        // No mostramos alerta para mejor UX, solo actualizamos el estado
+      } else {
+        console.error('Error al subir la imagen:', data.message);
+      }
     } catch (error) {
-      console.error('Error al guardar datos:', error);
+      console.error('Error:', error);
     }
-  });
-}
-
-
-// Inicializar para varios IDs
-['1', '2', '3'].forEach(id => {
-  setupImageUpload(id);
-  setupCarouselUpdate(id);
+  }
 });
 
+// Inicializar al cargar la página
+document.addEventListener('DOMContentLoaded', async () => {
+  await loadPageData();
+  initializeControls();
+  setupEventListeners();
+});
 
- 
+// Cargar datos JSON
+async function loadPageData() {
+  try {
+    const response = await fetch('data/page.json');
+    pageData = await response.json();
+    
+    // Restaurar selecciones previas si existen
+    if (pageData.page.navbar.currentColor) {
+      currentColor = pageData.page.navbar.currentColor;
+    }
 
+    if (pageData.page.navbar.currentPosition) {
+      currentPosition = pageData.page.navbar.currentPosition;
+    }
 
+    if (pageData.page.navbar.currentImage) {
+      currentImage = pageData.page.navbar.currentImage;
+      previewImage.src = currentImage;
+      previewImage.style.display = 'block';
+    }
+
+  } catch (error) {
+    console.error('Error cargando datos:', error);
+  }
+}
+
+// Inicializar controles UI
+function initializeControls() {
+  const positionRadio = document.querySelector(`input[name="radioGroupFixed"][value="${currentPosition}"]`);
+  if (positionRadio) positionRadio.checked = true;
+
+  // Marcar color actual (o primary por defecto)
+  const colorRadio = document.querySelector(`input[name="radioGroup"][value="${currentColor}"]`);
+  if (colorRadio) colorRadio.checked = true;
+}
+
+// Configurar event listeners
+function setupEventListeners() {
+  // Guardar color seleccionado cuando cambia
+  document.querySelectorAll('input[name="radioGroup"]').forEach(radio => {
+    radio.addEventListener('change', (e) => {
+      currentColor = e.target.value;
+    });
+  });
+
+  document.querySelectorAll('input[name="radioGroupFixed"]').forEach(radio => {
+    radio.addEventListener('change', (e) => {
+      currentPosition = e.target.value;
+    });
+  });
+
+  // Botón de actualización
+  document.getElementById("updateNav")?.addEventListener("click", handleNavbarUpdate);
+}
+
+// Manejar actualización del navbar
+async function handleNavbarUpdate() {
+  try {
+    if (!pageData) throw new Error("Datos no cargados");
+    
+    // Obtener selecciones actuales
+    const color = getSelectedValue('radioGroup') || currentColor;
+    const position = getSelectedValue('radioGroupFixed') || DEFAULT_POSITION;
+    
+    // Validar selecciones
+    if (!color) throw new Error("Selecciona un color");
+    
+    // Obtener opciones del menú
+    const menuOptions = getMenuOptions();
+    
+    // // Generar HTML (actualizado para incluir la imagen)
+    // const navHTML = generateNavbarHTML(
+    //   color,
+    //   ...menuOptions.texts,
+    //   ...menuOptions.links,
+    //   position,
+    //   currentImage // Pasamos la URL de la imagen
+    // );
+    
+    // Actualizar y guardar
+    pageData.page.navbar = {
+      html: navHTML,
+      currentColor: color,
+      currentPosition: position,
+      currentImage: currentImage // Guardamos la URL de la imagen
+    };
+    
+    await guardarJSON(pageData);
+    updateUI();
+    
+  } catch (error) {
+    console.error("Error:", error.message);
+    alert(`Error: ${error.message}`);
+  }
+}
+
+// Helper: Obtener valor seleccionado de un grupo de radios
+function getSelectedValue(name) {
+  const selected = document.querySelector(`input[name="${name}"]:checked`);
+  return selected ? selected.value : null;
+}
+
+// Helper: Obtener opciones del menú
+function getMenuOptions() {
+  const options = { texts: [], links: [] };
+  for (let i = 1; i <= 6; i++) {
+    options.texts.push(getValue(`opc${i}`));
+    options.links.push(getValue(`opc${i}link`));
+  }
+  return options;
+}
+
+// Helper: Obtener valor de input de forma segura
+function getValue(id) {
+  const el = document.getElementById(id);
+  return el ? el.value.trim() : "";
+}
+
+// Actualizar la interfaz
+function updateUI() {
+  // shownavbarJSON(pageData);
+  showJSON(pageData);
+  location.reload(); 
+  console.log("Navbar actualizado!");
+}

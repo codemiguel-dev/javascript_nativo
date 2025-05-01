@@ -39,7 +39,7 @@ fileInput.addEventListener('change', async function(e) {
     formData.append('image', file); // Usamos 'file' que ya tenemos
     
     try {
-      const response = await fetch('/upload-image-nav', {
+      const response = await fetch('/upload-image', {
         method: 'POST',
         body: formData
       });

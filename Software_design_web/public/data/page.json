@@ -4,7 +4,7 @@
       "html": "<title>Mi página web</title>"
     },
     "titleimage": {
-      "html": "<link rel=\"icon\" href=\"file/img/EmprendeSoft_icon.png\" type=\"image/x-icon\"></link>"
+      "html": "<link rel=\"icon\" href=\"file/img/C:\\fakepath\\mouse.jpg\" type=\"image/x-icon\"></link>"
     },
     "container": {
       "id": 1,
@@ -15,10 +15,10 @@
       "html": "</div>"
     },
     "navbar": {
-      "html": "\n    <nav class=\"navbar navbar-expand-lg bg-primary \">\n      <div class=\"container-fluid\">\n        <img src=\"/file/nav/smarthwacht.jpg\" alt=\"Logo\" class=\"navbar-brand-image\" style=\"height: 40px; margin-right: 10px;\">\n        <button class=\"navbar-toggler navbar-dark\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarSupportedContent\">\n          <span class=\"navbar-toggler-icon\"></span>\n        </button>\n        <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n          <ul class=\"navbar-nav me-auto mb-2 mb-lg-0\">\n            <li class=\"nav-item\">\n              <a class=\"nav-link text-light \" href=\"#\"></a>\n            </li>\n            \n            \n            \n            \n            \n          </ul>\n        </div>\n      </div>\n    </nav>\n  ",
-      "currentColor": "primary",
+      "html": "\n    <nav class=\"navbar navbar-expand-lg bg-dark \">\n      <div class=\"container-fluid\">\n        <img src=\"/file/img/EmprendeSoft_icon.png\" alt=\"Logo\" class=\"navbar-brand-image\" style=\"height: 40px; margin-right: 10px;\">\n        <button class=\"navbar-toggler navbar-dark\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarSupportedContent\">\n          <span class=\"navbar-toggler-icon\"></span>\n        </button>\n        <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n          <ul class=\"navbar-nav me-auto mb-2 mb-lg-0\">\n            <li class=\"nav-item\">\n              <a class=\"nav-link text-light \" href=\"#\"></a>\n            </li>\n            \n            \n            \n            \n            \n          </ul>\n        </div>\n      </div>\n    </nav>\n  ",
+      "currentColor": "dark",
       "currentPosition": "",
-      "currentImage": "/file/nav/smarthwacht.jpg"
+      "currentImage": "/file/img/EmprendeSoft_icon.png"
     },
     "cardmodal": {
       "id": 1,
