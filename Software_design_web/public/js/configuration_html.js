@@ -27,12 +27,11 @@ fetch('data/page.json')
     document.getElementById("dynamic-title-image").innerHTML = data.page.titleimage.html;
 
     // Mostrar contenido de navbar modal
-    document.getElementById("container-nav").innerHTML =   pageData.page.container.html +
-    pageData.page.navbar.html +   pageData.page.endcontainer.html;
+    document.getElementById("container-nav").innerHTML =   data.page.container.html + data.page.title.html +
+    data.page.navbar.html + data.page.endcontainer.html;
     
     // Mostrar contenido completo de la página
-    document.getElementById("container").innerHTML = data.page.container.html + data.page.title.html +
-    data.page.navbar.html + data.page.carousel.html + data.page.endcontainer.html;
+
     
   })
   .catch(error => {

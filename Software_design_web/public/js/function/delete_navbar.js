@@ -12,8 +12,8 @@ document.getElementById("deletePanel").addEventListener("click", () => {
       // 1. Limpiar el HTML visualmente
       
       // Mostrar contenido inicial
-      document.getElementById("container").innerHTML =   pageData.page.container.html +  pageData.page.title.html +
-      pageData.page.navbar.html +   pageData.page.carousel.html +   pageData.page.endcontainer.html;
+      document.getElementById("container-nav").innerHTML =   pageData.page.container.html +  pageData.page.title.html +
+      pageData.page.navbar.html +   pageData.page.endcontainer.html;
       
       // 2. Actualizar el JSON (ambas opciones disponibles)
       // Opción A: Eliminar completamente el objeto navbar

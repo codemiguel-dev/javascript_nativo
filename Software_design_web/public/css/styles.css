@@ -442,3 +442,36 @@ html {
 .card-wrapper{
   width: 75%;
 }
+
+.hover:hover {
+  display: block;
+  text-decoration: none;
+  border: 3px solid #8400ff;
+  transition: box-shadow 0.3s ease;
+  z-index: 999; /* Asegura que el contenedor tenga prioridad */
+
+}
+.hover {
+  position: relative;
+  
+}
+
+.boton-hover {
+  display: none; /* Oculto por defecto */
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  padding: 10px 16px;
+  background-color: #8400ff;
+  transition: box-shadow 0.3s ease;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.hover:hover .boton-hover {
+  display: inline-block; /* Se muestra solo al hacer hover sobre .hover */
+
+}
+
