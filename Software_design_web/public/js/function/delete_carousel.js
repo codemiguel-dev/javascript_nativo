@@ -14,8 +14,7 @@ document.getElementById("deletecarousel").addEventListener("click", () => {
     if (pageData.page.carousel.id === navbarIdToDelete) {
   
      // Mostrar contenido inicial
-    document.getElementById("container").innerHTML =   pageData.page.container.html +  pageData.page.title.html +
-    pageData.page.navbar.html +   pageData.page.carousel.html +   pageData.page.endcontainer.html;
+    document.getElementById("container-carousel").innerHTML =   pageData.page.container.html +  pageData.page.title.html +   pageData.page.carousel.html +   pageData.page.endcontainer.html;
       
       // 2. Actualizar el JSON (ambas opciones disponibles)
       // Opción A: Eliminar completamente el objeto navbar

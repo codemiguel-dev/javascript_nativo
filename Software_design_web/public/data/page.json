@@ -8,15 +8,15 @@
     },
     "container": {
       "id": 1,
-      "html": "<div class=\"container-fluid\">"
+      "html": "<div class=\"container\">"
     },
     "endcontainer": {
       "id": 1,
       "html": "</div>"
     },
     "navbar": {
-      "html": "\n    <nav class=\"navbar navbar-expand-lg bg-success \">\n      <div class=\"container-fluid\">\n        <img src=\"/file/img/EmprendeSoft_icon.png\" alt=\"Logo\" class=\"navbar-brand-image\" style=\"height: 40px; margin-right: 10px;\">\n        <button class=\"navbar-toggler navbar-dark\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarSupportedContent\">\n          <span class=\"navbar-toggler-icon\"></span>\n        </button>\n        <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n          <ul class=\"navbar-nav me-auto mb-2 mb-lg-0\">\n            <li class=\"nav-item\">\n              <a class=\"nav-link text-light \" href=\"#\"></a>\n            </li>\n            \n            \n            \n            \n            \n          </ul>\n        </div>\n      </div>\n    </nav>\n  ",
-      "currentColor": "success",
+      "html": "\n    <nav class=\"navbar navbar-expand-lg bg-dark \">\n      <div class=\"container-fluid\">\n        <img src=\"/file/img/EmprendeSoft_icon.png\" alt=\"Logo\" class=\"navbar-brand-image\" style=\"height: 40px; margin-right: 10px;\">\n        <button class=\"navbar-toggler navbar-dark\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarSupportedContent\">\n          <span class=\"navbar-toggler-icon\"></span>\n        </button>\n        <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n          <ul class=\"navbar-nav me-auto mb-2 mb-lg-0\">\n            <li class=\"nav-item\">\n              <a class=\"nav-link text-light active\" href=\"home\">Home</a>\n            </li>\n            <li class=\"nav-item\">\n              <a class=\"nav-link text-light\" href=\"nosotros\">Nosotros</a>\n            </li>\n            <li class=\"nav-item\">\n              <a class=\"nav-link text-light\" href=\"contacto\">Contacto</a>\n            </li>\n            \n            \n            \n          </ul>\n        </div>\n      </div>\n    </nav>\n  ",
+      "currentColor": "dark",
       "currentPosition": "",
       "currentImage": "/file/img/EmprendeSoft_icon.png"
     },

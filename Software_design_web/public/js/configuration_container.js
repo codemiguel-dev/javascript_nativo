@@ -1,6 +1,6 @@
 import { generateContainerHTML } from "./components/container.js";
 import { guardarJSON } from './function/save_json.js';
-import { showJSON } from './function/show_page.js';
+import { shownavbarJSON } from './function/show_navbar.js';
 
 document.getElementById("updateContainer").addEventListener("click", () => {
   if (!pageData) {
@@ -39,7 +39,7 @@ document.getElementById("updateContainer").addEventListener("click", () => {
     // Guardar el JSON
     const resultado = guardarJSON(pageData);
     console.log("JSON guardado correctamente:", resultado);
-    showJSON(pageData);
+    shownavbarJSON(pageData);
 
   } catch (error) {
     console.error("Error al guardar los datos:", error);

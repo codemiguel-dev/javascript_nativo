@@ -2,22 +2,16 @@
 import { generateCarouselHTML } from './components/carousel.js';
 import { guardarJSON } from './function/save_json.js';
 import { showJSON } from './function/show_page.js';
-import { shownavbarJSON } from './function/show_navbar.js';
 
 // Variable global para almacenar los datos
 let pageData = null;
 
-// Configuración inicial
-const DEFAULT_POSITION = ''; // 'no fixed' por defecto
-let currentPosition = ''; // Asegúrate de declarar esta variable
-let currentColor = 'primary'; // Color por defecto
 let currentImage = ''; // Almacenará la URL de la imagen
 
 // Elementos del DOM
 const fileInput = document.getElementById('imagecarousel');
 const previewImage = document.getElementById('previewcarousel');
-const uploadButton = document.getElementById('uploadButton');
-const form = document.getElementById('uploadForm');
+
 
 // Evento para manejar la selección de imagen
 fileInput.addEventListener('change', async function(e) {
@@ -27,7 +21,13 @@ fileInput.addEventListener('change', async function(e) {
     // Parte 1: Mostrar previsualización de la imagen
     const reader = new FileReader(); // Crea un lector de archivos
 
-    reader.onload = function(event) {
+
+/*************  ✨ Windsurf Command ⭐  *************/
+    // Función que se ejecuta cuando se completa la lectura de un archivo
+    // en el lector de archivos (FileReader). La función asigna el contenido
+    // leído como una URL de imagen al elemento <img> con id "previewImage"
+    // y muestra el elemento.
+/*******  e90be4b3-b731-45bb-9def-e0820d0f01a8  *******/    reader.onload = function(event) {
       previewImage.src = event.target.result; // Asigna la imagen al src
       previewImage.style.display = 'block'; // Muestra la imagen
     };
@@ -62,7 +62,6 @@ fileInput.addEventListener('change', async function(e) {
 // Inicializar al cargar la página
 document.addEventListener('DOMContentLoaded', async () => {
   await loadPageData();
-  initializeControls();
   setupEventListeners();
 });
 
@@ -73,16 +72,16 @@ async function loadPageData() {
     pageData = await response.json();
     
     // Restaurar selecciones previas si existen
-    if (pageData.page.navbar.currentColor) {
-      currentColor = pageData.page.navbar.currentColor;
-    }
+    // if (pageData.page.navbar.currentColor) {
+    //   currentColor = pageData.page.navbar.currentColor;
+    // }
 
-    if (pageData.page.navbar.currentPosition) {
-      currentPosition = pageData.page.navbar.currentPosition;
-    }
+    // if (pageData.page.navbar.currentPosition) {
+    //   currentPosition = pageData.page.navbar.currentPosition;
+    // }
 
-    if (pageData.page.navbar.currentImage) {
-      currentImage = pageData.page.navbar.currentImage;
+    if (pageData.page.carousel.imagecarousel) {
+      currentImage = pageData.page.carousel.imagecarousel;
       previewImage.src = currentImage;
       previewImage.style.display = 'block';
     }
@@ -92,65 +91,46 @@ async function loadPageData() {
   }
 }
 
-// Inicializar controles UI
-function initializeControls() {
-  const positionRadio = document.querySelector(`input[name="radioGroupFixed"][value="${currentPosition}"]`);
-  if (positionRadio) positionRadio.checked = true;
 
-  // Marcar color actual (o primary por defecto)
-  const colorRadio = document.querySelector(`input[name="radioGroup"][value="${currentColor}"]`);
-  if (colorRadio) colorRadio.checked = true;
-}
 
 // Configurar event listeners
 function setupEventListeners() {
-  // Guardar color seleccionado cuando cambia
-  document.querySelectorAll('input[name="radioGroup"]').forEach(radio => {
-    radio.addEventListener('change', (e) => {
-      currentColor = e.target.value;
-    });
-  });
-
-  document.querySelectorAll('input[name="radioGroupFixed"]').forEach(radio => {
-    radio.addEventListener('change', (e) => {
-      currentPosition = e.target.value;
-    });
-  });
 
   // Botón de actualización
-  document.getElementById("updateNav")?.addEventListener("click", handleNavbarUpdate);
+  document.getElementById("updateCarousel")?.addEventListener("click", handleCarouselUpdate);
 }
 
 // Manejar actualización del navbar
-async function handleNavbarUpdate() {
+async function handleCarouselUpdate() {
   try {
     if (!pageData) throw new Error("Datos no cargados");
     
     // Obtener selecciones actuales
-    const color = getSelectedValue('radioGroup') || currentColor;
-    const position = getSelectedValue('radioGroupFixed') || DEFAULT_POSITION;
+    const titlecarousel = document.getElementById("titlecarousel").value;
+    const headercarousel = document.getElementById("headercarousel").value;
+    
+
     
     // Validar selecciones
-    if (!color) throw new Error("Selecciona un color");
+    // if (!color) throw new Error("Selecciona un color");
     
     // Obtener opciones del menú
-    const menuOptions = getMenuOptions();
+    // const menuOptions = getMenuOptions();
     
     // // Generar HTML (actualizado para incluir la imagen)
-    // const navHTML = generateNavbarHTML(
-    //   color,
-    //   ...menuOptions.texts,
-    //   ...menuOptions.links,
-    //   position,
-    //   currentImage // Pasamos la URL de la imagen
-    // );
+    const carouselHTML = generateCarouselHTML(
+      titlecarousel,
+      headercarousel,
+      currentImage
+    );
     
     // Actualizar y guardar
-    pageData.page.navbar = {
-      html: navHTML,
-      currentColor: color,
-      currentPosition: position,
-      currentImage: currentImage // Guardamos la URL de la imagen
+    pageData.page.carousel = {
+      id: 1,
+      html: carouselHTML,
+      titlecarousel: titlecarousel,
+      headercarousel: headercarousel,
+      imagecarousel: currentImage // Guardamos la URL de la imagen
     };
     
     await guardarJSON(pageData);
@@ -163,11 +143,6 @@ async function handleNavbarUpdate() {
 }
 
 // Helper: Obtener valor seleccionado de un grupo de radios
-function getSelectedValue(name) {
-  const selected = document.querySelector(`input[name="${name}"]:checked`);
-  return selected ? selected.value : null;
-}
-
 // Helper: Obtener opciones del menú
 function getMenuOptions() {
   const options = { texts: [], links: [] };
