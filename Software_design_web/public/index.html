@@ -380,28 +380,15 @@
                             <li class="card-item swiper-slide">
                                 <a href="#" class="card-link">
                                     <img src="images/monitor.jpg" alt="Card Image" class="card-image">
-                                    <p class="badge">Developer</p>
-                                    <h2 class="card-title">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero mollitia
-                                        eius fugit vitae voluptatum porro nobis facere eveniet quidem dignissimos incidunt dolorem
-                                        recusandae aliquam pariatur, vero atque quia nostrum eum?</h2>
-                                    <button class="card-button
+                                    <!-- <p class="badge">Developer</p> -->
+                                    <h2 class="card-title">Ingresar Datos</h2>
+                                    <input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="image1" placeholder="Ingrese Imagen" />
+                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="title1" placeholder="Ingrese Título" />
+                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="header1" placeholder="Ingrese Encabezado" />
+                                    <!-- <button class="card-button
                                     material-symbols-outlined">
                                         arrow_forward
-                                    </button>
-                                </a>
-                            </li>
-            
-                            <li class="card-item swiper-slide">
-                                <a href="#" class="card-link">
-                                    <img src="images/monitor.jpg" alt="Card Image" class="card-image">
-                                    <p class="badge">Developer</p>
-                                    <h2 class="card-title">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero mollitia
-                                        eius fugit vitae voluptatum porro nobis facere eveniet quidem dignissimos incidunt dolorem
-                                        recusandae aliquam pariatur, vero atque quia nostrum eum?</h2>
-                                    <button class="card-button
-                                    material-symbols-outlined">
-                                        arrow_forward
-                                    </button>
+                                    </button> -->
                                 </a>
                             </li>
                         </ul>
@@ -419,60 +406,6 @@
                     </div>
                 </div>
 
-
-                <div style="grid-template-columns: 1fr 1fr;" class="d-grid gap-3">
-               
-                    <div class="p-2">   <div class="modal-body">
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-body">
-                                <img id="preview1" width="250px" height="250px" />
-    
-                                <p class="text-dark">Ingresa Imagen</p>
-                                <input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="image1" placeholder="Ingrese Imagen" />
-                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="title1" placeholder="Ingrese Título" />
-                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="header1" placeholder="Ingrese Encabezado" />
-                            </div>
-                        </div>
-    
-                    </div></div>
-                    <div class="p-2">
-                        <div class="modal-body">
-                            <div class="card" style="width: 18rem;">
-                                <div class="card-body">
-                                    <img id="preview2" width="250px" height="250px" />
-        
-                                    <p class="text-dark">Ingresa Imagen</p>
-                                    <input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="image2" placeholder="Ingrese Imagen" />
-        
-                                    <script>
-                                        const fileInput = document.getElementById('image2');
-                                        const preview = document.getElementById('preview2');
-                                      
-                                        fileInput.addEventListener('change', function () {
-                                          const file = this.files[0];
-                                      
-                                          if (file) {
-                                            const reader = new FileReader();
-                                      
-                                            reader.onload = function (e) {
-                                              preview.src = e.target.result;
-                                              preview.style.display = 'block';
-                                            }
-                                      
-                                            reader.readAsDataURL(file); // Convierte la imagen en base64
-                                          }
-                                        });
-                                      </script>
-        
-                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="title1" placeholder="Ingrese Título" />
-                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="header1" placeholder="Ingrese Encabezado" />
-                                </div>
-                            </div>
-        
-                        </div></div>
-                    <div class="p-2">Grid item 3</div>
-                    <div class="p-2">Grid item 4</div>
-                </div>
 
 
                 <div class="modal-footer">
