@@ -378,7 +378,7 @@ html {
 }
 
 .design_radio_nav_color {
-    transform: scale(2.0); /* Aumenta el tamaño 1.5 veces */
+    transform: scale(1.0); /* Aumenta el tamaño 1.5 veces */
     margin: 10px; /* Ajusta el margen para evitar solapamientos */
     cursor: pointer;
 }

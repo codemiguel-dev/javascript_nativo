@@ -147,6 +147,7 @@ async function handleNavbarUpdate() {
     
     // Actualizar y guardar
     pageData.page.navbar = {
+      id: 1,
       html: navHTML,
       currentColor: color,
       currentPosition: position,

@@ -1,4 +1,4 @@
-export function generateCarouselHTML(titlecarousel, headercarousel, imagecarousel) {
+export function generateCarouselHTML(titlecarousel, headercarousel, imagecarousel, size, colorwords, fontwords) {
     return `<div id="carouselExampleCaptions" class="carousel slide">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -7,10 +7,10 @@ export function generateCarouselHTML(titlecarousel, headercarousel, imagecarouse
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="${imagecarousel}" class="d-block w-100" alt="...">
+      <img src="${imagecarousel}" class="d-block w-100" alt="..." height="${size}px">
       <div class="carousel-caption d-none d-md-block">
-        <h5>${titlecarousel}</h5>
-        <p>${headercarousel}</p>
+        <h2 class="${colorwords} ${fontwords}">${titlecarousel}</h2>
+        <p class="${colorwords} ${fontwords}">${headercarousel}</p>
       </div>
     </div>
     <div class="carousel-item">

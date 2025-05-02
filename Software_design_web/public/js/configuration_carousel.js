@@ -6,11 +6,26 @@ import { showJSON } from './function/show_page.js';
 // Variable global para almacenar los datos
 let pageData = null;
 
+let currentTitle = ''; // Almacena el valor de currentTitle
+let currentHeader = ''; // Almacena el valor de currentHeader
 let currentImage = ''; // Almacenará la URL de la imagen
+let currentSize = ''; // Almacenará tamaño del carousel
+let currentColorWords = ''; // Almacenará color de la letras del carousel
+let currentFontWords = ''; // Almacenará fuentes de la letras del carousel
+
 
 // Elementos del DOM
 const fileInput = document.getElementById('imagecarousel');
 const previewImage = document.getElementById('previewcarousel');
+
+// Definir en ámbito global o en tu módulo
+function getSelectedValue(radioGroupName) {
+  const radios = document.getElementsByName(radioGroupName);
+  for (const radio of radios) {
+    if (radio.checked) return radio.value;
+  }
+  return null;
+}
 
 
 // Evento para manejar la selección de imagen
@@ -62,6 +77,7 @@ fileInput.addEventListener('change', async function(e) {
 // Inicializar al cargar la página
 document.addEventListener('DOMContentLoaded', async () => {
   await loadPageData();
+  initializeControls();
   setupEventListeners();
 });
 
@@ -76,9 +92,25 @@ async function loadPageData() {
     //   currentColor = pageData.page.navbar.currentColor;
     // }
 
-    // if (pageData.page.navbar.currentPosition) {
-    //   currentPosition = pageData.page.navbar.currentPosition;
-    // }
+    if (pageData.page.carousel.titlecarousel) {
+      currentTitle = pageData.page.carousel.titlecarousel;
+    }
+    if (pageData.page.carousel.headercarousel) {
+      currentHeader = pageData.page.carousel.headercarousel;
+    }
+
+    if (pageData.page.carousel.size) {
+      currentSize = pageData.page.carousel.size;
+    }
+
+    if (pageData.page.carousel.colorwords) {
+      currentColorWords = pageData.page.carousel.colorwords;
+    }
+
+    if (pageData.page.carousel.fontwords) {
+      currentFontWords = pageData.page.carousel.fontwords;
+    }
+    
 
     if (pageData.page.carousel.imagecarousel) {
       currentImage = pageData.page.carousel.imagecarousel;
@@ -91,7 +123,17 @@ async function loadPageData() {
   }
 }
 
+function initializeControls() {
+  const positionRadio = document.querySelector(`input[name="radioGroupCarousel"][value="${currentSize}"]`);
+  if (positionRadio) positionRadio.checked = true;
 
+  const positionRadiocolorword = document.querySelector(`input[name="radioGroupCarouselColorWord"][value="${currentColorWords}"]`);
+  if (positionRadiocolorword) positionRadiocolorword.checked = true;
+
+  const positionRadiofontword = document.querySelector(`input[name="radioGroupCarouselFontWord"][value="${currentFontWords}"]`);
+  if (positionRadiofontword) positionRadiofontword.checked = true;
+
+}
 
 // Configurar event listeners
 function setupEventListeners() {
@@ -106,8 +148,14 @@ async function handleCarouselUpdate() {
     if (!pageData) throw new Error("Datos no cargados");
     
     // Obtener selecciones actuales
-    const titlecarousel = document.getElementById("titlecarousel").value;
-    const headercarousel = document.getElementById("headercarousel").value;
+    const titlecarousel = document.getElementById("titlecarousel").value ||  currentTitle;
+    const headercarousel = document.getElementById("headercarousel").value || currentHeader;
+    const size = getSelectedValue('radioGroupCarousel') || currentSize;
+    const colorwords = getSelectedValue('radioGroupCarouselColorWord') || currentColorWords;
+    const fontwords = getSelectedValue('radioGroupCarouselFontWord') || currentFontWords;
+
+
+    console.log(colorwords)
     
 
     
@@ -121,7 +169,10 @@ async function handleCarouselUpdate() {
     const carouselHTML = generateCarouselHTML(
       titlecarousel,
       headercarousel,
-      currentImage
+      currentImage,
+      size,
+      colorwords,
+      fontwords
     );
     
     // Actualizar y guardar
@@ -130,7 +181,10 @@ async function handleCarouselUpdate() {
       html: carouselHTML,
       titlecarousel: titlecarousel,
       headercarousel: headercarousel,
-      imagecarousel: currentImage // Guardamos la URL de la imagen
+      imagecarousel: currentImage, // Guardamos la URL de la imagen
+      size: size,
+      colorwords: colorwords,
+      fontwords: fontwords
     };
     
     await guardarJSON(pageData);

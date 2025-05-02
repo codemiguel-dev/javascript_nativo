@@ -392,14 +392,91 @@
     <!-- end Modal navbar -->
 
 
-
     <!-- Modal +1 imagen -->
     <div class="modal fade" id="miModal" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
+
+                <!-- Tamaño de imagen -->
                 <div class="modal-header">
-                    <h5 class="modal-title" id="miModalLabel">Configura tu galería en en carousel</h5>
+                    <h5 class="modal-title" id="miModalLabel">Configura tamaño de imagen</h5>
+                    <input type="radio" name="radioGroupCarousel" value="300" class="design_radio_nav_color">
+                    <label for="fixedTop" class="text-dark">Tamaño 300</label></br>
+
+                    <input type="radio" name="radioGroupCarousel" value="400" class="design_radio_nav_color">
+                    <label for="fixedTop" class="text-dark">Tamaño 400</label></br>
+
+                    <input type="radio" name="radioGroupCarousel" value="500" class="design_radio_nav_color">
+                    <label for="fixedTop" class="text-dark">Tamaño 500</label></br>
+
+                    <input type="radio" name="radioGroupCarousel" value="600" class="design_radio_nav_color">
+                    <label for="fixedTop" class="text-dark">Tamaño 600</label></br>
+
+                    <input type="radio" name="radioGroupCarousel" value="700" class="design_radio_nav_color">
+                    <label for="fixedTop" class="text-dark">Tamaño 700</label></br>
+
+                    <input type="radio" name="radioGroupCarousel" value="800" class="design_radio_nav_color">
+                    <label for="fixedTop" class="text-dark">Tamaño 800</label></br>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+
+                <!-- color de letras -->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="miModalLabel">Configura color de letras</h5>
+                    <input type="radio" name="radioGroupCarouselColorWord" value="text-primary" class="design_radio_nav_color">
+                    <label for="fixedTop" class="text-primary">Primary</label></br>
+
+                    <input type="radio" name="radioGroupCarouselColorWord" value="text-secondary" class="design_radio_nav_color">
+                    <label for="fixedTop" class="text-secondary">Secondary</label></br>
+
+                    <input type="radio" name="radioGroupCarouselColorWord" value="text-success" class="design_radio_nav_color">
+                    <label for="fixedTop" class="text-success">Success</label></br>
+
+                    <input type="radio" name="radioGroupCarouselColorWord" value="text-danger" class="design_radio_nav_color">
+                    <label for="fixedTop" class="text-danger">Danger</label></br>
+
+                    <input type="radio" name="radioGroupCarouselColorWord" value="text-warning" class="design_radio_nav_color">
+                    <label for="fixedTop" class="text-warning">Warning</label></br>
+
+                    <input type="radio" name="radioGroupCarouselColorWord" value="text-info" class="design_radio_nav_color">
+                    <label for="fixedTop" class="text-info">Info</label></br>
+
+                    <input type="radio" name="radioGroupCarouselColorWord" value="text-light" class="design_radio_nav_color">
+                    <label for="fixedTop" class="text-light bg-dark">Light</label></br>
+
+                    <input type="radio" name="radioGroupCarouselColorWord" value="text-dark" class="design_radio_nav_color">
+                    <label for="fixedTop" class="text-dark">Dark</label></br>
+                </div>
+
+                <!-- fuentes de letras -->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="miModalLabel">Configura Fuentes de letras</h5>
+                    <input type="radio" name="radioGroupCarouselFontWord" value="fw-bold" class="design_radio_nav_color">
+                    <label for="fixedTop" class="text-dark fw-bold">Bold</label></br>
+
+                    <input type="radio" name="radioGroupCarouselFontWord" value="fw-bolder" class="design_radio_nav_color">
+                    <label for="fixedTop" class="text-dark fw-bolder">Bolder</label></br>
+
+                    <input type="radio" name="radioGroupCarouselFontWord" value="fw-semibold" class="design_radio_nav_color">
+                    <label for="fixedTop" class="text-dark fw-semibold">Semibold</label></br>
+
+                    <input type="radio" name="radioGroupCarouselFontWord" value="fw-medium" class="design_radio_nav_color">
+                    <label for="fixedTop" class="text-dark fw-medium">Medium </label></br>
+
+                    <input type="radio" name="radioGroupCarouselFontWord" value="fw-normal" class="design_radio_nav_color">
+                    <label for="fixedTop" class="text-dark fw-normal">Normal </label></br>
+
+                    <input type="radio" name="radioGroupCarouselFontWord" value="fw-light" class="design_radio_nav_color">
+                    <label for="fixedTop" class="text-dark fw-light">Light </label></br>
+
+                    <input type="radio" name="radioGroupCarouselFontWord" value="fw-lighter" class="design_radio_nav_color">
+                    <label for="fixedTop" class="text-dark fw-lighter">Lighter </label></br>
+
+                    <input type="radio" name="radioGroupCarouselFontWord" value="fst-italic" class="design_radio_nav_color">
+                    <label for="fixedTop" class="text-dark fst-italic">Italic </label></br>
+
+                    <input type="radio" name="radioGroupCarouselFontWord" value="fst-normal" class="design_radio_nav_color">
+                    <label for="fixedTop" class="text-dark fst-normal">Text with normal </label></br>
                 </div>
 
                 <div class="container swiper">
@@ -419,10 +496,8 @@
                                     <input type="text" class="form-control" aria-label="Sizing example input"
                                         aria-describedby="inputGroup-sizing-default" id="headercarousel"
                                         placeholder="Ingrese Encabezado" />
-                                    <button class="card-button
-                                    material-symbols-outlined" id="updateCarousel">
-                                        arrow_forward
-                                    </button>
+
+
                                 </a>
                             </li>
                             <li class="card-item swiper-slide">
@@ -459,11 +534,9 @@
 
                     </div>
                 </div>
-
-
-
                 <div class="modal-footer">
-                    <a href="#" id="updateCarousel1" class="btn btn-primary">Actualizar Carrusel</a>
+                
+                    <a href="#" id="updateCarousel" class="btn btn-primary">Actualizar Carrusel</a>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
@@ -501,7 +574,7 @@
             </div>
             <a class="boton-hover" data-bs-toggle="modal" data-bs-target="#modalnav">Visitar página</a>
         </div>
-        
+
         <!-- Segundo elemento hover -->
         <div class="hover">
             <div id="container-carousel">
@@ -509,7 +582,7 @@
             <!-- Puedes agregar otro botón si lo necesitas -->
         </div>
     </div>
-    
+
     <!-- Modal (requiere Bootstrap JS) -->
     <div class="modal fade" id="modalnav" tabindex="-1" aria-labelledby="modalnavLabel" aria-hidden="true">
         <div class="modal-dialog">
