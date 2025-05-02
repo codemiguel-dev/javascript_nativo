@@ -6,6 +6,7 @@ import { showJSON } from './function/show_page.js';
 // Variable global para almacenar los datos
 let pageData = null;
 
+let cardCount = '';
 let currentTitle = ''; // Almacena el valor de currentTitle
 let currentHeader = ''; // Almacena el valor de currentHeader
 let currentImage = ''; // Almacenará la URL de la imagen
@@ -79,6 +80,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   await loadPageData();
   initializeControls();
   setupEventListeners();
+  getMenuOptions();
 });
 
 // Cargar datos JSON
@@ -110,6 +112,10 @@ async function loadPageData() {
     if (pageData.page.carousel.fontwords) {
       currentFontWords = pageData.page.carousel.fontwords;
     }
+
+    if (pageData.page.carousel.cardCount) {
+      cardCount = pageData.page.carousel.cardCount;
+    }
     
 
     if (pageData.page.carousel.imagecarousel) {
@@ -133,6 +139,9 @@ function initializeControls() {
   const positionRadiofontword = document.querySelector(`input[name="radioGroupCarouselFontWord"][value="${currentFontWords}"]`);
   if (positionRadiofontword) positionRadiofontword.checked = true;
 
+  const positionRadiocantcard = document.querySelector(`input[name="radioGroupCarouselQuanty"][value="${cardCount}"]`);
+  if (positionRadiocantcard) positionRadiocantcard.checked = true;
+
 }
 
 // Configurar event listeners
@@ -153,10 +162,7 @@ async function handleCarouselUpdate() {
     const size = getSelectedValue('radioGroupCarousel') || currentSize;
     const colorwords = getSelectedValue('radioGroupCarouselColorWord') || currentColorWords;
     const fontwords = getSelectedValue('radioGroupCarouselFontWord') || currentFontWords;
-
-
-    console.log(colorwords)
-    
+    const cardCount = getSelectedValue('radioGroupCarouselQuanty') || cardCount;    
 
     
     // Validar selecciones
@@ -172,7 +178,8 @@ async function handleCarouselUpdate() {
       currentImage,
       size,
       colorwords,
-      fontwords
+      fontwords, 
+      cardCount
     );
     
     // Actualizar y guardar
@@ -184,7 +191,8 @@ async function handleCarouselUpdate() {
       imagecarousel: currentImage, // Guardamos la URL de la imagen
       size: size,
       colorwords: colorwords,
-      fontwords: fontwords
+      fontwords: fontwords,
+      cardCount: cardCount
     };
     
     await guardarJSON(pageData);
@@ -199,11 +207,11 @@ async function handleCarouselUpdate() {
 // Helper: Obtener valor seleccionado de un grupo de radios
 // Helper: Obtener opciones del menú
 function getMenuOptions() {
-  const options = { texts: [], links: [] };
+  const options = { texts: [] };
   for (let i = 1; i <= 6; i++) {
-    options.texts.push(getValue(`opc${i}`));
-    options.links.push(getValue(`opc${i}link`));
+    options.texts.push(getValue(`imagecarousel${i}`));
   }
+  console.log(options);
   return options;
 }
 
@@ -216,6 +224,7 @@ function getValue(id) {
 // Actualizar la interfaz
 function updateUI() {
   // shownavbarJSON(pageData);
+  
   showJSON(pageData);
   location.reload(); 
   console.log("Navbar actualizado!");
