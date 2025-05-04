@@ -156,13 +156,11 @@ async function handleCarouselUpdate() {
   try {
     if (!pageData) throw new Error("Datos no cargados");
     
-    // Obtener selecciones actuales
-    const titlecarousel = document.getElementById("titlecarousel").value ||  currentTitle;
-    const headercarousel = document.getElementById("headercarousel").value || currentHeader;
+    
     const size = getSelectedValue('radioGroupCarousel') || currentSize;
     const colorwords = getSelectedValue('radioGroupCarouselColorWord') || currentColorWords;
     const fontwords = getSelectedValue('radioGroupCarouselFontWord') || currentFontWords;
-    const cardCount = getSelectedValue('radioGroupCarouselQuanty') || cardCount;    
+    const cardCount = getSelectedValue('radioGroupCarouselQuanty') || cardCount;   
 
     
     // Validar selecciones
@@ -194,7 +192,7 @@ async function handleCarouselUpdate() {
       fontwords: fontwords,
       cardCount: cardCount
     };
-    
+    getCard();
     await guardarJSON(pageData);
     updateUI();
     
@@ -215,6 +213,29 @@ function getMenuOptions() {
   return options;
 }
 
+function getCard() {
+  // Obtener todas las tarjetas
+  const cards = document.querySelectorAll('.card-item');
+
+  cards.forEach(card => {
+    const index = card.getAttribute('data-index');
+
+    // Obtener la imagen del input tipo file dentro de esta tarjeta
+    const fileInput = card.querySelector('input[type="file"]');
+    const image = fileInput?.files?.[0]?.name || 'Sin imagen seleccionada';
+
+    // Obtener el título y encabezado
+    const title = card.querySelector('input[id^="titlecarousel"]')?.value || 'Sin título';
+    const header = card.querySelector('input[id^="headercarousel"]')?.value || 'Sin encabezado';
+
+    console.log(`Tarjeta ${index}:`);
+    console.log(`  Imagen: ${image}`);
+    console.log(`  Título: ${title}`);
+    console.log(`  Encabezado: ${header}`);
+  });
+}
+
+
 // Helper: Obtener valor de input de forma segura
 function getValue(id) {
   const el = document.getElementById(id);
@@ -226,6 +247,6 @@ function updateUI() {
   // shownavbarJSON(pageData);
   
   showJSON(pageData);
-  location.reload(); 
+  // location.reload(); 
   console.log("Navbar actualizado!");
 }

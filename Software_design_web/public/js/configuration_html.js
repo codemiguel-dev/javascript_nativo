@@ -1,4 +1,4 @@
-let pageData; // Variable global para almacenar los datos del JSON cargado
+let pageData; 
 
 fetch('data/page.json')
   .then(response => response.json())
@@ -39,4 +39,7 @@ fetch('data/page.json')
   .catch(error => {
     console.error("Error al cargar el JSON:", error);
   });
+
+
+
 
