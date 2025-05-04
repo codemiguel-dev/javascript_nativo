@@ -1,23 +1,35 @@
-export function generateCarouselHTML(titlecarousel, headercarousel, imagecarousel, size, colorwords, fontwords, cardCount) {
+export function generateCarouselHTML(allCards, size, colorwords, fontwords) {
+  // Validación de parámetros
+  if (!Array.isArray(allCards)) {
+    throw new Error("allCards debe ser un array de objetos");
+  }
+  
+  if (allCards.length === 0) {
+    return '<div class="alert alert-warning">No hay tarjetas para mostrar</div>';
+  }
+
   let indicatorsHTML = '';
   let itemsHTML = '';
 
-  for (let i = 0; i < cardCount; i++) {
+  allCards.forEach((card, i) => {
     const activeClass = i === 0 ? 'active' : '';
+    
+    // Usamos los datos de cada tarjeta individual
     indicatorsHTML += `
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="${i}" class="${activeClass}" aria-current="${i === 0}" aria-label="Slide ${i + 1}"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="${i}" 
+        class="${activeClass}" aria-current="${i === 0}" aria-label="Slide ${i + 1}"></button>
     `;
-
     itemsHTML += `
       <div class="carousel-item ${activeClass}">
-        <img src="${imagecarousel}" class="d-block w-100" alt="..." height="${size}px">
+
+        <img src="file/img/${card.image}" class="d-block w-100" alt="Imagen ${i + 1}" height="${size}px">
         <div class="carousel-caption d-none d-md-block">
-          <h2 class="${colorwords} ${fontwords}">${titlecarousel} ${i + 1}</h2>
-          <p class="${colorwords} ${fontwords}">${headercarousel}</p>
+          <h2 class="${colorwords} ${fontwords}">${card.title} ${i + 1}</h2>
+          <p class="${colorwords} ${fontwords}">${card.header}</p>
         </div>
       </div>
     `;
-  }
+  });
 
   return `
     <div id="carouselExampleCaptions" class="carousel slide">

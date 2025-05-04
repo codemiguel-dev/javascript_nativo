@@ -162,6 +162,9 @@ async function handleCarouselUpdate() {
     const fontwords = getSelectedValue('radioGroupCarouselFontWord') || currentFontWords;
     const cardCount = getSelectedValue('radioGroupCarouselQuanty') || cardCount;   
 
+
+    // Ejemplo de cómo usar la función
+    const allCard = getCard();
     
     // Validar selecciones
     // if (!color) throw new Error("Selecciona un color");
@@ -171,26 +174,22 @@ async function handleCarouselUpdate() {
     
     // // Generar HTML (actualizado para incluir la imagen)
     const carouselHTML = generateCarouselHTML(
-      titlecarousel,
-      headercarousel,
-      currentImage,
+      allCard,
       size,
       colorwords,
-      fontwords, 
-      cardCount
+      fontwords
     );
     
     // Actualizar y guardar
     pageData.page.carousel = {
       id: 1,
       html: carouselHTML,
-      titlecarousel: titlecarousel,
-      headercarousel: headercarousel,
-      imagecarousel: currentImage, // Guardamos la URL de la imagen
-      size: size,
-      colorwords: colorwords,
-      fontwords: fontwords,
-      cardCount: cardCount
+      cards: allCard, // <-- Aquí guardamos todas las tarjetas
+      styles: {
+        size: size,
+        color: colorwords,
+        font: fontwords
+      }
     };
     getCard();
     await guardarJSON(pageData);
@@ -216,6 +215,7 @@ function getMenuOptions() {
 function getCard() {
   // Obtener todas las tarjetas
   const cards = document.querySelectorAll('.card-item');
+  const cardsArray = []; // Array para almacenar los datos de las tarjetas
 
   cards.forEach(card => {
     const index = card.getAttribute('data-index');
@@ -228,11 +228,23 @@ function getCard() {
     const title = card.querySelector('input[id^="titlecarousel"]')?.value || 'Sin título';
     const header = card.querySelector('input[id^="headercarousel"]')?.value || 'Sin encabezado';
 
-    console.log(`Tarjeta ${index}:`);
-    console.log(`  Imagen: ${image}`);
-    console.log(`  Título: ${title}`);
-    console.log(`  Encabezado: ${header}`);
+    // Crear objeto con los datos de la tarjeta y agregarlo al array
+    cardsArray.push({
+      index: index,
+      image: image,
+      title: title,
+      header: header
+    });
+
+    // Opcional: mantener los console.log para depuración
+    // console.log(`Tarjeta ${index}:`);
+    // console.log(`  Imagen: ${image}`);
+    // console.log(`  Título: ${title}`);
+    // console.log(`  Encabezado: ${header}`);
   });
+
+  // Devolver el array con todos los datos
+  return cardsArray;
 }
 
 
