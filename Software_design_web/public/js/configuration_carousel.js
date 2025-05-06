@@ -18,7 +18,8 @@ let currentHeaderSize = '';
 document.addEventListener('DOMContentLoaded', async () => {
   generateCarouselCards(); // Generar las tarjetas dinámicamente
   generateSizeImage();// Generar el selector de tamaño de imagen
-  generateColorWords();
+  generateColorWords();// Generar los radios de colores
+  generateFontWords();// Generar los radios de fuentes
   await loadPageData();
   initializeControls();
   setupEventListeners();
@@ -72,8 +73,8 @@ function generateCarouselCards() {
 }
 
 function generateSizeImage() {
-  const sizeImageContainer = document.querySelector('.size-image');
-  sizeImageContainer.innerHTML = '';
+  const Container = document.querySelector('.size-image');
+  Container.innerHTML = '';
   
   // Tamaños personalizados (puedes modificarlos según necesites)
   const customSizes = [200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300];
@@ -96,12 +97,12 @@ function generateSizeImage() {
     </div>
   `;
   
-  sizeImageContainer.insertAdjacentHTML('beforeend', HTML);
+  Container.insertAdjacentHTML('beforeend', HTML);
 }
 
 function generateColorWords() {
-  const sizeImageContainer = document.querySelector('.color-words');
-  sizeImageContainer.innerHTML = '';
+  const Container = document.querySelector('.color-words');
+  Container.innerHTML = '';
 
   // Lista de colores Bootstrap
   const colorOptions = [
@@ -161,14 +162,59 @@ function generateColorWords() {
     </div>
   `;
 
-  sizeImageContainer.insertAdjacentHTML('beforeend', HTML);
+  Container.insertAdjacentHTML('beforeend', HTML);
 }
 
+function generateFontWords() {
+  const Container = document.querySelector('.font-words');
+  Container.innerHTML = '';
 
+  // Opciones de fuentes (con clases de Bootstrap)
+  const fontOptions = [
+    { label: 'Bold', value: 'fw-bold' },
+    { label: 'Bolder', value: 'fw-bolder' },
+    { label: 'Semibold', value: 'fw-semibold' },
+    { label: 'Medium', value: 'fw-medium' },
+    { label: 'Normal', value: 'fw-normal' },
+    { label: 'Light', value: 'fw-light' },
+    { label: 'Lighter', value: 'fw-lighter' },
+    { label: 'Italic', value: 'fst-italic' },
+    { label: 'Text with normal', value: 'fst-normal' },
+    { label: 'Font Elegant', value: 'font-elegant' },
+    { label: 'Font Modern', value: 'font-modern' },
+    { label: 'Font Code', value: 'font-code' },
+    { label: 'Font Handwritten', value: 'font-handwritten' },
+    { label: 'Font Minimal', value: 'font-minimal' },
+    { label: 'Font Gradient', value: 'font-gradient' },
+    { label: 'Font Bold 3D', value: 'font-bold-3d' },
+    { label: 'Font Typewriter', value: 'font-typewriter' },
+    { label: 'Font Vintage', value: 'font-vintage' },
+    { label: 'Font Fire', value: 'font-fire' },
+    { label: 'Font holographic', value: 'font-holographic' },
+    { label: 'Font glitch', value: 'font-glitch' },
+    { label: 'Font ice', value: 'font-ice' },
+    { label: 'Font rainbow-shadow', value: 'font-rainbow-shadow' },
+    { label: 'Font ', value: 'font-smoke' },
+  ];
 
+  // Crear los radio buttons dinámicamente
+  let radioButtonsHTML = fontOptions.map((option, index) => `
+    <input type="radio" name="radioGroupCarouselFontWord" value="${option.value}" 
+      class="design_radio_nav_color" id="fontOption${index}">
+    <label for="fontOption${index}" class="text-dark ${option.value}">${option.label}</label><br/>
+  `).join('');
 
+  const HTML = `
+    <div class="modal-header">
+      <h5 class="modal-title" id="miModalLabel">Fuentes de letras:</h5>
+    </div>
+    <div class="modal-body">
+      ${radioButtonsHTML}
+    </div>
+  `;
 
-
+  Container.insertAdjacentHTML('beforeend', HTML);
+}
 
 // Función para configurar los event listeners de los inputs de imagen
 function setupImageInputs() {

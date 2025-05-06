@@ -40,6 +40,7 @@ document.getElementById("updateContainer").addEventListener("click", () => {
     const resultado = guardarJSON(pageData);
     console.log("JSON guardado correctamente:", resultado);
     shownavbarJSON(pageData);
+    location.reload();  // Recarga la página (equivalente a F5)
 
   } catch (error) {
     console.error("Error al guardar los datos:", error);

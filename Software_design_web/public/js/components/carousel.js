@@ -32,6 +32,7 @@ export function generateCarouselHTML(
     `;
 
     itemsHTML += `
+    
       <div class="carousel-item ${activeClass}">
         <img src="${imagePath}" class="d-block w-100" alt="${card.title || "Imagen " + (i + 1)}" height="${size}px">
         <div class="carousel-caption d-none d-md-block text-start">
