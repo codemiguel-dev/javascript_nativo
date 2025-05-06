@@ -1,4 +1,4 @@
-export function generateCarouselHTML(allCards, size, colorwords, fontwords) {
+export function generateCarouselHTML(allCards, size, colorwords, fontwords, currentImage) {
   // Validación de parámetros
   if (!Array.isArray(allCards)) {
     throw new Error("allCards debe ser un array de objetos");
@@ -22,9 +22,9 @@ export function generateCarouselHTML(allCards, size, colorwords, fontwords) {
     itemsHTML += `
       <div class="carousel-item ${activeClass}">
 
-        <img src="file/img/${card.image}" class="d-block w-100" alt="Imagen ${i + 1}" height="${size}px">
+        <img src="public/file/img/${currentImage}" class="d-block w-100" alt="Imagen ${i + 1}" height="${size}px">
         <div class="carousel-caption d-none d-md-block">
-          <h2 class="${colorwords} ${fontwords}">${card.title} ${i + 1}</h2>
+          <h2 class="${colorwords} ${fontwords}">${card.title}</h2>
           <p class="${colorwords} ${fontwords}">${card.header}</p>
         </div>
       </div>

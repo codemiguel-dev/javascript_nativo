@@ -5,83 +5,109 @@ import { showJSON } from './function/show_page.js';
 
 // Variable global para almacenar los datos
 let pageData = null;
+const numberOfCards = 3; // Número de tarjetas del carrusel
 
-let cardCount = '';
-let currentTitle = ''; // Almacena el valor de currentTitle
-let currentHeader = ''; // Almacena el valor de currentHeader
-let currentImage = ''; // Almacenará la URL de la imagen
-let currentSize = ''; // Almacenará tamaño del carousel
-let currentColorWords = ''; // Almacenará color de la letras del carousel
-let currentFontWords = ''; // Almacenará fuentes de la letras del carousel
-
-
-// Elementos del DOM
-const fileInput = document.getElementById('imagecarousel');
-const previewImage = document.getElementById('previewcarousel');
-
-// Definir en ámbito global o en tu módulo
-function getSelectedValue(radioGroupName) {
-  const radios = document.getElementsByName(radioGroupName);
-  for (const radio of radios) {
-    if (radio.checked) return radio.value;
-  }
-  return null;
-}
-
-
-// Evento para manejar la selección de imagen
-fileInput.addEventListener('change', async function(e) {
-  const file = e.target.files[0]; // Obtiene el primer archivo seleccionado
-  
-  if (file) {
-    // Parte 1: Mostrar previsualización de la imagen
-    const reader = new FileReader(); // Crea un lector de archivos
-
-
-/*************  ✨ Windsurf Command ⭐  *************/
-    // Función que se ejecuta cuando se completa la lectura de un archivo
-    // en el lector de archivos (FileReader). La función asigna el contenido
-    // leído como una URL de imagen al elemento <img> con id "previewImage"
-    // y muestra el elemento.
-/*******  e90be4b3-b731-45bb-9def-e0820d0f01a8  *******/    reader.onload = function(event) {
-      previewImage.src = event.target.result; // Asigna la imagen al src
-      previewImage.style.display = 'block'; // Muestra la imagen
-    };
-
-    reader.readAsDataURL(file); // Lee el archivo como URL
-
-    // Parte 2: Subir la imagen al servidor
-    const formData = new FormData();
-    formData.append('image', file); // Usamos 'file' que ya tenemos
-    
-    try {
-      const response = await fetch('/upload-image', {
-        method: 'POST',
-        body: formData
-      });
-  
-      const data = await response.json(); // Esperamos la conversión a JSON
-  
-      if (data.success) {
-        currentImage = data.imageUrl; // Almacenamos la URL de la imagen
-        console.log('URL de la imagen:', currentImage);
-        // No mostramos alerta para mejor UX, solo actualizamos el estado
-      } else {
-        console.error('Error al subir la imagen:', data.message);
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  }
-});
+// Configuración inicial del carrusel
+let currentSize = '';
+let currentColorWords = '';
+let currentFontWords = '';
 
 // Inicializar al cargar la página
 document.addEventListener('DOMContentLoaded', async () => {
+  generateCarouselCards(); // Generar las tarjetas dinámicamente
   await loadPageData();
   initializeControls();
   setupEventListeners();
-  getMenuOptions();
 });
+
+// Función para generar las tarjetas del carrusel
+function generateCarouselCards() {
+  const carouselContainer = document.getElementById('carousel-container') || 
+                           document.querySelector('.swiper-wrapper');
+  
+  if (!carouselContainer) {
+    console.error('No se encontró el contenedor del carrusel');
+    return;
+  }
+
+  // Limpiar contenedor existente
+  carouselContainer.innerHTML = '';
+
+  for (let i = 1; i <= numberOfCards; i++) {
+    const cardHTML = `
+    
+      <li class="card-item swiper-slide" data-index="${i}">
+        <a href="#" class="card-link">
+          <img src="file/img/Sin_imagen.png" alt="Card Image" class="card-image"
+            id="previewcarousel-${i}" width="100px">
+          <h2 class="card-title">Ingresar Datos</h2>
+          <input type="file" class="form-control image-input" 
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default" 
+            id="imagecarousel-${i}"
+            placeholder="Ingrese Imagen" />
+          <input type="text" class="form-control title-input" 
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default" 
+            id="titlecarousel-${i}"
+            placeholder="Ingrese Título" />
+          <input type="text" class="form-control header-input" 
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default" 
+            id="headercarousel-${i}"
+            placeholder="Ingrese Encabezado" />
+        </a>
+      </li>
+                        <!-- If we need pagination -->
+         
+    `;
+    carouselContainer.insertAdjacentHTML('beforeend', cardHTML);
+  }
+
+  // Configurar los event listeners para los inputs de imagen
+  setupImageInputs();
+}
+
+// Función para configurar los event listeners de los inputs de imagen
+function setupImageInputs() {
+  document.querySelectorAll('.image-input').forEach(input => {
+    input.addEventListener('change', async function(e) {
+      const index = this.id.split('-')[1];
+      const previewId = `previewcarousel-${index}`;
+      const previewImage = document.getElementById(previewId);
+      const file = e.target.files[0];
+      
+      if (file && previewImage) {
+        // Mostrar previsualización
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          previewImage.src = event.target.result;
+          previewImage.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+
+        // Subir imagen al servidor
+        const formData = new FormData();
+        formData.append('image', file);
+        formData.append('index', index);
+        
+        try {
+          const response = await fetch('/upload-image', {
+            method: 'POST',
+            body: formData
+          });
+          const data = await response.json();
+          
+          if (!data.success) {
+            console.error('Error al subir la imagen:', data.message);
+          }
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      }
+    });
+  });
+}
 
 // Cargar datos JSON
 async function loadPageData() {
@@ -90,91 +116,70 @@ async function loadPageData() {
     pageData = await response.json();
     
     // Restaurar selecciones previas si existen
-    // if (pageData.page.navbar.currentColor) {
-    //   currentColor = pageData.page.navbar.currentColor;
-    // }
-
-    if (pageData.page.carousel.titlecarousel) {
-      currentTitle = pageData.page.carousel.titlecarousel;
-    }
-    if (pageData.page.carousel.headercarousel) {
-      currentHeader = pageData.page.carousel.headercarousel;
+    if (pageData.page.carousel?.styles) {
+      currentSize = pageData.page.carousel.styles.size || '';
+      currentColorWords = pageData.page.carousel.styles.color || '';
+      currentFontWords = pageData.page.carousel.styles.font || '';
     }
 
-    if (pageData.page.carousel.size) {
-      currentSize = pageData.page.carousel.size;
+    // Restaurar datos de las tarjetas si existen
+    if (pageData.page.carousel?.cards) {
+      pageData.page.carousel.cards.forEach(card => {
+        const index = card.index;
+        const titleInput = document.getElementById(`titlecarousel-${index}`);
+        const headerInput = document.getElementById(`headercarousel-${index}`);
+        const previewImage = document.getElementById(`previewcarousel-${index}`);
+        
+        if (titleInput) titleInput.value = card.title || '';
+        if (headerInput) headerInput.value = card.header || '';
+        if (previewImage && card.image) {
+          previewImage.src = 'file/img/' + card.image;
+          previewImage.style.display = 'block';
+        }
+      });
     }
-
-    if (pageData.page.carousel.colorwords) {
-      currentColorWords = pageData.page.carousel.colorwords;
-    }
-
-    if (pageData.page.carousel.fontwords) {
-      currentFontWords = pageData.page.carousel.fontwords;
-    }
-
-    if (pageData.page.carousel.cardCount) {
-      cardCount = pageData.page.carousel.cardCount;
-    }
-    
-
-    if (pageData.page.carousel.imagecarousel) {
-      currentImage = pageData.page.carousel.imagecarousel;
-      previewImage.src = currentImage;
-      previewImage.style.display = 'block';
-    }
-
   } catch (error) {
-    console.error('Error cargando datos:', error);
+    console.error('Error loading page data:', error);
   }
 }
 
 function initializeControls() {
-  const positionRadio = document.querySelector(`input[name="radioGroupCarousel"][value="${currentSize}"]`);
-  if (positionRadio) positionRadio.checked = true;
+  // Configurar radios según los valores cargados
+  if (currentSize) {
+    const sizeRadio = document.querySelector(`input[name="radioGroupCarousel"][value="${currentSize}"]`);
+    if (sizeRadio) sizeRadio.checked = true;
+  }
 
-  const positionRadiocolorword = document.querySelector(`input[name="radioGroupCarouselColorWord"][value="${currentColorWords}"]`);
-  if (positionRadiocolorword) positionRadiocolorword.checked = true;
+  if (currentColorWords) {
+    const colorRadio = document.querySelector(`input[name="radioGroupCarouselColorWord"][value="${currentColorWords}"]`);
+    if (colorRadio) colorRadio.checked = true;
+  }
 
-  const positionRadiofontword = document.querySelector(`input[name="radioGroupCarouselFontWord"][value="${currentFontWords}"]`);
-  if (positionRadiofontword) positionRadiofontword.checked = true;
-
-  const positionRadiocantcard = document.querySelector(`input[name="radioGroupCarouselQuanty"][value="${cardCount}"]`);
-  if (positionRadiocantcard) positionRadiocantcard.checked = true;
-
+  if (currentFontWords) {
+    const fontRadio = document.querySelector(`input[name="radioGroupCarouselFontWord"][value="${currentFontWords}"]`);
+    if (fontRadio) fontRadio.checked = true;
+  }
 }
 
 // Configurar event listeners
 function setupEventListeners() {
-
   // Botón de actualización
   document.getElementById("updateCarousel")?.addEventListener("click", handleCarouselUpdate);
 }
 
-// Manejar actualización del navbar
+// Manejar actualización del carrusel
 async function handleCarouselUpdate() {
   try {
     if (!pageData) throw new Error("Datos no cargados");
     
-    
     const size = getSelectedValue('radioGroupCarousel') || currentSize;
     const colorwords = getSelectedValue('radioGroupCarouselColorWord') || currentColorWords;
     const fontwords = getSelectedValue('radioGroupCarouselFontWord') || currentFontWords;
-    const cardCount = getSelectedValue('radioGroupCarouselQuanty') || cardCount;   
 
-
-    // Ejemplo de cómo usar la función
-    const allCard = getCard();
+    const allCards = getCard();
     
-    // Validar selecciones
-    // if (!color) throw new Error("Selecciona un color");
-    
-    // Obtener opciones del menú
-    // const menuOptions = getMenuOptions();
-    
-    // // Generar HTML (actualizado para incluir la imagen)
     const carouselHTML = generateCarouselHTML(
-      allCard,
+      allCards,
       size,
       colorwords,
       fontwords
@@ -184,15 +189,17 @@ async function handleCarouselUpdate() {
     pageData.page.carousel = {
       id: 1,
       html: carouselHTML,
-      cards: allCard, // <-- Aquí guardamos todas las tarjetas
+      cards: allCards,
       styles: {
         size: size,
         color: colorwords,
         font: fontwords
       }
     };
-    getCard();
+    
     await guardarJSON(pageData);
+    
+    // Actualizar la interfaz 
     updateUI();
     
   } catch (error) {
@@ -201,52 +208,46 @@ async function handleCarouselUpdate() {
   }
 }
 
-// Helper: Obtener valor seleccionado de un grupo de radios
-// Helper: Obtener opciones del menú
-function getMenuOptions() {
-  const options = { texts: [] };
-  for (let i = 1; i <= 6; i++) {
-    options.texts.push(getValue(`imagecarousel${i}`));
-  }
-  console.log(options);
-  return options;
-}
-
+// Obtener datos de todas las tarjetas
 function getCard() {
-  // Obtener todas las tarjetas
   const cards = document.querySelectorAll('.card-item');
-  const cardsArray = []; // Array para almacenar los datos de las tarjetas
+  const cardsArray = [];
 
   cards.forEach(card => {
     const index = card.getAttribute('data-index');
+    const fileInput = document.getElementById(`imagecarousel-${index}`);
+    const titleInput = document.getElementById(`titlecarousel-${index}`);
+    const headerInput = document.getElementById(`headercarousel-${index}`);
+    const previewImage = document.getElementById(`previewcarousel-${index}`);
 
-    // Obtener la imagen del input tipo file dentro de esta tarjeta
-    const fileInput = card.querySelector('input[type="file"]');
-    const image = fileInput?.files?.[0]?.name || 'Sin imagen seleccionada';
+    // Obtener nombre de archivo o mantener la imagen actual
+    let imageName = '';
+    if (fileInput?.files?.[0]) {
+      imageName = fileInput.files[0].name;
+    } else if (previewImage?.src) {
+      const srcParts = previewImage.src.split('/');
+      imageName = srcParts[srcParts.length - 1];
+    }
 
-    // Obtener el título y encabezado
-    const title = card.querySelector('input[id^="titlecarousel"]')?.value || 'Sin título';
-    const header = card.querySelector('input[id^="headercarousel"]')?.value || 'Sin encabezado';
-
-    // Crear objeto con los datos de la tarjeta y agregarlo al array
     cardsArray.push({
       index: index,
-      image: image,
-      title: title,
-      header: header
+      image: imageName,
+      title: titleInput?.value || '',
+      header: headerInput?.value || ''
     });
-
-    // Opcional: mantener los console.log para depuración
-    // console.log(`Tarjeta ${index}:`);
-    // console.log(`  Imagen: ${image}`);
-    // console.log(`  Título: ${title}`);
-    // console.log(`  Encabezado: ${header}`);
   });
 
-  // Devolver el array con todos los datos
   return cardsArray;
 }
 
+// Helper: Obtener valor seleccionado de un grupo de radios
+function getSelectedValue(radioGroupName) {
+  const radios = document.getElementsByName(radioGroupName);
+  for (const radio of radios) {
+    if (radio.checked) return radio.value;
+  }
+  return null;
+}
 
 // Helper: Obtener valor de input de forma segura
 function getValue(id) {
@@ -256,9 +257,9 @@ function getValue(id) {
 
 // Actualizar la interfaz
 function updateUI() {
-  // shownavbarJSON(pageData);
-  
   showJSON(pageData);
-  // location.reload(); 
-  console.log("Navbar actualizado!");
+  // Recarga la página (equivalente a F5)
+  location.reload();
+
+  console.log("Carrusel actualizado!");
 }
