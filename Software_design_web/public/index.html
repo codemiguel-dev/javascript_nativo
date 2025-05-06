@@ -396,69 +396,17 @@
     <div class="modal fade" id="miModal" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
-
-                <!-- Tamaño de imagen -->
                 <div class="modal-header">
-                    <h5 class="modal-title" id="miModalLabel">Configura tamaño de imagen</h5>
-                    <input type="radio" name="radioGroupCarousel" value="300" class="design_radio_nav_color">
-                    <label for="fixedTop" class="text-dark">Tamaño 300</label></br>
-
-                    <input type="radio" name="radioGroupCarousel" value="400" class="design_radio_nav_color">
-                    <label for="fixedTop" class="text-dark">Tamaño 400</label></br>
-
-                    <input type="radio" name="radioGroupCarousel" value="500" class="design_radio_nav_color">
-                    <label for="fixedTop" class="text-dark">Tamaño 500</label></br>
-
-                    <input type="radio" name="radioGroupCarousel" value="600" class="design_radio_nav_color">
-                    <label for="fixedTop" class="text-dark">Tamaño 600</label></br>
-
-                    <input type="radio" name="radioGroupCarousel" value="700" class="design_radio_nav_color">
-                    <label for="fixedTop" class="text-dark">Tamaño 700</label></br>
-
-                    <input type="radio" name="radioGroupCarousel" value="800" class="design_radio_nav_color">
-                    <label for="fixedTop" class="text-dark">Tamaño 800</label></br>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                 </div>
 
-                <!-- color de letras -->
-                <div class="modal-header">
-                    <h5 class="modal-title" id="miModalLabel">Configura color de letras</h5>
-                    <input type="radio" name="radioGroupCarouselColorWord" value="text-primary"
-                        class="design_radio_nav_color">
-                    <label for="fixedTop" class="text-primary">Primary</label></br>
+               <div class="size-image"></div>
 
-                    <input type="radio" name="radioGroupCarouselColorWord" value="text-secondary"
-                        class="design_radio_nav_color">
-                    <label for="fixedTop" class="text-secondary">Secondary</label></br>
-
-                    <input type="radio" name="radioGroupCarouselColorWord" value="text-success"
-                        class="design_radio_nav_color">
-                    <label for="fixedTop" class="text-success">Success</label></br>
-
-                    <input type="radio" name="radioGroupCarouselColorWord" value="text-danger"
-                        class="design_radio_nav_color">
-                    <label for="fixedTop" class="text-danger">Danger</label></br>
-
-                    <input type="radio" name="radioGroupCarouselColorWord" value="text-warning"
-                        class="design_radio_nav_color">
-                    <label for="fixedTop" class="text-warning">Warning</label></br>
-
-                    <input type="radio" name="radioGroupCarouselColorWord" value="text-info"
-                        class="design_radio_nav_color">
-                    <label for="fixedTop" class="text-info">Info</label></br>
-
-                    <input type="radio" name="radioGroupCarouselColorWord" value="text-light"
-                        class="design_radio_nav_color">
-                    <label for="fixedTop" class="text-light bg-dark">Light</label></br>
-
-                    <input type="radio" name="radioGroupCarouselColorWord" value="text-dark"
-                        class="design_radio_nav_color">
-                    <label for="fixedTop" class="text-dark">Dark</label></br>
-                </div>
+                <div class="color-words"></div>
 
                 <!-- fuentes de letras -->
                 <div class="modal-header">
-                    <h5 class="modal-title" id="miModalLabel">Configura Fuentes de letras</h5>
+                    <h5 class="modal-title" id="miModalLabel">Fuentes de letras:</h5>
                     <input type="radio" name="radioGroupCarouselFontWord" value="fw-bold"
                         class="design_radio_nav_color">
                     <label for="fixedTop" class="text-dark fw-bold">Bold</label></br>
@@ -496,16 +444,49 @@
                     <label for="fixedTop" class="text-dark fst-normal">Text with normal </label></br>
                 </div>
 
+                <!-- posición de letras -->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="miModalLabel">Posición de letras:</h5>
 
-               
+                    <input type="radio" name="radioGroupCarouselPositionWord" value="fw-bolder"
+                        class="design_radio_nav_color">
+                    <label for="fixedTop" class="text-dark">Izquierda</label></br>
+
+                    <input type="radio" name="radioGroupCarouselPositionWord" value="fw-semibold"
+                        class="design_radio_nav_color">
+                    <label for="fixedTop" class="text-dark">Centro</label></br>
+
+                    <input type="radio" name="radioGroupCarouselPositionWord" value="fw-medium"
+                        class="design_radio_nav_color">
+                    <label for="fixedTop" class="text-dark">Derecha </label></br>
+
+                </div>
+
+                <!-- cantidad de tarjetas -->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="miModalLabel">Cantidad de Tarjetas: </h5>
+
+                    <input type="radio" name="radioGroupCarouselPositionWord" value="fw-bolder"
+                        class="design_radio_nav_color">
+                    <label for="fixedTop" class="text-dark">1</label></br>
+
+                    <input type="radio" name="radioGroupCarouselPositionWord" value="fw-semibold"
+                        class="design_radio_nav_color">
+                    <label for="fixedTop" class="text-dark">2</label></br>
+
+                    <input type="radio" name="radioGroupCarouselPositionWord" value="fw-medium"
+                        class="design_radio_nav_color">
+                    <label for="fixedTop" class="text-dark">3 </label></br>
+
+                </div>
+
                 <div class="container swiper">
                     <div class="card-wrapper">
                         <ul class="card-list swiper-wrapper">
-                         
+
                         </ul>
-                    
-                          
-                            <!-- If we need pagination -->
+
+                        <!-- If we need pagination -->
                         <div class="swiper-pagination"></div>
 
                         <!-- If we need navigation buttons -->
@@ -517,6 +498,7 @@
 
                     </div>
                 </div>
+
                 <div class="modal-footer">
 
                     <a href="#" id="updateCarousel" class="btn btn-primary">Actualizar Carrusel</a>

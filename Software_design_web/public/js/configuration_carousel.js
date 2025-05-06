@@ -5,16 +5,20 @@ import { showJSON } from './function/show_page.js';
 
 // Variable global para almacenar los datos
 let pageData = null;
-const numberOfCards = 3; // Número de tarjetas del carrusel
+const numberOfCards = 5; // Número de tarjetas del carrusel
 
 // Configuración inicial del carrusel
 let currentSize = '';
 let currentColorWords = '';
 let currentFontWords = '';
+let currentTitleSize = '';
+let currentHeaderSize = '';
 
 // Inicializar al cargar la página
 document.addEventListener('DOMContentLoaded', async () => {
   generateCarouselCards(); // Generar las tarjetas dinámicamente
+  generateSizeImage();// Generar el selector de tamaño de imagen
+  generateColorWords();
   await loadPageData();
   initializeControls();
   setupEventListeners();
@@ -37,6 +41,7 @@ function generateCarouselCards() {
     
       <li class="card-item swiper-slide" data-index="${i}">
         <a href="#" class="card-link">
+          <p class="fs-1">Número de tarjeta. ${i}</p>
           <img src="file/img/Sin_imagen.png" alt="Card Image" class="card-image"
             id="previewcarousel-${i}" width="100px">
           <h2 class="card-title">Ingresar Datos</h2>
@@ -57,8 +62,7 @@ function generateCarouselCards() {
             placeholder="Ingrese Encabezado" />
         </a>
       </li>
-                        <!-- If we need pagination -->
-         
+      <!-- If we need pagination -->
     `;
     carouselContainer.insertAdjacentHTML('beforeend', cardHTML);
   }
@@ -66,6 +70,105 @@ function generateCarouselCards() {
   // Configurar los event listeners para los inputs de imagen
   setupImageInputs();
 }
+
+function generateSizeImage() {
+  const sizeImageContainer = document.querySelector('.size-image');
+  sizeImageContainer.innerHTML = '';
+  
+  // Tamaños personalizados (puedes modificarlos según necesites)
+  const customSizes = [200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300];
+  
+  let radioButtonsHTML = customSizes.map(size => `
+    <div class="form-check">
+      <input type="radio" name="radioGroupCarousel" value="${size}" class="form-check-input">
+      <label for="size${size}" class="form-check-label text-dark">${size}px</label>
+    </div>
+  `).join('');
+
+  const HTML = `
+    <div class="modal-header">
+      <h5 class="modal-title">Tamaño de imagen:</h5>
+    </div>
+    <div class="modal-header">
+      <div class="modal-body">
+        ${radioButtonsHTML}
+      </div>
+    </div>
+  `;
+  
+  sizeImageContainer.insertAdjacentHTML('beforeend', HTML);
+}
+
+function generateColorWords() {
+  const sizeImageContainer = document.querySelector('.color-words');
+  sizeImageContainer.innerHTML = '';
+
+  // Lista de colores Bootstrap
+  const colorOptions = [
+    { name: 'Primary', class: 'text-primary' },
+    { name: 'Secondary', class: 'text-secondary' },
+    { name: 'Success', class: 'text-success' },
+    { name: 'Danger', class: 'text-danger' },
+    { name: 'Warning', class: 'text-warning' },
+    { name: 'Info', class: 'text-info' },
+    { name: 'Light', class: 'text-light bg-dark' }, // Visibilidad
+    { name: 'Dark', class: 'text-dark' }
+  ];
+
+  // Tamaños para título y encabezado
+  const fontSizes = [];
+  for (let i = 12; i <= 200; i += 2) {
+    fontSizes.push(i);
+  }
+  
+  // Radios de colores
+  const colorRadiosHTML = colorOptions.map((color, index) => `
+    <input type="radio" name="radioGroupCarouselColorWord" value="${color.class.replace(' bg-dark', '')}" class="design_radio_nav_color" id="colorOption${index}">
+    <label for="colorOption${index}" class="${color.class}">${color.name}</label><br/>
+  `).join('');
+
+  // Selector de tamaño para title
+  const titleSizeSelectHTML = `
+    <label for="titleSizeSelect"><strong>Tamaño del título:</strong></label>
+    <select id="titleSizeSelect" class="form-select mb-3">
+      ${fontSizes.map(size => `<option value="${size}">${size}px</option>`).join('')}
+    </select>
+  `;
+
+  // Selector de tamaño para header
+  const headerSizeSelectHTML = `
+    <label for="headerSizeSelect"><strong>Tamaño del encabezado:</strong></label>
+    <select id="headerSizeSelect" class="form-select mb-3">
+      ${fontSizes.map(size => `<option value="${size}">${size}px</option>`).join('')}
+    </select>
+  `;
+
+  // HTML final
+  const HTML = `
+    <div class="modal-header">
+      <h5 class="modal-title" id="miModalLabel">Configuración de letras</h5>
+    </div>
+    <div class="modal-body">
+      <div class="mb-3">
+        ${colorRadiosHTML}
+      </div>
+      <div class="mb-3">
+        ${titleSizeSelectHTML}
+      </div>
+      <div>
+        ${headerSizeSelectHTML}
+      </div>
+    </div>
+  `;
+
+  sizeImageContainer.insertAdjacentHTML('beforeend', HTML);
+}
+
+
+
+
+
+
 
 // Función para configurar los event listeners de los inputs de imagen
 function setupImageInputs() {
@@ -113,12 +216,16 @@ async function loadPageData() {
   try {
     const response = await fetch('data/page.json');
     pageData = await response.json();
-    
+
     // Restaurar selecciones previas si existen
     if (pageData.page.carousel?.styles) {
       currentSize = pageData.page.carousel.styles.size || '';
       currentColorWords = pageData.page.carousel.styles.color || '';
       currentFontWords = pageData.page.carousel.styles.font || '';
+      
+      // NUEVO: Restaurar tamaño de título y encabezado
+      currentTitleSize = pageData.page.carousel.styles.titleSize || '';
+      currentHeaderSize = pageData.page.carousel.styles.headerSize || '';
     }
 
     // Restaurar datos de las tarjetas si existen
@@ -128,7 +235,7 @@ async function loadPageData() {
         const titleInput = document.getElementById(`titlecarousel-${index}`);
         const headerInput = document.getElementById(`headercarousel-${index}`);
         const previewImage = document.getElementById(`previewcarousel-${index}`);
-        
+
         if (titleInput) titleInput.value = card.title || '';
         if (headerInput) headerInput.value = card.header || '';
         if (previewImage && card.image) {
@@ -141,6 +248,7 @@ async function loadPageData() {
     console.error('Error loading page data:', error);
   }
 }
+
 
 function initializeControls() {
   // Configurar radios según los valores cargados
@@ -158,7 +266,20 @@ function initializeControls() {
     const fontRadio = document.querySelector(`input[name="radioGroupCarouselFontWord"][value="${currentFontWords}"]`);
     if (fontRadio) fontRadio.checked = true;
   }
+
+  // NUEVO: Configurar tamaño de título
+  if (currentTitleSize) {
+    const titleSizeSelect = document.getElementById('titleSizeSelect');
+    if (titleSizeSelect) titleSizeSelect.value = currentTitleSize;
+  }
+
+  // NUEVO: Configurar tamaño de encabezado
+  if (currentHeaderSize) {
+    const headerSizeSelect = document.getElementById('headerSizeSelect');
+    if (headerSizeSelect) headerSizeSelect.value = currentHeaderSize;
+  }
 }
+
 
 // Configurar event listeners
 function setupEventListeners() {
@@ -170,21 +291,29 @@ function setupEventListeners() {
 async function handleCarouselUpdate() {
   try {
     if (!pageData) throw new Error("Datos no cargados");
-    
+
+    // Obtener valores seleccionados
     const size = getSelectedValue('radioGroupCarousel') || currentSize;
     const colorwords = getSelectedValue('radioGroupCarouselColorWord') || currentColorWords;
     const fontwords = getSelectedValue('radioGroupCarouselFontWord') || currentFontWords;
 
+    // NUEVO: Obtener tamaño de título y encabezado
+    const titleSize = document.getElementById('titleSizeSelect')?.value || currentTitleSize || '20';
+    const headerSize = document.getElementById('headerSizeSelect')?.value || currentHeaderSize || '16';
+
     const allCards = getCard();
-    
+
+    // Pasar también tamaños al generar HTML
     const carouselHTML = generateCarouselHTML(
       allCards,
       size,
       colorwords,
-      fontwords
+      fontwords,
+      titleSize,
+      headerSize
     );
-    
-    // Actualizar y guardar
+
+    // Actualizar y guardar datos
     pageData.page.carousel = {
       id: 1,
       html: carouselHTML,
@@ -192,20 +321,21 @@ async function handleCarouselUpdate() {
       styles: {
         size: size,
         color: colorwords,
-        font: fontwords
+        font: fontwords,
+        titleSize: titleSize,
+        headerSize: headerSize
       }
     };
-    
+
     await guardarJSON(pageData);
-    
-    // Actualizar la interfaz 
     updateUI();
-    
+
   } catch (error) {
     console.error("Error:", error.message);
     alert(`Error: ${error.message}`);
   }
 }
+
 
 // Obtener datos de todas las tarjetas
 function getCard() {
@@ -259,7 +389,6 @@ function getValue(id) {
 // Actualizar la interfaz
 function updateUI() {
   showJSON(pageData);
-  // Recarga la página (equivalente a F5)
-  location.reload();
+  location.reload();  // Recarga la página (equivalente a F5)
   console.log("Carrusel actualizado!");
 }
