@@ -324,7 +324,45 @@
     0% { text-shadow: 0 0 2px #fff, 0 0 4px #ccc, 0 0 6px #bbb; opacity: 1; }
     100% { text-shadow: 0 0 10px #999, 0 0 20px #777, 0 0 30px #555; opacity: 0.6; }
   }
+
+  .font-neon-soft {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.2rem;
+    color: #fdfdfd;
+    text-shadow: 0 0 5px #fff, 0 0 10px #aaf, 0 0 20px #77f;
+    animation: softGlow 4s ease-in-out infinite alternate;
+  }
   
+  @keyframes softGlow {
+    from { text-shadow: 0 0 5px #fff, 0 0 10px #aaf, 0 0 20px #77f; }
+    to { text-shadow: 0 0 10px #fff, 0 0 20px #ccf, 0 0 30px #99f; }
+  }
   
+  .font-western {
+    font-family: 'Stardos Stencil', cursive;
+    font-size: 2rem;
+    color: #8b4513;
+    text-shadow: 1px 1px 0 #fff, 2px 2px 0 #c19a6b;
+  }
   
+  .font-medieval {
+    font-family: 'UnifrakturCook', cursive;
+    font-size: 2.4rem;
+    color: #2d2d2d;
+    text-shadow: 1px 1px 3px #aaa;
+  }
+
+  .font-rainbow {
+    font-family: 'Baloo 2', cursive;
+    font-size: 2.2rem;
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbowShift 5s linear infinite;
+  }
+  
+  @keyframes rainbowShift {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+  }
   

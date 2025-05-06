@@ -1,25 +1,25 @@
 // Importar las variables desde los archivos necesarios
-import { generateCarouselHTML } from './components/carousel.js';
-import { guardarJSON } from './function/save_json.js';
-import { showJSON } from './function/show_page.js';
+import { generateCarouselHTML } from "./components/carousel.js";
+import { guardarJSON } from "./function/save_json.js";
+import { showJSON } from "./function/show_page.js";
 
 // Variable global para almacenar los datos
 let pageData = null;
 const numberOfCards = 5; // Número de tarjetas del carrusel
 
 // Configuración inicial del carrusel
-let currentSize = '';
-let currentColorWords = '';
-let currentFontWords = '';
-let currentTitleSize = '';
-let currentHeaderSize = '';
+let currentSize = "";
+let currentColorWords = "";
+let currentFontWords = "";
+let currentTitleSize = "";
+let currentHeaderSize = "";
 
 // Inicializar al cargar la página
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener("DOMContentLoaded", async () => {
   generateCarouselCards(); // Generar las tarjetas dinámicamente
-  generateSizeImage();// Generar el selector de tamaño de imagen
-  generateColorWords();// Generar los radios de colores
-  generateFontWords();// Generar los radios de fuentes
+  generateSizeImage(); // Generar el selector de tamaño de imagen
+  generateColorWords(); // Generar los radios de colores
+  generateFontWords(); // Generar los radios de fuentes
   await loadPageData();
   initializeControls();
   setupEventListeners();
@@ -27,15 +27,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // Función para generar las tarjetas del carrusel
 function generateCarouselCards() {
-  const carouselContainer = document.querySelector('.swiper-wrapper');
-  
+  const carouselContainer = document.querySelector(".swiper-wrapper");
+
   if (!carouselContainer) {
-    console.error('No se encontró el contenedor del carrusel');
+    console.error("No se encontró el contenedor del carrusel");
     return;
   }
 
   // Limpiar contenedor existente
-  carouselContainer.innerHTML = '';
+  carouselContainer.innerHTML = "";
 
   for (let i = 1; i <= numberOfCards; i++) {
     const cardHTML = `
@@ -65,7 +65,7 @@ function generateCarouselCards() {
       </li>
       <!-- If we need pagination -->
     `;
-    carouselContainer.insertAdjacentHTML('beforeend', cardHTML);
+    carouselContainer.insertAdjacentHTML("beforeend", cardHTML);
   }
 
   // Configurar los event listeners para los inputs de imagen
@@ -73,18 +73,24 @@ function generateCarouselCards() {
 }
 
 function generateSizeImage() {
-  const Container = document.querySelector('.size-image');
-  Container.innerHTML = '';
-  
+  const Container = document.querySelector(".size-image");
+  Container.innerHTML = "";
+
   // Tamaños personalizados (puedes modificarlos según necesites)
-  const customSizes = [200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300];
-  
-  let radioButtonsHTML = customSizes.map(size => `
+  const customSizes = [
+    200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300,
+  ];
+
+  let radioButtonsHTML = customSizes
+    .map(
+      (size) => `
     <div class="form-check">
       <input type="radio" name="radioGroupCarousel" value="${size}" class="form-check-input">
       <label for="size${size}" class="form-check-label text-dark">${size}px</label>
     </div>
-  `).join('');
+  `
+    )
+    .join("");
 
   const HTML = `
     <div class="modal-header">
@@ -96,24 +102,24 @@ function generateSizeImage() {
       </div>
     </div>
   `;
-  
-  Container.insertAdjacentHTML('beforeend', HTML);
+
+  Container.insertAdjacentHTML("beforeend", HTML);
 }
 
 function generateColorWords() {
-  const Container = document.querySelector('.color-words');
-  Container.innerHTML = '';
+  const Container = document.querySelector(".color-words");
+  Container.innerHTML = "";
 
   // Lista de colores Bootstrap
   const colorOptions = [
-    { name: 'Primary', class: 'text-primary' },
-    { name: 'Secondary', class: 'text-secondary' },
-    { name: 'Success', class: 'text-success' },
-    { name: 'Danger', class: 'text-danger' },
-    { name: 'Warning', class: 'text-warning' },
-    { name: 'Info', class: 'text-info' },
-    { name: 'Light', class: 'text-light bg-dark' }, // Visibilidad
-    { name: 'Dark', class: 'text-dark' }
+    { name: "Primary", class: "text-primary" },
+    { name: "Secondary", class: "text-secondary" },
+    { name: "Success", class: "text-success" },
+    { name: "Danger", class: "text-danger" },
+    { name: "Warning", class: "text-warning" },
+    { name: "Info", class: "text-info" },
+    { name: "Light", class: "text-light bg-dark" }, // Visibilidad
+    { name: "Dark", class: "text-dark" },
   ];
 
   // Tamaños para título y encabezado
@@ -121,18 +127,29 @@ function generateColorWords() {
   for (let i = 12; i <= 200; i += 2) {
     fontSizes.push(i);
   }
-  
+
   // Radios de colores
-  const colorRadiosHTML = colorOptions.map((color, index) => `
-    <input type="radio" name="radioGroupCarouselColorWord" value="${color.class.replace(' bg-dark', '')}" class="design_radio_nav_color" id="colorOption${index}">
-    <label for="colorOption${index}" class="${color.class}">${color.name}</label><br/>
-  `).join('');
+  const colorRadiosHTML = colorOptions
+    .map(
+      (color, index) => `
+    <input type="radio" name="radioGroupCarouselColorWord" value="${color.class.replace(
+      " bg-dark",
+      ""
+    )}" class="design_radio_nav_color" id="colorOption${index}">
+    <label for="colorOption${index}" class="${color.class}">${
+        color.name
+      }</label><br/>
+  `
+    )
+    .join("");
 
   // Selector de tamaño para title
   const titleSizeSelectHTML = `
     <label for="titleSizeSelect"><strong>Tamaño del título:</strong></label>
     <select id="titleSizeSelect" class="form-select mb-3">
-      ${fontSizes.map(size => `<option value="${size}">${size}px</option>`).join('')}
+      ${fontSizes
+        .map((size) => `<option value="${size}">${size}px</option>`)
+        .join("")}
     </select>
   `;
 
@@ -140,7 +157,9 @@ function generateColorWords() {
   const headerSizeSelectHTML = `
     <label for="headerSizeSelect"><strong>Tamaño del encabezado:</strong></label>
     <select id="headerSizeSelect" class="form-select mb-3">
-      ${fontSizes.map(size => `<option value="${size}">${size}px</option>`).join('')}
+      ${fontSizes
+        .map((size) => `<option value="${size}">${size}px</option>`)
+        .join("")}
     </select>
   `;
 
@@ -162,95 +181,124 @@ function generateColorWords() {
     </div>
   `;
 
-  Container.insertAdjacentHTML('beforeend', HTML);
+  Container.insertAdjacentHTML("beforeend", HTML);
 }
 
 function generateFontWords() {
-  const Container = document.querySelector('.font-words');
-  Container.innerHTML = '';
+  const Container = document.querySelector(".font-words");
+  Container.innerHTML = "";
 
-  // Opciones de fuentes (con clases de Bootstrap)
   const fontOptions = [
-    { label: 'Bold', value: 'fw-bold' },
-    { label: 'Bolder', value: 'fw-bolder' },
-    { label: 'Semibold', value: 'fw-semibold' },
-    { label: 'Medium', value: 'fw-medium' },
-    { label: 'Normal', value: 'fw-normal' },
-    { label: 'Light', value: 'fw-light' },
-    { label: 'Lighter', value: 'fw-lighter' },
-    { label: 'Italic', value: 'fst-italic' },
-    { label: 'Text with normal', value: 'fst-normal' },
-    { label: 'Font Elegant', value: 'font-elegant' },
-    { label: 'Font Modern', value: 'font-modern' },
-    { label: 'Font Code', value: 'font-code' },
-    { label: 'Font Handwritten', value: 'font-handwritten' },
-    { label: 'Font Minimal', value: 'font-minimal' },
-    { label: 'Font Gradient', value: 'font-gradient' },
-    { label: 'Font Bold 3D', value: 'font-bold-3d' },
-    { label: 'Font Typewriter', value: 'font-typewriter' },
-    { label: 'Font Vintage', value: 'font-vintage' },
-    { label: 'Font Fire', value: 'font-fire' },
-    { label: 'Font holographic', value: 'font-holographic' },
-    { label: 'Font glitch', value: 'font-glitch' },
-    { label: 'Font ice', value: 'font-ice' },
-    { label: 'Font rainbow-shadow', value: 'font-rainbow-shadow' },
-    { label: 'Font ', value: 'font-smoke' },
+    { label: "Bold", value: "fw-bold" },
+    { label: "Bolder", value: "fw-bolder" },
+    { label: "Semibold", value: "fw-semibold" },
+    { label: "Medium", value: "fw-medium" },
+    { label: "Normal", value: "fw-normal" },
+    { label: "Light", value: "fw-light" },
+    { label: "Lighter", value: "fw-lighter" },
+    { label: "Italic", value: "fst-italic" },
+    { label: "Text with normal", value: "fst-normal" },
+    { label: "Font Elegant", value: "font-elegant" },
+    { label: "Font Modern", value: "font-modern" },
+    { label: "Font Code", value: "font-code" },
+    { label: "Font Handwritten", value: "font-handwritten" },
+    { label: "Font Minimal", value: "font-minimal" },
+    { label: "Font Gradient", value: "font-gradient" },
+    { label: "Font Bold 3D", value: "font-bold-3d" },
+    { label: "Font Typewriter", value: "font-typewriter" },
+    { label: "Font Vintage", value: "font-vintage" },
+    { label: "Font Fire", value: "font-fire" },
+    { label: "Font Holographic", value: "font-holographic" },
+    { label: "Font Glitch", value: "font-glitch" },
+    { label: "Font Ice", value: "font-ice" },
+    { label: "Font Rainbow Shadow", value: "font-rainbow-shadow" },
+    { label: "Font Smoke", value: "font-smoke" },
+    { label: "Font Neon Soft", value: "font-neon-soft" },
+    { label: "Font Western", value: "font-western" },
+    { label: "Font Medieval", value: "font-medieval" },
+    { label: "Font Rainbow", value: "font-rainbow" },
   ];
 
-  // Crear los radio buttons dinámicamente
-  let radioButtonsHTML = fontOptions.map((option, index) => `
-    <input type="radio" name="radioGroupCarouselFontWord" value="${option.value}" 
-      class="design_radio_nav_color" id="fontOption${index}">
-    <label for="fontOption${index}" class="text-dark ${option.value}">${option.label}</label><br/>
-  `).join('');
-
+  // Crear el select con vista previa
   const HTML = `
     <div class="modal-header">
-      <h5 class="modal-title" id="miModalLabel">Fuentes de letras:</h5>
+      <h5 class="modal-title">Fuentes de letras:</h5>
     </div>
     <div class="modal-body">
-      ${radioButtonsHTML}
+      <label for="fontSelect" class="form-label">Selecciona una fuente:</label>
+      <select id="selectFontWord" class="form-select mb-3">
+        ${fontOptions
+          .map(
+            (option) => `
+          <option value="${option.value}" ${
+              currentFontWords === option.value ? "selected" : ""
+            }>
+            ${option.label}
+          </option>
+        `
+          )
+          .join("")}
+      </select>
+      
+      <div class="mt-3 p-3 border rounded bg-light">
+  <h6>Vista previa:</h6>
+  <p id="fontPreview" class="${currentFontWords || "fw-normal"} mt-2">
+    Texto de ejemplo con la fuente seleccionada
+  </p>
+</div>
+
     </div>
   `;
 
-  Container.insertAdjacentHTML('beforeend', HTML);
+  Container.insertAdjacentHTML("beforeend", HTML);
+
+  // Actualizar vista previa al cambiar selección
+  const selectElement = document.getElementById("selectFontWord");
+  const previewElement = document.getElementById("fontPreview");
+
+  selectElement.addEventListener("change", function () {
+    previewElement.className = this.value;
+  });
+
+  // Inicializar vista previa
+  previewElement.className = selectElement.value;
 }
 
 // Función para configurar los event listeners de los inputs de imagen
 function setupImageInputs() {
-  document.querySelectorAll('.image-input').forEach(input => {
-    input.addEventListener('change', async function(e) {
-      const index = this.id.split('-')[1];
+  document.querySelectorAll(".image-input").forEach((input) => {
+    input.addEventListener("change", async function (e) {
+      const index = this.id.split("-")[1];
       const previewId = `previewcarousel-${index}`;
       const previewImage = document.getElementById(previewId);
       const file = e.target.files[0];
-      
+
       if (file && previewImage) {
         // Mostrar previsualización
         const reader = new FileReader();
-        reader.onload = function(event) {
+        reader.onload = function (event) {
           previewImage.src = event.target.result;
-          previewImage.style.display = 'block';
+          previewImage.style.display = "block";
         };
         reader.readAsDataURL(file);
 
         // Subir imagen al servidor
         const formData = new FormData();
-        formData.append('image', file);
-        formData.append('index', index);
-        
+        formData.append("image", file);
+        formData.append("index", index);
+
         try {
-          const response = await fetch('/upload-image', {
-            method: 'POST',
-            body: formData
+          const response = await fetch("/upload-image", {
+            method: "POST",
+            body: formData,
           });
           const data = await response.json();
-          
+
           if (!data.success) {
-            console.error('Error al subir la imagen:', data.message);
+            console.error("Error al subir la imagen:", data.message);
           }
         } catch (error) {
-          console.error('Error:', error);
+          console.error("Error:", error);
         }
       }
     });
@@ -260,77 +308,92 @@ function setupImageInputs() {
 // Cargar datos JSON
 async function loadPageData() {
   try {
-    const response = await fetch('data/page.json');
+    const response = await fetch("data/page.json");
     pageData = await response.json();
 
     // Restaurar selecciones previas si existen
     if (pageData.page.carousel?.styles) {
-      currentSize = pageData.page.carousel.styles.size || '';
-      currentColorWords = pageData.page.carousel.styles.color || '';
-      currentFontWords = pageData.page.carousel.styles.font || '';
-      
+      currentSize = pageData.page.carousel.styles.size || "";
+      currentColorWords = pageData.page.carousel.styles.color || "";
+      currentFontWords = pageData.page.carousel.styles.font || "";
+
       // NUEVO: Restaurar tamaño de título y encabezado
-      currentTitleSize = pageData.page.carousel.styles.titleSize || '';
-      currentHeaderSize = pageData.page.carousel.styles.headerSize || '';
+      currentTitleSize = pageData.page.carousel.styles.titleSize || "";
+      currentHeaderSize = pageData.page.carousel.styles.headerSize || "";
     }
 
     // Restaurar datos de las tarjetas si existen
     if (pageData.page.carousel?.cards) {
-      pageData.page.carousel.cards.forEach(card => {
+      pageData.page.carousel.cards.forEach((card) => {
         const index = card.index;
         const titleInput = document.getElementById(`titlecarousel-${index}`);
         const headerInput = document.getElementById(`headercarousel-${index}`);
-        const previewImage = document.getElementById(`previewcarousel-${index}`);
+        const previewImage = document.getElementById(
+          `previewcarousel-${index}`
+        );
 
-        if (titleInput) titleInput.value = card.title || '';
-        if (headerInput) headerInput.value = card.header || '';
+        if (titleInput) titleInput.value = card.title || "";
+        if (headerInput) headerInput.value = card.header || "";
         if (previewImage && card.image) {
-          previewImage.src = 'file/img/' + card.image;
-          previewImage.style.display = 'block';
+          previewImage.src = "file/img/" + card.image;
+          previewImage.style.display = "block";
         }
       });
     }
   } catch (error) {
-    console.error('Error loading page data:', error);
+    console.error("Error loading page data:", error);
   }
 }
-
 
 function initializeControls() {
   // Configurar radios según los valores cargados
   if (currentSize) {
-    const sizeRadio = document.querySelector(`input[name="radioGroupCarousel"][value="${currentSize}"]`);
+    const sizeRadio = document.querySelector(
+      `input[name="radioGroupCarousel"][value="${currentSize}"]`
+    );
     if (sizeRadio) sizeRadio.checked = true;
   }
 
   if (currentColorWords) {
-    const colorRadio = document.querySelector(`input[name="radioGroupCarouselColorWord"][value="${currentColorWords}"]`);
+    const colorRadio = document.querySelector(
+      `input[name="radioGroupCarouselColorWord"][value="${currentColorWords}"]`
+    );
     if (colorRadio) colorRadio.checked = true;
   }
 
   if (currentFontWords) {
-    const fontRadio = document.querySelector(`input[name="radioGroupCarouselFontWord"][value="${currentFontWords}"]`);
-    if (fontRadio) fontRadio.checked = true;
+    const fontSelect = document.getElementById("selectFontWord"); // o usa el ID que tengas
+    if (fontSelect) {
+      fontSelect.value = currentFontWords;
+    }
+  }
+
+  if (currentFontWords) {
+    const previewElement = document.getElementById("fontPreview");
+    if (previewElement) {
+      previewElement.className = `${currentFontWords} mt-2`;
+    }
   }
 
   // NUEVO: Configurar tamaño de título
   if (currentTitleSize) {
-    const titleSizeSelect = document.getElementById('titleSizeSelect');
+    const titleSizeSelect = document.getElementById("titleSizeSelect");
     if (titleSizeSelect) titleSizeSelect.value = currentTitleSize;
   }
 
   // NUEVO: Configurar tamaño de encabezado
   if (currentHeaderSize) {
-    const headerSizeSelect = document.getElementById('headerSizeSelect');
+    const headerSizeSelect = document.getElementById("headerSizeSelect");
     if (headerSizeSelect) headerSizeSelect.value = currentHeaderSize;
   }
 }
 
-
 // Configurar event listeners
 function setupEventListeners() {
   // Botón de actualización
-  document.getElementById("updateCarousel")?.addEventListener("click", handleCarouselUpdate);
+  document
+    .getElementById("updateCarousel")
+    ?.addEventListener("click", handleCarouselUpdate);
 }
 
 // Manejar actualización del carrusel
@@ -339,17 +402,23 @@ async function handleCarouselUpdate() {
     if (!pageData) throw new Error("Datos no cargados");
 
     // Obtener valores seleccionados
-    const size = getSelectedValue('radioGroupCarousel') || currentSize;
-    const colorwords = getSelectedValue('radioGroupCarouselColorWord') || currentColorWords;
-    const fontwords = getSelectedValue('radioGroupCarouselFontWord') || currentFontWords;
-
-    // NUEVO: Obtener tamaño de título y encabezado
-    const titleSize = document.getElementById('titleSizeSelect')?.value || currentTitleSize || '20';
-    const headerSize = document.getElementById('headerSizeSelect')?.value || currentHeaderSize || '16';
+    const size = getSelectedValue("radioGroupCarousel") || currentSize;
+    const colorwords =
+      getSelectedValue("radioGroupCarouselColorWord") || currentColorWords;
+    const fontwords =
+      document.getElementById("selectFontWord")?.value || currentFontWords;
+    const titleSize =
+      document.getElementById("titleSizeSelect")?.value ||
+      currentTitleSize ||
+      "20";
+    const headerSize =
+      document.getElementById("headerSizeSelect")?.value ||
+      currentHeaderSize ||
+      "16";
 
     const allCards = getCard();
 
-    // Pasar también tamaños al generar HTML
+    // Generar HTML del carrusel
     const carouselHTML = generateCarouselHTML(
       allCards,
       size,
@@ -369,27 +438,42 @@ async function handleCarouselUpdate() {
         color: colorwords,
         font: fontwords,
         titleSize: titleSize,
-        headerSize: headerSize
-      }
+        headerSize: headerSize,
+      },
     };
 
     await guardarJSON(pageData);
     updateUI();
 
+    // Mostrar feedback visual
+    showToast("Cambios guardados correctamente", "success");
   } catch (error) {
     console.error("Error:", error.message);
-    alert(`Error: ${error.message}`);
+    showToast(`Error: ${error.message}`, "danger");
   }
 }
 
+// Función auxiliar para mostrar notificaciones (opcional)
+function showToast(message, type = "info") {
+  const toast = document.createElement("div");
+  toast.className = `toast show align-items-center text-white bg-${type} border-0`;
+  toast.innerHTML = `
+    <div class="d-flex">
+      <div class="toast-body">${message}</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  `;
+  document.body.appendChild(toast);
+  setTimeout(() => toast.remove(), 3000);
+}
 
 // Obtener datos de todas las tarjetas
 function getCard() {
-  const cards = document.querySelectorAll('.card-item');
+  const cards = document.querySelectorAll(".card-item");
   const cardsArray = [];
 
-  cards.forEach(card => {
-    const index = card.getAttribute('data-index');
+  cards.forEach((card) => {
+    const index = card.getAttribute("data-index");
     const fileInput = document.getElementById(`imagecarousel-${index}`);
     const titleInput = document.getElementById(`titlecarousel-${index}`);
     const headerInput = document.getElementById(`headercarousel-${index}`);
@@ -398,19 +482,19 @@ function getCard() {
     console.log(fileInput);
 
     // Obtener nombre de archivo o mantener la imagen actual
-    let imageName = '';
+    let imageName = "";
     if (fileInput?.files?.[0]) {
       imageName = fileInput.files[0].name;
     } else if (previewImage?.src) {
-      const srcParts = previewImage.src.split('/');
+      const srcParts = previewImage.src.split("/");
       imageName = srcParts[srcParts.length - 1];
     }
 
     cardsArray.push({
       index: index,
       image: imageName,
-      title: titleInput?.value || '',
-      header: headerInput?.value || ''
+      title: titleInput?.value || "",
+      header: headerInput?.value || "",
     });
   });
 
@@ -435,6 +519,6 @@ function getValue(id) {
 // Actualizar la interfaz
 function updateUI() {
   showJSON(pageData);
-  location.reload();  // Recarga la página (equivalente a F5)
+  location.reload(); // Recarga la página (equivalente a F5)
   console.log("Carrusel actualizado!");
 }
