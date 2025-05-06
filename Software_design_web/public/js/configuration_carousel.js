@@ -241,10 +241,10 @@ function generateFontWords() {
       </select>
       
       <div class="mt-3 p-3 border rounded bg-light">
-  <h6>Vista previa:</h6>
-  <p id="fontPreview" class="${currentFontWords || "fw-normal"} mt-2">
-    Texto de ejemplo con la fuente seleccionada
-  </p>
+        <h6>Vista previa:</h6>
+        <p id="fontPreview" class="${currentFontWords || "fw-normal"} mt-2">
+        Texto de ejemplo con la fuente seleccionada
+      </p>
 </div>
 
     </div>
