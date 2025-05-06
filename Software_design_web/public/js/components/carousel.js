@@ -1,4 +1,4 @@
-export function generateCarouselHTML(allCards, size, colorwords, fontwords, currentImage) {
+export function generateCarouselHTML(allCards, size, colorwords, fontwords, imageBasePath = 'file/img/') {
   // Validación de parámetros
   if (!Array.isArray(allCards)) {
     throw new Error("allCards debe ser un array de objetos");
@@ -14,18 +14,20 @@ export function generateCarouselHTML(allCards, size, colorwords, fontwords, curr
   allCards.forEach((card, i) => {
     const activeClass = i === 0 ? 'active' : '';
     
-    // Usamos los datos de cada tarjeta individual
+    // Construir la ruta completa de la imagen
+    const imagePath = card.image ? `${imageBasePath}${card.image}` : `${imageBasePath}Sin_imagen.png`;
+    
     indicatorsHTML += `
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="${i}" 
         class="${activeClass}" aria-current="${i === 0}" aria-label="Slide ${i + 1}"></button>
     `;
+    
     itemsHTML += `
       <div class="carousel-item ${activeClass}">
-
-        <img src="public/file/img/${currentImage}" class="d-block w-100" alt="Imagen ${i + 1}" height="${size}px">
+        <img src="${imagePath}" class="d-block w-100" alt="${card.title || 'Imagen ' + (i + 1)}" height="${size}px">
         <div class="carousel-caption d-none d-md-block">
-          <h2 class="${colorwords} ${fontwords}">${card.title}</h2>
-          <p class="${colorwords} ${fontwords}">${card.header}</p>
+          <h2 class="${colorwords} ${fontwords}">${card.title || ''}</h2>
+          <p class="${colorwords} ${fontwords}">${card.header || ''}</p>
         </div>
       </div>
     `;

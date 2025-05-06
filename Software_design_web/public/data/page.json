@@ -27,11 +27,11 @@
     },
     "carousel": {
       "id": 1,
-      "html": "\n    <div id=\"carouselExampleCaptions\" class=\"carousel slide\">\n      <div class=\"carousel-indicators\">\n        \n      <button type=\"button\" data-bs-target=\"#carouselExampleCaptions\" data-bs-slide-to=\"0\" \n        class=\"active\" aria-current=\"true\" aria-label=\"Slide 1\"></button>\n    \n      <button type=\"button\" data-bs-target=\"#carouselExampleCaptions\" data-bs-slide-to=\"1\" \n        class=\"\" aria-current=\"false\" aria-label=\"Slide 2\"></button>\n    \n      <button type=\"button\" data-bs-target=\"#carouselExampleCaptions\" data-bs-slide-to=\"2\" \n        class=\"\" aria-current=\"false\" aria-label=\"Slide 3\"></button>\n    \n      </div>\n      <div class=\"carousel-inner\">\n        \n      <div class=\"carousel-item active\">\n\n        <img src=\"public/file/img/undefined\" class=\"d-block w-100\" alt=\"Imagen 1\" height=\"500px\">\n        <div class=\"carousel-caption d-none d-md-block\">\n          <h2 class=\"text-info fw-light\">teclado</h2>\n          <p class=\"text-info fw-light\">teclado</p>\n        </div>\n      </div>\n    \n      <div class=\"carousel-item \">\n\n        <img src=\"public/file/img/undefined\" class=\"d-block w-100\" alt=\"Imagen 2\" height=\"500px\">\n        <div class=\"carousel-caption d-none d-md-block\">\n          <h2 class=\"text-info fw-light\">Tablet</h2>\n          <p class=\"text-info fw-light\">tablet</p>\n        </div>\n      </div>\n    \n      <div class=\"carousel-item \">\n\n        <img src=\"public/file/img/undefined\" class=\"d-block w-100\" alt=\"Imagen 3\" height=\"500px\">\n        <div class=\"carousel-caption d-none d-md-block\">\n          <h2 class=\"text-info fw-light\"></h2>\n          <p class=\"text-info fw-light\"></p>\n        </div>\n      </div>\n    \n      </div>\n      <button class=\"carousel-control-prev\" type=\"button\" data-bs-target=\"#carouselExampleCaptions\" data-bs-slide=\"prev\">\n        <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>\n        <span class=\"visually-hidden\">Previous</span>\n      </button>\n      <button class=\"carousel-control-next\" type=\"button\" data-bs-target=\"#carouselExampleCaptions\" data-bs-slide=\"next\">\n        <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>\n        <span class=\"visually-hidden\">Next</span>\n      </button>\n    </div>\n  ",
+      "html": "\n    <div id=\"carouselExampleCaptions\" class=\"carousel slide\">\n      <div class=\"carousel-indicators\">\n        \n      <button type=\"button\" data-bs-target=\"#carouselExampleCaptions\" data-bs-slide-to=\"0\" \n        class=\"active\" aria-current=\"true\" aria-label=\"Slide 1\"></button>\n    \n      <button type=\"button\" data-bs-target=\"#carouselExampleCaptions\" data-bs-slide-to=\"1\" \n        class=\"\" aria-current=\"false\" aria-label=\"Slide 2\"></button>\n    \n      <button type=\"button\" data-bs-target=\"#carouselExampleCaptions\" data-bs-slide-to=\"2\" \n        class=\"\" aria-current=\"false\" aria-label=\"Slide 3\"></button>\n    \n      </div>\n      <div class=\"carousel-inner\">\n        \n      <div class=\"carousel-item active\">\n        <img src=\"file/img/teclado.jpg\" class=\"d-block w-100\" alt=\"teclado\" height=\"500px\">\n        <div class=\"carousel-caption d-none d-md-block\">\n          <h2 class=\"text-info fst-italic\">teclado</h2>\n          <p class=\"text-info fst-italic\">teclado</p>\n        </div>\n      </div>\n    \n      <div class=\"carousel-item \">\n        <img src=\"file/img/mouse.jpg\" class=\"d-block w-100\" alt=\"Tablet\" height=\"500px\">\n        <div class=\"carousel-caption d-none d-md-block\">\n          <h2 class=\"text-info fst-italic\">Tablet</h2>\n          <p class=\"text-info fst-italic\">tablet</p>\n        </div>\n      </div>\n    \n      <div class=\"carousel-item \">\n        <img src=\"file/img/smartphone.jpg\" class=\"d-block w-100\" alt=\"smartphone\" height=\"500px\">\n        <div class=\"carousel-caption d-none d-md-block\">\n          <h2 class=\"text-info fst-italic\">smartphone</h2>\n          <p class=\"text-info fst-italic\">smartphone</p>\n        </div>\n      </div>\n    \n      </div>\n      <button class=\"carousel-control-prev\" type=\"button\" data-bs-target=\"#carouselExampleCaptions\" data-bs-slide=\"prev\">\n        <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>\n        <span class=\"visually-hidden\">Previous</span>\n      </button>\n      <button class=\"carousel-control-next\" type=\"button\" data-bs-target=\"#carouselExampleCaptions\" data-bs-slide=\"next\">\n        <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>\n        <span class=\"visually-hidden\">Next</span>\n      </button>\n    </div>\n  ",
       "cards": [
         {
           "index": "1",
-          "image": "tablet.jpg",
+          "image": "teclado.jpg",
           "title": "teclado",
           "header": "teclado"
         },
@@ -43,15 +43,15 @@
         },
         {
           "index": "3",
-          "image": "teclado.jpg",
-          "title": "",
-          "header": ""
+          "image": "smartphone.jpg",
+          "title": "smartphone",
+          "header": "smartphone"
         }
       ],
       "styles": {
         "size": "500",
         "color": "text-info",
-        "font": "fw-light"
+        "font": "fst-italic"
       }
     },
     "localStyles": [

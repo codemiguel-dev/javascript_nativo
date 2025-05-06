@@ -22,8 +22,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // Función para generar las tarjetas del carrusel
 function generateCarouselCards() {
-  const carouselContainer = document.getElementById('carousel-container') || 
-                           document.querySelector('.swiper-wrapper');
+  const carouselContainer = document.querySelector('.swiper-wrapper');
   
   if (!carouselContainer) {
     console.error('No se encontró el contenedor del carrusel');
@@ -220,6 +219,8 @@ function getCard() {
     const headerInput = document.getElementById(`headercarousel-${index}`);
     const previewImage = document.getElementById(`previewcarousel-${index}`);
 
+    console.log(fileInput);
+
     // Obtener nombre de archivo o mantener la imagen actual
     let imageName = '';
     if (fileInput?.files?.[0]) {
@@ -260,6 +261,5 @@ function updateUI() {
   showJSON(pageData);
   // Recarga la página (equivalente a F5)
   location.reload();
-
   console.log("Carrusel actualizado!");
 }
