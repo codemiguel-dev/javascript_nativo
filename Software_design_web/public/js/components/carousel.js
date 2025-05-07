@@ -5,7 +5,7 @@ export function generateCarouselHTML(
   fontwords,
   titleSize = 24,
   headerSize = 16,
-  imageBasePath = "file/img/"
+  positionWord
 ) {
   // Validación de parámetros
   if (!Array.isArray(allCards)) {
@@ -18,6 +18,7 @@ export function generateCarouselHTML(
 
   let indicatorsHTML = "";
   let itemsHTML = "";
+  let imageBasePath = "file/img/";
 
   allCards.forEach((card, i) => {
     const activeClass = i === 0 ? "active" : "";
@@ -35,7 +36,7 @@ export function generateCarouselHTML(
     
       <div class="carousel-item ${activeClass}">
         <img src="${imagePath}" class="d-block w-100" alt="${card.title || "Imagen " + (i + 1)}" height="${size}px">
-        <div class="carousel-caption d-none d-md-block text-start">
+        <div class="carousel-caption ${positionWord}">
           <h2 class="${colorwords} ${fontwords}" style="font-size:${titleSize}px;">${card.title || ""}</h2>
           <p class="${colorwords} ${fontwords}" style="font-size:${headerSize}px;">${card.header || ""}</p>
         </div>

@@ -471,7 +471,16 @@ html {
 
 .hover:hover .boton-hover {
   display: inline-block; /* Se muestra solo al hacer hover sobre .hover */
-
+  position: absolute;
+  top: 100%;
+  right: 10px;
+  padding: 10px 16px;
+  background-color: #26073d;
+  transition: box-shadow 0.3s ease;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.3s ease;
 }
 
 .frame-container {

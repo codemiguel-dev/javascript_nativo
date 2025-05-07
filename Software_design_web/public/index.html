@@ -101,13 +101,6 @@
                                     Nav
                                 </button>
                             </li>
-                            </br>
-                            <li>
-                                <!-- navbar -->
-                                <a class="btn btn-danger" id="deletePanel">
-                                    <img src="file/img/delete.svg" width="20px" height="20px" />
-                                </a>
-                            </li>
                         </ul>
                     </ul>
                 </details>
@@ -123,12 +116,6 @@
                     </summary>
                     <ul>
                         </br>
-                        <li>
-                            <!-- carousel -->
-                            <a class="btn btn-danger" id="deletecarousel">
-                                <img src="file/img/delete.svg" width="20px" height="20px" />
-                            </a>
-                        </li>
                         <li>
                             <!-- Botón -->
                             <button type="button" class="btn btn-primary position-relative" data-bs-toggle="modal"
@@ -416,23 +403,7 @@
 
                <div class="font-words"></div>
 
-                <!-- posición de letras -->
-                <div class="modal-header">
-                    <h5 class="modal-title" id="miModalLabel">Posición de letras:</h5>
-
-                    <input type="radio" name="radioGroupCarouselPositionWord" value="fw-bolder"
-                        class="design_radio_nav_color">
-                    <label for="fixedTop" class="text-dark">Izquierda</label></br>
-
-                    <input type="radio" name="radioGroupCarouselPositionWord" value="fw-semibold"
-                        class="design_radio_nav_color">
-                    <label for="fixedTop" class="text-dark">Centro</label></br>
-
-                    <input type="radio" name="radioGroupCarouselPositionWord" value="fw-medium"
-                        class="design_radio_nav_color">
-                    <label for="fixedTop" class="text-dark">Derecha </label></br>
-
-                </div>
+                <div class="position-words"></div>
 
                 <!-- cantidad de tarjetas -->
                 <div class="modal-header">
@@ -507,17 +478,38 @@
     <div class="frame-container">
         <!-- Primer elemento hover -->
         <div class="hover">
+           
             <div id="container-nav">
             </div>
-            <a class="boton-hover" data-bs-toggle="modal" data-bs-target="#modalnav">Visitar página</a>
+            <div class="boton-hover">
+                  <!-- navbar -->
+             <a class="btn btn-danger" id="deletePanel">
+                <img src="file/img/delete.svg" width="20px" height="20px" />
+            </a>
+            <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalnav">Configurar</a>
+            </div>
+           
         </div>
 
         <!-- Segundo elemento hover -->
         <div class="hover">
+          
             <div id="container-carousel">
             </div>
+            <div class="boton-hover">
+                <!-- carousel -->
+                <a class="btn btn-danger" id="deletecarousel">
+                   <img src="file/img/delete.svg" width="20px" height="20px" />
+               </a>
+               <!-- Botón -->
+               <button type="button" class="btn btn-primary position-relative" data-bs-toggle="modal"
+               data-bs-target="#miModal">
+               Configurar
+           </button>
+           </div>
             <!-- Puedes agregar otro botón si lo necesitas -->
         </div>
+        
     </div>
 
     <!-- Modal (requiere Bootstrap JS) -->

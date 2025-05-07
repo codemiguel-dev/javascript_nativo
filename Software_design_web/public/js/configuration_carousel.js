@@ -13,6 +13,7 @@ let currentColorWords = "";
 let currentFontWords = "";
 let currentTitleSize = "";
 let currentHeaderSize = "";
+let currentPositionWords = "";
 
 // Inicializar al cargar la página
 document.addEventListener("DOMContentLoaded", async () => {
@@ -20,6 +21,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   generateSizeImage(); // Generar el selector de tamaño de imagen
   generateColorWords(); // Generar los radios de colores
   generateFontWords(); // Generar los radios de fuentes
+  generatePositionWords(); // Generar los radios de posiciones
   await loadPageData();
   initializeControls();
   setupEventListeners();
@@ -253,7 +255,7 @@ function generateFontWords() {
         <p id="fontPreview" class="${currentFontWords || "fw-normal"} mt-2">
         Texto de ejemplo con la fuente seleccionada
       </p>
-</div>
+  </div>
 
     </div>
   `;
@@ -271,6 +273,36 @@ function generateFontWords() {
   // Inicializar vista previa
   previewElement.className = selectElement.value;
 }
+
+function generatePositionWords() {
+  const Container = document.querySelector(".position-words");
+  Container.innerHTML = "";
+  // Tamaños personalizados (puedes modificarlos según necesites)
+
+  const HTML = `
+      <!-- posición de letras -->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="miModalLabel">Posición de letras:</h5>
+
+                    <input type="radio" name="radioGroupCarouselPositionWord" value="text-start"
+                        class="design_radio_nav_color">
+                    <label for="fixedTop" class="text-dark">Izquierda</label></br>
+
+                    <input type="radio" name="radioGroupCarouselPositionWord" value="text-center"
+                        class="design_radio_nav_color">
+                    <label for="fixedTop" class="text-dark">Centro</label></br>
+
+                    <input type="radio" name="radioGroupCarouselPositionWord" value="text-end"
+                        class="design_radio_nav_color">
+                    <label for="fixedTop" class="text-dark">Derecha </label></br>
+
+                </div>
+  `;
+
+  Container.insertAdjacentHTML("beforeend", HTML);
+}
+
+function henerateQuantityCard() {}
 
 // Función para configurar los event listeners de los inputs de imagen
 function setupImageInputs() {
@@ -328,6 +360,7 @@ async function loadPageData() {
       // NUEVO: Restaurar tamaño de título y encabezado
       currentTitleSize = pageData.page.carousel.styles.titleSize || "";
       currentHeaderSize = pageData.page.carousel.styles.headerSize || "";
+      currentPositionWords = pageData.page.carousel.styles.positionWord || "";
     }
 
     // Restaurar datos de las tarjetas si existen
@@ -367,6 +400,13 @@ function initializeControls() {
       `input[name="radioGroupCarouselColorWord"][value="${currentColorWords}"]`
     );
     if (colorRadio) colorRadio.checked = true;
+  }
+
+  if (currentPositionWords) {
+    const positionRadio = document.querySelector(
+      `input[name="radioGroupCarouselPositionWord"][value="${currentPositionWords}"]`
+    );
+    if (positionRadio) positionRadio.checked = true;
   }
 
   if (currentFontWords) {
@@ -411,10 +451,8 @@ async function handleCarouselUpdate() {
 
     // Obtener valores seleccionados
     const size = getSelectedValue("radioGroupCarousel") || currentSize;
-    const colorwords =
-      getSelectedValue("radioGroupCarouselColorWord") || currentColorWords;
-    const fontwords =
-      document.getElementById("selectFontWord")?.value || currentFontWords;
+    const colorwords = getSelectedValue("radioGroupCarouselColorWord") || currentColorWords;
+    const fontwords = document.getElementById("selectFontWord")?.value || currentFontWords;
     const titleSize =
       document.getElementById("titleSizeSelect")?.value ||
       currentTitleSize ||
@@ -423,7 +461,9 @@ async function handleCarouselUpdate() {
       document.getElementById("headerSizeSelect")?.value ||
       currentHeaderSize ||
       "16";
+    const positionWord = getSelectedValue("radioGroupCarouselPositionWord") || "text-start";
 
+    console.log(positionWord);  
     const allCards = getCard();
 
     // Generar HTML del carrusel
@@ -433,7 +473,8 @@ async function handleCarouselUpdate() {
       colorwords,
       fontwords,
       titleSize,
-      headerSize
+      headerSize,
+      positionWord
     );
 
     // Actualizar y guardar datos
@@ -447,6 +488,7 @@ async function handleCarouselUpdate() {
         font: fontwords,
         titleSize: titleSize,
         headerSize: headerSize,
+        positionWord: positionWord,
       },
     };
 
