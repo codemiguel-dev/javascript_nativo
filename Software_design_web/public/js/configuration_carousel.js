@@ -217,6 +217,14 @@ function generateFontWords() {
     { label: "Font Western", value: "font-western" },
     { label: "Font Medieval", value: "font-medieval" },
     { label: "Font Rainbow", value: "font-rainbow" },
+    { label: "Font Matrix", value: "font-matrix" },
+    { label: "Font Chocolate", value: "font-chocolate" },
+    { label: "Font Cyberpunk", value: "font-cyberpunk" },
+    { label: "Font Pixel", value: "font-pixel" },
+    { label: "Font Dry Ice", value: "font-dry-ice" },
+    { label: "Font Crystal", value: "font-crystal" },
+    { label: "Font Retro", value: "font-retro" },
+    { label: "Font Box", value: "font-box" },
   ];
 
   // Crear el select con vista previa
