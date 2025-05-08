@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   generateColorWords(); // Generar los radios de colores
   generateFontWords(); // Generar los radios de fuentes
   generatePositionWords(); // Generar los radios de posiciones
+  generateQuantityCard(); // Generar el selector de cantidad de tarjetas
   await loadPageData();
   initializeControls();
   setupEventListeners();
@@ -302,7 +303,27 @@ function generatePositionWords() {
   Container.insertAdjacentHTML("beforeend", HTML);
 }
 
-function henerateQuantityCard() {}
+function generateQuantityCard() {
+  const Container = document.querySelector(".quantity-card");
+  Container.innerHTML = "";
+
+  const cantidades = [1, 2, 3, 4, 5]; // Puedes ajustar los valores según lo necesario
+
+  let optionsHTML = cantidades
+    .map((cantidad) => `<option value="${cantidad}">${cantidad} tarjeta${cantidad > 1 ? "s" : ""}</option>`)
+    .join("");
+
+  const HTML = `
+    <div class="mb-3">
+      <label for="selectCantidad" class="form-label text-dark">Cantidad de tarjetas:</label>
+      <select class="form-select" id="selectCantidad" name="carouselCardQuantity">
+        ${optionsHTML}
+      </select>
+    </div>
+  `;
+
+  Container.insertAdjacentHTML("beforeend", HTML);
+}
 
 // Función para configurar los event listeners de los inputs de imagen
 function setupImageInputs() {
@@ -477,6 +498,20 @@ async function handleCarouselUpdate() {
       positionWord
     );
 
+    pageData.page.carousel = {
+      id: 1,
+      html: carouselHTML,
+      cards: allCards,
+      styles: {
+        size: size,
+        color: colorwords,
+        font: fontwords,
+        titleSize: titleSize,
+        headerSize: headerSize,
+        positionWord: positionWord,
+      },
+    };
+
     // Actualizar y guardar datos
     pageData.page.carousel = {
       id: 1,
@@ -492,11 +527,16 @@ async function handleCarouselUpdate() {
       },
     };
 
+
+
     await guardarJSON(pageData);
     updateUI();
+       
+    // const toastEl = document.getElementById('toastUpdated');
+    // const toast = new bootstrap.Toast(toastEl);
+    // return toast.show();
 
     // Mostrar feedback visual
-    showToast("Cambios guardados correctamente", "success");
   } catch (error) {
     console.error("Error:", error.message);
     showToast(`Error: ${error.message}`, "danger");
@@ -569,6 +609,5 @@ function getValue(id) {
 // Actualizar la interfaz
 function updateUI() {
   showJSON(pageData);
-  location.reload(); // Recarga la página (equivalente a F5)
-  console.log("Carrusel actualizado!");
+  // location.reload(); // Recarga la página (equivalente a F5)
 }

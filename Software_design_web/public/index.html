@@ -7,12 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <div id="dynamic-title"></div>
     <div id="dynamic-title-image"></div>
-      <!-- Carga de Google Fonts -->
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;900&family=Montserrat:wght@300;700&family=Pacifico&family=Playfair+Display:wght@400;700&family=Source+Code+Pro&display=swap" rel="stylesheet">
-    
-   
+    <!-- Carga de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;900&family=Montserrat:wght@300;700&family=Pacifico&family=Playfair+Display:wght@400;700&family=Source+Code+Pro&display=swap"
+        rel="stylesheet">
+
+
 </head>
 
 <body>
@@ -27,6 +29,90 @@
                 <hr>
                 <hr>
                 <hr>
+                <!-- <a id="crearPaginaBtn" class="btn btn-primary" target="_blank">Crear página</a> -->
+
+                <!-- <script>
+                    document.getElementById('crearPaginaBtn').addEventListener('click', async () => {
+                        const htmlContent = `
+                      <!DOCTYPE html>
+                        <html lang="es">
+
+                        <head>
+                            <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                        <div id="dynamic-title"></div>
+                        <div id="dynamic-title-image"></div>
+                   
+                        <link rel="preconnect" href="https://fonts.googleapis.com">
+                    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                                <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;900&family=Montserrat:wght@300;700&family=Pacifico&family=Playfair+Display:wght@400;700&family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+
+                        </head>
+
+                    <body>
+                            <div id="container-nav">
+                        </div>
+
+
+                        <div id="container-carousel">
+                            </div>
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+                            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+                        crossorigin="anonymous"></script>
+        
+                        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+                        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+                        crossorigin="anonymous"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js"
+                        integrity="sha384-VQqxDN0EQCkWoxt/0vsQvZswzTHUVOImccYmSyhJTp7kGtPed0Qcx8rK9h9YEgx+"
+                            crossorigin="anonymous"></script>
+        
+        
+                            <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        
+        
+                            <script src="js/jquery.min.js"></script>
+        
+        
+        
+                                <script src="js/sidebar-menu.js"></script>
+                            <script src="js/app-script.js"></script>
+                    <script src="js/configuration_html.js"></script>
+                                <script type="module" src="js/configuration_navbar.js"></script>
+                            <script type="module" src="js/function/delete_navbar.js"></script>
+                            <script type="module" src="js/function/delete_carousel.js"></script>
+                                <script type="module" src="js/configuration_carousel.js"></script>
+                        <script type="module" src="js/components/carousel.js"></script>
+                        <script type="module" src="js/configuration_title.js"></script>
+                    <script type="module" src="js/configuration_title_image.js"></script>
+                            <script type="module" src="js/configuration_container.js"></script>
+        
+                            <script src="js/swiper.js"></script>
+                        </body>
+        
+                        </html>
+                `;
+
+                    const response = await fetch('/generar-html', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ htmlContent, filename: 'pagina-generada' })
+                    });
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                    console.log('Página abierta:', result.url);
+                    } else {
+                    alert('Error al generar la página');
+                        }
+                        });
+                </script> -->
+
+
+
 
                 <a href="page.html" class="btn btn-primary" target="_blank">Ver en nueva pestaña</a>
                 <hr>
@@ -46,7 +132,7 @@
                         <button class="btn btn-outline-info" type="button" id="pagetitleimage">Ingresar</button>
                     </div>
                 </div>
-                
+
                 <hr>
 
                 <!-- button (container) -->
@@ -394,58 +480,79 @@
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
+                    <a href="#" id="updateCarousel" class="btn btn-primary">
+                        <picture>
+                            <source srcset="icon/update-alt-svgrepo-com.svg" type="image/svg+xml">
+                            <img src="icon/update-alt-svgrepo-com.svg" alt="Descripción del SVG"
+                                style="width: 5%; height: auto;">
+                        </picture>
+                    </a>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                 </div>
 
-               <div class="size-image"></div>
+                <div class="row g-0 text-center">
+                    <div class="col-sm-6 col-md-8">
+                        <div class="frame-container">
+                            <div id="container-carousel-modal">
+                            </div>
+                        </div>
 
-                <div class="color-words"></div>
+                    </div>
+                    <div class="col-6 col-md-4 scrollable-column">
+                        <div class="size-image"></div>
 
-               <div class="font-words"></div>
+                        <div class="color-words"></div>
 
-                <div class="position-words"></div>
+                        <div class="font-words"></div>
 
-                <!-- cantidad de tarjetas -->
-                <div class="modal-header">
-                    <h5 class="modal-title" id="miModalLabel">Cantidad de Tarjetas: </h5>
+                        <div class="size-image"></div>
 
-                    <input type="radio" name="radioGroupCarouselPositionWord" value="fw-bolder"
-                        class="design_radio_nav_color">
-                    <label for="fixedTop" class="text-dark">1</label></br>
+                        <div class="position-words"></div>
 
-                    <input type="radio" name="radioGroupCarouselPositionWord" value="fw-semibold"
-                        class="design_radio_nav_color">
-                    <label for="fixedTop" class="text-dark">2</label></br>
-
-                    <input type="radio" name="radioGroupCarouselPositionWord" value="fw-medium"
-                        class="design_radio_nav_color">
-                    <label for="fixedTop" class="text-dark">3 </label></br>
-
-                </div>
-
-                <div class="container swiper">
-                    <div class="card-wrapper">
-                        <ul class="card-list swiper-wrapper">
-
-                        </ul>
-
-                        <!-- If we need pagination -->
-                        <div class="swiper-pagination"></div>
-
-                        <!-- If we need navigation buttons -->
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-button-next"></div>
-
-                        <!-- If we need scrollbar -->
-                        <div class="swiper-scrollbar"></div>
+                        <div class="quantity-card"></div>
 
                     </div>
                 </div>
 
                 <div class="modal-footer">
 
-                    <a href="#" id="updateCarousel" class="btn btn-primary">Actualizar Carrusel</a>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <div class="container swiper">
+                        <div class="card-wrapper">
+                            <ul class="card-list swiper-wrapper">
+
+                            </ul>
+
+                            <!-- If we need pagination -->
+                            <div class="swiper-pagination"></div>
+
+                            <!-- If we need navigation buttons -->
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+
+                            <!-- If we need scrollbar -->
+                            <div class="swiper-scrollbar"></div>
+
+
+                            <div class="toast-container position-fixed top-0 start-50 translate-middle-x p-3">
+
+                                <div id="toastUpdated"
+                                    class="toast align-items-center text-bg-success border-0 bg-success" role="alert"
+                                    aria-live="assertive" aria-atomic="true">
+
+                                    <div class="d-flex">
+                                        <div class="toast-body text-white">
+
+                                            Carrusel actualizado correctamente.
+                                        </div>
+                                        <button type="button" class="btn-close btn-close-white me-2 m-auto"
+                                            data-bs-dismiss="toast" aria-label="Cerrar"></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -478,38 +585,51 @@
     <div class="frame-container">
         <!-- Primer elemento hover -->
         <div class="hover">
-           
+
             <div id="container-nav">
             </div>
+
             <div class="boton-hover">
-                  <!-- navbar -->
-             <a class="btn btn-danger" id="deletePanel">
-                <img src="file/img/delete.svg" width="20px" height="20px" />
-            </a>
-            <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalnav">Configurar</a>
+                <!-- navbar -->
+                <a class="btn btn-danger" id="deletePanel">
+                    <img src="file/img/delete.svg" width="20px" height="20px" />
+                </a>
+                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalnav">Configurar</a>
             </div>
-           
+
         </div>
 
         <!-- Segundo elemento hover -->
         <div class="hover">
-          
+
             <div id="container-carousel">
             </div>
             <div class="boton-hover">
-                <!-- carousel -->
-                <a class="btn btn-danger" id="deletecarousel">
-                   <img src="file/img/delete.svg" width="20px" height="20px" />
-               </a>
-               <!-- Botón -->
-               <button type="button" class="btn btn-primary position-relative" data-bs-toggle="modal"
-               data-bs-target="#miModal">
-               Configurar
-           </button>
-           </div>
+                <!-- Default dropstart button -->
+                <div class="btn-group dropstart">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Dropstart
+                    </button>
+                    <ul class="dropdown-menu">
+                        <a class="btn btn-danger" id="deletecarousel">
+                            <img src="file/img/delete.svg" width="20px" height="20px" />
+                        </a>
+                        <div class="scrollable-column">
+                            <div class="size-image-design"></div>
+                            <div class="color-words-design"></div>
+                            <div class="font-words-design"></div>
+                            <div class="position-words-design"></div>
+                            <div class="quantity-card-design"></div>
+                        </div>
+                    </ul>
+                </div>
+
+
+            </div>
             <!-- Puedes agregar otro botón si lo necesitas -->
         </div>
-        
+
     </div>
 
     <!-- Modal (requiere Bootstrap JS) -->
@@ -562,6 +682,7 @@
     <script type="module" src="js/function/delete_navbar.js"></script>
     <script type="module" src="js/function/delete_carousel.js"></script>
     <script type="module" src="js/configuration_carousel.js"></script>
+    <script type="module" src="js/configuration_carousel_design.js"></script>
     <script type="module" src="js/components/carousel.js"></script>
     <script type="module" src="js/configuration_title.js"></script>
     <script type="module" src="js/configuration_title_image.js"></script>

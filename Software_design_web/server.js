@@ -7,6 +7,8 @@ const multer = require('multer');
 const app = express();
 const port = 3000;
 
+const open = require('open'); // Asegúrate de instalarlo: npm install open
+
 // Middleware
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -48,6 +50,9 @@ app.post('/upload-image', upload.single('image'), (req, res) => {
     res.status(500).json({ success: false, error: error.message });
   }
 });
+
+
+
 
 
 // Ruta para guardar JSON (optimizada)
