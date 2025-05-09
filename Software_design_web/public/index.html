@@ -607,13 +607,18 @@
             <div class="boton-hover">
                 <!-- Default dropstart button -->
                 <div class="btn-group dropstart">
-                    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        Dropstart
+                        Configuración
                     </button>
                     <ul class="dropdown-menu">
-                        <a class="btn btn-danger" id="deletecarousel">
-                            <img src="file/img/delete.svg" width="20px" height="20px" />
+                     
+                        <a id="updateCarouseldesign" class="btn btn-primary">
+                            <picture>
+                                <source srcset="icon/update-alt-svgrepo-com.svg" type="image/svg+xml">
+                                <img src="icon/update-alt-svgrepo-com.svg" alt="Descripción del SVG"
+                                    style="width: 5%;">
+                            </picture>
                         </a>
                         <div class="scrollable-column">
                             <div class="size-image-design"></div>
@@ -621,6 +626,15 @@
                             <div class="font-words-design"></div>
                             <div class="position-words-design"></div>
                             <div class="quantity-card-design"></div>
+                        </div>
+                        <div class="d-grid">
+                            <a class="btn btn-danger" id="deletecarousel">
+                                <picture>
+                                    <source srcset="file/img/delete.svg" type="image/svg+xml">
+                                    <img src="file/img/delete.svg" alt="Descripción del SVG"
+                                        style="width: 5%;">
+                                </picture>
+                            </a>
                         </div>
                     </ul>
                 </div>
