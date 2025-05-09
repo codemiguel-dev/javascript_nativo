@@ -600,12 +600,6 @@ function getSelectedValue(radioGroupName) {
   return null;
 }
 
-// Helper: Obtener valor de input de forma segura
-function getValue(id) {
-  const el = document.getElementById(id);
-  return el ? el.value.trim() : "";
-}
-
 // Actualizar la interfaz
 function updateUI() {
   showJSON(pageData);

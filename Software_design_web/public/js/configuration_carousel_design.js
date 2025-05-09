@@ -23,6 +23,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     generateQuantityCard();
     await loadPageData();
     initializeControls();
+    setupEventListeners();
+
 });
 
 function generateSizeImage() {
@@ -364,4 +366,147 @@ function initializeControls() {
     const headerSizeSelect = document.getElementById("headerSizeSelectdesign");
     if (headerSizeSelect) headerSizeSelect.value = currentHeaderSize;
   }
+}
+
+async function handleCarouselUpdate() {
+  try {
+    if (!pageData) throw new Error("Datos no cargados");
+
+    // Obtener valores seleccionados
+    const size = getSelectedValue("radioGroupCarouseldesign") || currentSize;
+    const colorwords = getSelectedValue("radioGroupCarouselColorWorddesign") || currentColorWords;
+    const fontwords = document.getElementById("selectFontWorddesign")?.value || currentFontWords;
+    const titleSize =
+      document.getElementById("titleSizeSelectdesign")?.value ||
+      currentTitleSize ||
+      "20";
+    const headerSize =
+      document.getElementById("headerSizeSelectdesign")?.value ||
+      currentHeaderSize ||
+      "16";
+    const positionWord = getSelectedValue("radioGroupCarouselPositionWorddesign") || "text-start";
+
+    const allCards = getCard();
+
+    // Generar HTML del carrusel
+    const carouselHTML = generateCarouselHTML(
+      allCards,
+      size,
+      colorwords,
+      fontwords,
+      titleSize,
+      headerSize,
+      positionWord
+    );
+
+    pageData.page.carousel = {
+      id: 1,
+      html: carouselHTML,
+      cards: allCards,
+      styles: {
+        size: size,
+        color: colorwords,
+        font: fontwords,
+        titleSize: titleSize,
+        headerSize: headerSize,
+        positionWord: positionWord,
+      },
+    };
+
+    // Actualizar y guardar datos
+    pageData.page.carouselmodal = {
+      id: 1,
+      html: carouselHTML,
+      cards: allCards,
+      styles: {
+        size: size,
+        color: colorwords,
+        font: fontwords,
+        titleSize: titleSize,
+        headerSize: headerSize,
+        positionWord: positionWord,
+      },
+    };
+
+
+
+    await guardarJSON(pageData);
+    updateUI();
+       
+    // const toastEl = document.getElementById('toastUpdated');
+    // const toast = new bootstrap.Toast(toastEl);
+    // return toast.show();
+
+    // Mostrar feedback visual
+  } catch (error) {
+    console.error("Error:", error.message);
+    showToast(`Error: ${error.message}`, "danger");
+  }
+}
+
+function setupEventListeners() {
+  // Botón de actualización
+  document
+    .getElementById("updateCarouseldesign")
+    ?.addEventListener("click", handleCarouselUpdate);
+}
+
+function getSelectedValue(radioGroupName) {
+  const radios = document.getElementsByName(radioGroupName);
+  for (const radio of radios) {
+    if (radio.checked) return radio.value;
+  }
+  return null;
+}
+
+function showToast(message, type = "info") {
+  const toast = document.createElement("div");
+  toast.className = `toast show align-items-center text-white bg-${type} border-0`;
+  toast.innerHTML = `
+    <div class="d-flex">
+      <div class="toast-body">${message}</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  `;
+  document.body.appendChild(toast);
+  setTimeout(() => toast.remove(), 3000);
+}
+
+function getCard() {
+  const cards = document.querySelectorAll(".card-item");
+  const cardsArray = [];
+
+  cards.forEach((card) => {
+    const index = card.getAttribute("data-index");
+    const fileInput = document.getElementById(`imagecarousel-${index}`);
+    const titleInput = document.getElementById(`titlecarousel-${index}`);
+    const headerInput = document.getElementById(`headercarousel-${index}`);
+    const previewImage = document.getElementById(`previewcarousel-${index}`);
+
+    console.log(fileInput);
+
+    // Obtener nombre de archivo o mantener la imagen actual
+    let imageName = "";
+    if (fileInput?.files?.[0]) {
+      imageName = fileInput.files[0].name;
+    } else if (previewImage?.src) {
+      const srcParts = previewImage.src.split("/");
+      imageName = srcParts[srcParts.length - 1];
+    }
+
+    cardsArray.push({
+      index: index,
+      image: imageName,
+      title: titleInput?.value || "",
+      header: headerInput?.value || "",
+    });
+  });
+
+  return cardsArray;
+}
+
+
+function updateUI() {
+  showJSON(pageData);
+  // location.reload(); // Recarga la página (equivalente a F5)
 }
