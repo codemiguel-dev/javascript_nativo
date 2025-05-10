@@ -466,82 +466,77 @@ function setupEventListeners() {
 }
 
 // Manejar actualización del carrusel
+// Variable global para llevar el conteo de carruseles
+// Generador de IDs únicos basado en timestamp y contador
+let lastCarouselId = 0;
+
+function generateUniqueCarouselIdmodal() {
+  const timestamp = 'modal-carousel';
+  return `${timestamp}`;
+}
+
+
+function generateUniqueCarouselId() {
+  const timestamp = 'main';
+  return `${timestamp}`;
+}
+
+
 async function handleCarouselUpdate() {
   try {
     if (!pageData) throw new Error("Datos no cargados");
 
-    // Obtener valores seleccionados
-    const size = getSelectedValue("radioGroupCarousel") || currentSize;
-    const colorwords = getSelectedValue("radioGroupCarouselColorWord") || currentColorWords;
-    const fontwords = document.getElementById("selectFontWord")?.value || currentFontWords;
-    const titleSize =
-      document.getElementById("titleSizeSelect")?.value ||
-      currentTitleSize ||
-      "20";
-    const headerSize =
-      document.getElementById("headerSizeSelect")?.value ||
-      currentHeaderSize ||
-      "16";
-    const positionWord = getSelectedValue("radioGroupCarouselPositionWord") || "text-start";
+    // Generar IDs únicos para ambos carruseles
+    const modalId = generateUniqueCarouselIdmodal();
+    const mainId = generateUniqueCarouselId();
 
-    console.log(positionWord);  
+    // Obtener valores seleccionados
+    const config = {
+      size: getSelectedValue("radioGroupCarousel") || currentSize,
+      colorwords: getSelectedValue("radioGroupCarouselColorWord") || currentColorWords,
+      fontwords: document.getElementById("selectFontWord")?.value || currentFontWords,
+      titleSize: document.getElementById("titleSizeSelect")?.value || currentTitleSize || "24",
+      headerSize: document.getElementById("headerSizeSelect")?.value || currentHeaderSize || "16",
+      positionWord: getSelectedValue("radioGroupCarouselPositionWord") || "text-start"
+    };
+
     const allCards = getCard();
 
-    // Generar HTML del carrusel
-    const carouselHTML = generateCarouselHTML(
-      allCards,
-      size,
-      colorwords,
-      fontwords,
-      titleSize,
-      headerSize,
-      positionWord
-    );
-
-    pageData.page.carousel = {
-      id: 1,
-      html: carouselHTML,
+    // Configuración común para ambos carruseles
+    const carouselConfig = {
       cards: allCards,
       styles: {
-        size: size,
-        color: colorwords,
-        font: fontwords,
-        titleSize: titleSize,
-        headerSize: headerSize,
-        positionWord: positionWord,
-      },
+        size: config.size,
+        color: config.colorwords,
+        font: config.fontwords,
+        titleSize: config.titleSize,
+        headerSize: config.headerSize,
+        positionWord: config.positionWord
+      }
     };
 
-    // Actualizar y guardar datos
+    // Actualizar ambos carruseles
+    pageData.page.carouselmodal = {
+      ...carouselConfig,
+      id: modalId,
+      html: generateCarouselHTML(allCards, config, modalId)
+    };
+
     pageData.page.carousel = {
-      id: 1,
-      html: carouselHTML,
-      cards: allCards,
-      styles: {
-        size: size,
-        color: colorwords,
-        font: fontwords,
-        titleSize: titleSize,
-        headerSize: headerSize,
-        positionWord: positionWord,
-      },
+      ...carouselConfig,
+      id: mainId,
+      html: generateCarouselHTML(allCards, config, mainId)
     };
-
-
 
     await guardarJSON(pageData);
     updateUI();
-       
-    // const toastEl = document.getElementById('toastUpdated');
-    // const toast = new bootstrap.Toast(toastEl);
-    // return toast.show();
 
-    // Mostrar feedback visual
   } catch (error) {
     console.error("Error:", error.message);
     showToast(`Error: ${error.message}`, "danger");
   }
 }
+
 
 // Función auxiliar para mostrar notificaciones (opcional)
 function showToast(message, type = "info") {

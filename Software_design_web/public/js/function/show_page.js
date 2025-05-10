@@ -15,11 +15,11 @@ export async function showJSON(pageData) {
     pageData.page.navbar.html + pageData.page.endcontainer.html;
     
     // Mostrar contenido completo de la página
-    document.getElementById("container-carousel").innerHTML =   pageData.page.container.html + pageData.page.title.html +
+    document.getElementById("container-carousel").innerHTML =   pageData.page.container.html +
     pageData.page.carousel.html + pageData.page.endcontainer.html;
 
     // Mostrar contenido completo de la página
-    document.getElementById("container-carousel-modal").innerHTML =   pageData.page.container.html + pageData.page.title.html +
-    pageData.page.carousel.html + pageData.page.endcontainer.html;
+    document.getElementById("container-carousel-modal").innerHTML =   pageData.page.container.html +
+    pageData.page.carouselmodal.html + pageData.page.endcontainer.html;
 
   }

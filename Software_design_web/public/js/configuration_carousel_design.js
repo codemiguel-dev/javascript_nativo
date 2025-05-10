@@ -16,6 +16,7 @@ let currentPositionWords = "";
 
 // Inicializar al cargar la página
 document.addEventListener("DOMContentLoaded", async () => {
+    // generateCarouselCards(); // Generar las tarjetas dinámicamente
     generateSizeImage(); // Generar el selector de tamaño de imagen
     generateColorWords();
     generateFontWords();
@@ -26,6 +27,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     setupEventListeners();
 
 });
+
+
 
 function generateSizeImage() {
     const Container = document.querySelector(".size-image-design");
@@ -368,82 +371,72 @@ function initializeControls() {
   }
 }
 
+
+function generateUniqueCarouselIdmodal() {
+  const timestamp = 'modal-carousel';
+  return `${timestamp}`;
+}
+
+
+function generateUniqueCarouselId() {
+  const timestamp = 'main';
+  return `${timestamp}`;
+}
+
 async function handleCarouselUpdate() {
   try {
     if (!pageData) throw new Error("Datos no cargados");
 
+    // Generar IDs únicos para ambos carruseles
+    const modalId = generateUniqueCarouselIdmodal();
+    const mainId = generateUniqueCarouselId();
+
     // Obtener valores seleccionados
-    const size = getSelectedValue("radioGroupCarouseldesign") || currentSize;
-    const colorwords = getSelectedValue("radioGroupCarouselColorWorddesign") || currentColorWords;
-    const fontwords = document.getElementById("selectFontWorddesign")?.value || currentFontWords;
-    const titleSize =
-      document.getElementById("titleSizeSelectdesign")?.value ||
-      currentTitleSize ||
-      "20";
-    const headerSize =
-      document.getElementById("headerSizeSelectdesign")?.value ||
-      currentHeaderSize ||
-      "16";
-    const positionWord = getSelectedValue("radioGroupCarouselPositionWorddesign") || "text-start";
+    const config = {
+      size: getSelectedValue("radioGroupCarouseldesign") || currentSize,
+      colorwords: getSelectedValue("radioGroupCarouselColorWorddesign") || currentColorWords,
+      fontwords: document.getElementById("selectFontWorddesign")?.value || currentFontWords,
+      titleSize: document.getElementById("titleSizeSelectdesign")?.value || currentTitleSize || "24",
+      headerSize: document.getElementById("headerSizeSelectdesign")?.value || currentHeaderSize || "16",
+      positionWord: getSelectedValue("radioGroupCarouselPositionWorddesign") || "text-start"
+    };
 
     const allCards = getCard();
 
-    // Generar HTML del carrusel
-    const carouselHTML = generateCarouselHTML(
-      allCards,
-      size,
-      colorwords,
-      fontwords,
-      titleSize,
-      headerSize,
-      positionWord
-    );
+    // Configuración común para ambos carruseles
+    const carouselConfig = {
+      cards: allCards,
+      styles: {
+        size: config.size,
+        color: config.colorwords,
+        font: config.fontwords,
+        titleSize: config.titleSize,
+        headerSize: config.headerSize,
+        positionWord: config.positionWord
+      }
+    };
+
+    // Actualizar ambos carruseles
+    pageData.page.carouselmodal = {
+      ...carouselConfig,
+      id: modalId,
+      html: generateCarouselHTML(allCards, config, modalId)
+    };
 
     pageData.page.carousel = {
-      id: 1,
-      html: carouselHTML,
-      cards: allCards,
-      styles: {
-        size: size,
-        color: colorwords,
-        font: fontwords,
-        titleSize: titleSize,
-        headerSize: headerSize,
-        positionWord: positionWord,
-      },
+      ...carouselConfig,
+      id: mainId,
+      html: generateCarouselHTML(allCards, config, mainId)
     };
-
-    // Actualizar y guardar datos
-    pageData.page.carouselmodal = {
-      id: 1,
-      html: carouselHTML,
-      cards: allCards,
-      styles: {
-        size: size,
-        color: colorwords,
-        font: fontwords,
-        titleSize: titleSize,
-        headerSize: headerSize,
-        positionWord: positionWord,
-      },
-    };
-
-
 
     await guardarJSON(pageData);
     updateUI();
-       
-    // const toastEl = document.getElementById('toastUpdated');
-    // const toast = new bootstrap.Toast(toastEl);
-    // return toast.show();
 
-    // Mostrar feedback visual
   } catch (error) {
     console.error("Error:", error.message);
     showToast(`Error: ${error.message}`, "danger");
   }
 }
-
 function setupEventListeners() {
   // Botón de actualización
   document

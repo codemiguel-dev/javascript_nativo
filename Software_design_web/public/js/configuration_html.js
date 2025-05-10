@@ -31,11 +31,11 @@ fetch('data/page.json')
     data.page.navbar.html + data.page.endcontainer.html;
     
     // Mostrar contenido completo de la página
-    document.getElementById("container-carousel").innerHTML =   data.page.container.html + data.page.title.html +
+    document.getElementById("container-carousel").innerHTML =   data.page.container.html +
     data.page.carousel.html + data.page.endcontainer.html;
 
      // Mostrar contenido completo de la página
-     document.getElementById("container-carousel-modal").innerHTML =   data.page.container.html + data.page.title.html +
+     document.getElementById("container-carousel-modal").innerHTML =   data.page.container.html +
      data.page.carouselmodal.html + data.page.endcontainer.html;
 
     

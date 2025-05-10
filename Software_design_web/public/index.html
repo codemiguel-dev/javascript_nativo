@@ -471,89 +471,7 @@
     <!-- end Modal navbar -->
 
 
-    <!-- Modal +1 imagen -->
-    <div class="modal fade" id="miModal" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <a href="#" id="updateCarousel" class="btn btn-primary">
-                        <picture>
-                            <source srcset="icon/update-alt-svgrepo-com.svg" type="image/svg+xml">
-                            <img src="icon/update-alt-svgrepo-com.svg" alt="Descripción del SVG"
-                                style="width: 5%; height: auto;">
-                        </picture>
-                    </a>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                </div>
 
-                <div class="row g-0 text-center">
-                    <div class="col-sm-6 col-md-8">
-                        <div class="frame-container">
-                            <div id="container-carousel-modal">
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-6 col-md-4 scrollable-column">
-                        <div class="size-image"></div>
-
-                        <div class="color-words"></div>
-
-                        <div class="font-words"></div>
-
-                        <div class="size-image"></div>
-
-                        <div class="position-words"></div>
-
-                        <div class="quantity-card"></div>
-
-                    </div>
-                </div>
-
-                <div class="modal-footer">
-
-                    <div class="container swiper">
-                        <div class="card-wrapper">
-                            <ul class="card-list swiper-wrapper">
-
-                            </ul>
-
-                            <!-- If we need pagination -->
-                            <div class="swiper-pagination"></div>
-
-                            <!-- If we need navigation buttons -->
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div>
-
-                            <!-- If we need scrollbar -->
-                            <div class="swiper-scrollbar"></div>
-
-
-                            <div class="toast-container position-fixed top-0 start-50 translate-middle-x p-3">
-
-                                <div id="toastUpdated"
-                                    class="toast align-items-center text-bg-success border-0 bg-success" role="alert"
-                                    aria-live="assertive" aria-atomic="true">
-
-                                    <div class="d-flex">
-                                        <div class="toast-body text-white">
-
-                                            Carrusel actualizado correctamente.
-                                        </div>
-                                        <button type="button" class="btn-close btn-close-white me-2 m-auto"
-                                            data-bs-dismiss="toast" aria-label="Cerrar"></button>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end Modal +1 image -->
 
     <!-- Sidebar -->
     <div class="sidebar">
@@ -600,6 +518,7 @@
 
             <div id="container-carousel">
             </div>
+            
             <div class="boton-hover">
                 <!-- Default dropstart button -->
                 <div class="btn-group dropstart">
@@ -608,8 +527,10 @@
                         Configuración
                     </button>
                     <ul class="dropdown-menu">
+
                      
                         <a id="updateCarouseldesign" class="btn btn-primary">
+                          
                             <picture>
                                 <source srcset="icon/update-alt-svgrepo-com.svg" type="image/svg+xml">
                                 <img src="icon/update-alt-svgrepo-com.svg" alt="Descripción del SVG"
@@ -622,8 +543,11 @@
                             <div class="font-words-design"></div>
                             <div class="position-words-design"></div>
                             <div class="quantity-card-design"></div>
+                            <!-- <div class="swiper-wrapper-design"></div> -->
                         </div>
+                      
                         <div class="d-grid">
+
                             <a class="btn btn-danger" id="deletecarousel">
                                 <picture>
                                     <source srcset="file/img/delete.svg" type="image/svg+xml">
@@ -641,6 +565,90 @@
         </div>
 
     </div>
+
+        <!-- Modal +1 imagen -->
+        <div class="modal fade" id="miModal" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a href="#" id="updateCarousel" class="btn btn-primary">
+                            <picture>
+                                <source srcset="icon/update-alt-svgrepo-com.svg" type="image/svg+xml">
+                                <img src="icon/update-alt-svgrepo-com.svg" alt="Descripción del SVG"
+                                    style="width: 5%; height: auto;">
+                            </picture>
+                        </a>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+    
+                    <div class="row g-0 text-center">
+                        <div class="col-sm-6 col-md-8">
+                            <div class="frame-container">
+                                <div id="container-carousel-modal">
+                                </div>
+                            </div>
+    
+                        </div>
+                        <div class="col-6 col-md-4 scrollable-column">
+                            <div class="size-image"></div>
+    
+                            <div class="color-words"></div>
+    
+                            <div class="font-words"></div>
+    
+                            <div class="size-image"></div>
+    
+                            <div class="position-words"></div>
+    
+                            <div class="quantity-card"></div>
+    
+                        </div>
+                    </div>
+    
+                    <div class="modal-footer">
+    
+                        <div class="container swiper">
+                            <div class="card-wrapper">
+                                <ul class="card-list swiper-wrapper">
+    
+                                </ul>
+    
+                                <!-- If we need pagination -->
+                                <div class="swiper-pagination"></div>
+    
+                                <!-- If we need navigation buttons -->
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div>
+    
+                                <!-- If we need scrollbar -->
+                                <div class="swiper-scrollbar"></div>
+    
+    
+                                <div class="toast-container position-fixed top-0 start-50 translate-middle-x p-3">
+    
+                                    <div id="toastUpdated"
+                                        class="toast align-items-center text-bg-success border-0 bg-success" role="alert"
+                                        aria-live="assertive" aria-atomic="true">
+    
+                                        <div class="d-flex">
+                                            <div class="toast-body text-white">
+    
+                                                Carrusel actualizado correctamente.
+                                            </div>
+                                            <button type="button" class="btn-close btn-close-white me-2 m-auto"
+                                                data-bs-dismiss="toast" aria-label="Cerrar"></button>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end Modal +1 image -->
 
     <!-- Modal (requiere Bootstrap JS) -->
     <div class="modal fade" id="modalnav" tabindex="-1" aria-labelledby="modalnavLabel" aria-hidden="true">
