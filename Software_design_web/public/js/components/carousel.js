@@ -6,7 +6,8 @@ export function generateCarouselHTML(
     fontwords = "fw-normal",
     titleSize = "24",
     headerSize = "16",
-    positionWord = "text-start"
+    positionWord = "text-start",
+    numberCard = 3 // Valor por defecto: 5 tarjetas
   },
   carouselId
 ) {
@@ -23,8 +24,11 @@ export function generateCarouselHTML(
     return '<div class="alert alert-warning">No hay tarjetas para mostrar</div>';
   }
 
+  // Limitar el número de tarjetas según numberCard
+  const limitedCards = allCards.slice(0, numberCard);
+
   // Generar indicadores e items del carrusel
-  const carouselItems = allCards.map((card, i) => {
+  const carouselItems = limitedCards.map((card, i) => {
     const imagePath = card.image 
       ? `file/img/${card.image}`
       : 'file/img/Sin_imagen.png';
@@ -46,7 +50,7 @@ export function generateCarouselHTML(
     `;
   }).join('');
 
-  const carouselIndicators = allCards.map((_, i) => `
+  const carouselIndicators = limitedCards.map((_, i) => `
     <button type="button" data-bs-target="#${carouselId}" 
             data-bs-slide-to="${i}" class="${i === 0 ? 'active' : ''}" 
             aria-current="${i === 0}" aria-label="Slide ${i + 1}">
@@ -54,7 +58,7 @@ export function generateCarouselHTML(
   `).join('');
 
   return `
-    <div id="${carouselId}" class="carousel slide" data-bs-ride="${carouselId}">
+    <div id="${carouselId}" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
         ${carouselIndicators}
       </div>

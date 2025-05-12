@@ -1,5 +1,17 @@
 {
   "page": {
+    "elementsOrder": [
+      "navbar",
+      "carousel"
+    ],
+    "body": {
+      "id": 1,
+      "html": "<body class='body-bg-danger'>"
+    },
+    "endbody": {
+      "id": 1,
+      "html": "</body>"
+    },
     "title": {
       "html": "<title>Mi página web</title>"
     },
@@ -25,89 +37,271 @@
       "cards": [
         {
           "index": "1",
-          "image": "monitor.jpg",
-          "title": "monitor",
-          "header": "monitor para su pc gamer"
+          "image": "tablet.jpg",
+          "title": "Teclado",
+          "header": "Teclado para su pc gamer "
         },
         {
           "index": "2",
-          "image": "teclado.jpg",
-          "title": "teclado",
-          "header": "teclado para su pc gamer!"
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
         },
         {
           "index": "3",
-          "image": "tablet.jpg",
-          "title": "tablet",
-          "header": "tablet para su negocio"
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
         },
         {
           "index": "4",
-          "image": "memory-8141642_1280.jpg",
-          "title": "meroria ram",
-          "header": "meroria ram"
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
         },
         {
           "index": "5",
-          "image": "smartphone.jpg",
-          "title": "Smartphone",
-          "header": "Smartphone"
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
+        },
+        {
+          "index": "6",
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
+        },
+        {
+          "index": "7",
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
+        },
+        {
+          "index": "8",
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
+        },
+        {
+          "index": "9",
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
+        },
+        {
+          "index": "10",
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
+        },
+        {
+          "index": "11",
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
+        },
+        {
+          "index": "12",
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
+        },
+        {
+          "index": "13",
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
+        },
+        {
+          "index": "14",
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
+        },
+        {
+          "index": "15",
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
+        },
+        {
+          "index": "16",
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
+        },
+        {
+          "index": "17",
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
+        },
+        {
+          "index": "18",
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
+        },
+        {
+          "index": "19",
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
+        },
+        {
+          "index": "20",
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
         }
       ],
       "styles": {
         "size": "500",
-        "color": "text-secondary",
-        "font": "font-code",
-        "titleSize": "50",
+        "color": "text-danger",
+        "font": "font-bold-3d",
+        "titleSize": "70",
         "headerSize": "30",
-        "positionWord": "text-center"
+        "positionWord": "text-center",
+        "numberCard": "10"
       },
       "id": "modal-carousel",
-      "html": "\n    <div id=\"modal-carousel\" class=\"carousel slide\" data-bs-ride=\"modal-carousel\">\n      <div class=\"carousel-indicators\">\n        \n    <button type=\"button\" data-bs-target=\"#modal-carousel\" \n            data-bs-slide-to=\"0\" class=\"active\" \n            aria-current=\"true\" aria-label=\"Slide 1\">\n    </button>\n  \n    <button type=\"button\" data-bs-target=\"#modal-carousel\" \n            data-bs-slide-to=\"1\" class=\"\" \n            aria-current=\"false\" aria-label=\"Slide 2\">\n    </button>\n  \n    <button type=\"button\" data-bs-target=\"#modal-carousel\" \n            data-bs-slide-to=\"2\" class=\"\" \n            aria-current=\"false\" aria-label=\"Slide 3\">\n    </button>\n  \n    <button type=\"button\" data-bs-target=\"#modal-carousel\" \n            data-bs-slide-to=\"3\" class=\"\" \n            aria-current=\"false\" aria-label=\"Slide 4\">\n    </button>\n  \n    <button type=\"button\" data-bs-target=\"#modal-carousel\" \n            data-bs-slide-to=\"4\" class=\"\" \n            aria-current=\"false\" aria-label=\"Slide 5\">\n    </button>\n  \n      </div>\n      <div class=\"carousel-inner\">\n        \n      <div class=\"carousel-item active\">\n        <img src=\"file/img/monitor.jpg\" class=\"d-block w-100\" \n             alt=\"monitor\" \n             height=\"500px\">\n        <div class=\"carousel-caption text-center\">\n          <h2 class=\"text-secondary font-code\" style=\"font-size:50px;\">\n            monitor\n          </h2>\n          <p class=\"text-secondary font-code\" style=\"font-size:30px;\">\n            monitor para su pc gamer\n          </p>\n        </div>\n      </div>\n    \n      <div class=\"carousel-item \">\n        <img src=\"file/img/teclado.jpg\" class=\"d-block w-100\" \n             alt=\"teclado\" \n             height=\"500px\">\n        <div class=\"carousel-caption text-center\">\n          <h2 class=\"text-secondary font-code\" style=\"font-size:50px;\">\n            teclado\n          </h2>\n          <p class=\"text-secondary font-code\" style=\"font-size:30px;\">\n            teclado para su pc gamer!\n          </p>\n        </div>\n      </div>\n    \n      <div class=\"carousel-item \">\n        <img src=\"file/img/tablet.jpg\" class=\"d-block w-100\" \n             alt=\"tablet\" \n             height=\"500px\">\n        <div class=\"carousel-caption text-center\">\n          <h2 class=\"text-secondary font-code\" style=\"font-size:50px;\">\n            tablet\n          </h2>\n          <p class=\"text-secondary font-code\" style=\"font-size:30px;\">\n            tablet para su negocio\n          </p>\n        </div>\n      </div>\n    \n      <div class=\"carousel-item \">\n        <img src=\"file/img/memory-8141642_1280.jpg\" class=\"d-block w-100\" \n             alt=\"meroria ram\" \n             height=\"500px\">\n        <div class=\"carousel-caption text-center\">\n          <h2 class=\"text-secondary font-code\" style=\"font-size:50px;\">\n            meroria ram\n          </h2>\n          <p class=\"text-secondary font-code\" style=\"font-size:30px;\">\n            meroria ram\n          </p>\n        </div>\n      </div>\n    \n      <div class=\"carousel-item \">\n        <img src=\"file/img/smartphone.jpg\" class=\"d-block w-100\" \n             alt=\"Smartphone\" \n             height=\"500px\">\n        <div class=\"carousel-caption text-center\">\n          <h2 class=\"text-secondary font-code\" style=\"font-size:50px;\">\n            Smartphone\n          </h2>\n          <p class=\"text-secondary font-code\" style=\"font-size:30px;\">\n            Smartphone\n          </p>\n        </div>\n      </div>\n    \n      </div>\n      <button class=\"carousel-control-prev\" type=\"button\" \n              data-bs-target=\"#modal-carousel\" data-bs-slide=\"prev\">\n        <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>\n        <span class=\"visually-hidden\">Previous</span>\n      </button>\n      <button class=\"carousel-control-next\" type=\"button\" \n              data-bs-target=\"#modal-carousel\" data-bs-slide=\"next\">\n        <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>\n        <span class=\"visually-hidden\">Next</span>\n      </button>\n    </div>\n  "
+      "html": "\n    <div id=\"modal-carousel\" class=\"carousel slide\" data-bs-ride=\"carousel\">\n      <div class=\"carousel-indicators\">\n        \n    <button type=\"button\" data-bs-target=\"#modal-carousel\" \n            data-bs-slide-to=\"0\" class=\"active\" \n            aria-current=\"true\" aria-label=\"Slide 1\">\n    </button>\n  \n    <button type=\"button\" data-bs-target=\"#modal-carousel\" \n            data-bs-slide-to=\"1\" class=\"\" \n            aria-current=\"false\" aria-label=\"Slide 2\">\n    </button>\n  \n    <button type=\"button\" data-bs-target=\"#modal-carousel\" \n            data-bs-slide-to=\"2\" class=\"\" \n            aria-current=\"false\" aria-label=\"Slide 3\">\n    </button>\n  \n    <button type=\"button\" data-bs-target=\"#modal-carousel\" \n            data-bs-slide-to=\"3\" class=\"\" \n            aria-current=\"false\" aria-label=\"Slide 4\">\n    </button>\n  \n    <button type=\"button\" data-bs-target=\"#modal-carousel\" \n            data-bs-slide-to=\"4\" class=\"\" \n            aria-current=\"false\" aria-label=\"Slide 5\">\n    </button>\n  \n    <button type=\"button\" data-bs-target=\"#modal-carousel\" \n            data-bs-slide-to=\"5\" class=\"\" \n            aria-current=\"false\" aria-label=\"Slide 6\">\n    </button>\n  \n    <button type=\"button\" data-bs-target=\"#modal-carousel\" \n            data-bs-slide-to=\"6\" class=\"\" \n            aria-current=\"false\" aria-label=\"Slide 7\">\n    </button>\n  \n    <button type=\"button\" data-bs-target=\"#modal-carousel\" \n            data-bs-slide-to=\"7\" class=\"\" \n            aria-current=\"false\" aria-label=\"Slide 8\">\n    </button>\n  \n    <button type=\"button\" data-bs-target=\"#modal-carousel\" \n            data-bs-slide-to=\"8\" class=\"\" \n            aria-current=\"false\" aria-label=\"Slide 9\">\n    </button>\n  \n    <button type=\"button\" data-bs-target=\"#modal-carousel\" \n            data-bs-slide-to=\"9\" class=\"\" \n            aria-current=\"false\" aria-label=\"Slide 10\">\n    </button>\n  \n      </div>\n      <div class=\"carousel-inner\">\n        \n      <div class=\"carousel-item active\">\n        <img src=\"file/img/tablet.jpg\" class=\"d-block w-100\" \n             alt=\"Teclado\" \n             height=\"500px\">\n        <div class=\"carousel-caption text-center\">\n          <h2 class=\"text-danger font-bold-3d\" style=\"font-size:70px;\">\n            Teclado\n          </h2>\n          <p class=\"text-danger font-bold-3d\" style=\"font-size:30px;\">\n            Teclado para su pc gamer \n          </p>\n        </div>\n      </div>\n    \n      <div class=\"carousel-item \">\n        <img src=\"file/img/Sin_imagen.png\" class=\"d-block w-100\" \n             alt=\"Imagen 2\" \n             height=\"500px\">\n        <div class=\"carousel-caption text-center\">\n          <h2 class=\"text-danger font-bold-3d\" style=\"font-size:70px;\">\n            \n          </h2>\n          <p class=\"text-danger font-bold-3d\" style=\"font-size:30px;\">\n            \n          </p>\n        </div>\n      </div>\n    \n      <div class=\"carousel-item \">\n        <img src=\"file/img/Sin_imagen.png\" class=\"d-block w-100\" \n             alt=\"Imagen 3\" \n             height=\"500px\">\n        <div class=\"carousel-caption text-center\">\n          <h2 class=\"text-danger font-bold-3d\" style=\"font-size:70px;\">\n            \n          </h2>\n          <p class=\"text-danger font-bold-3d\" style=\"font-size:30px;\">\n            \n          </p>\n        </div>\n      </div>\n    \n      <div class=\"carousel-item \">\n        <img src=\"file/img/Sin_imagen.png\" class=\"d-block w-100\" \n             alt=\"Imagen 4\" \n             height=\"500px\">\n        <div class=\"carousel-caption text-center\">\n          <h2 class=\"text-danger font-bold-3d\" style=\"font-size:70px;\">\n            \n          </h2>\n          <p class=\"text-danger font-bold-3d\" style=\"font-size:30px;\">\n            \n          </p>\n        </div>\n      </div>\n    \n      <div class=\"carousel-item \">\n        <img src=\"file/img/Sin_imagen.png\" class=\"d-block w-100\" \n             alt=\"Imagen 5\" \n             height=\"500px\">\n        <div class=\"carousel-caption text-center\">\n          <h2 class=\"text-danger font-bold-3d\" style=\"font-size:70px;\">\n            \n          </h2>\n          <p class=\"text-danger font-bold-3d\" style=\"font-size:30px;\">\n            \n          </p>\n        </div>\n      </div>\n    \n      <div class=\"carousel-item \">\n        <img src=\"file/img/Sin_imagen.png\" class=\"d-block w-100\" \n             alt=\"Imagen 6\" \n             height=\"500px\">\n        <div class=\"carousel-caption text-center\">\n          <h2 class=\"text-danger font-bold-3d\" style=\"font-size:70px;\">\n            \n          </h2>\n          <p class=\"text-danger font-bold-3d\" style=\"font-size:30px;\">\n            \n          </p>\n        </div>\n      </div>\n    \n      <div class=\"carousel-item \">\n        <img src=\"file/img/Sin_imagen.png\" class=\"d-block w-100\" \n             alt=\"Imagen 7\" \n             height=\"500px\">\n        <div class=\"carousel-caption text-center\">\n          <h2 class=\"text-danger font-bold-3d\" style=\"font-size:70px;\">\n            \n          </h2>\n          <p class=\"text-danger font-bold-3d\" style=\"font-size:30px;\">\n            \n          </p>\n        </div>\n      </div>\n    \n      <div class=\"carousel-item \">\n        <img src=\"file/img/Sin_imagen.png\" class=\"d-block w-100\" \n             alt=\"Imagen 8\" \n             height=\"500px\">\n        <div class=\"carousel-caption text-center\">\n          <h2 class=\"text-danger font-bold-3d\" style=\"font-size:70px;\">\n            \n          </h2>\n          <p class=\"text-danger font-bold-3d\" style=\"font-size:30px;\">\n            \n          </p>\n        </div>\n      </div>\n    \n      <div class=\"carousel-item \">\n        <img src=\"file/img/Sin_imagen.png\" class=\"d-block w-100\" \n             alt=\"Imagen 9\" \n             height=\"500px\">\n        <div class=\"carousel-caption text-center\">\n          <h2 class=\"text-danger font-bold-3d\" style=\"font-size:70px;\">\n            \n          </h2>\n          <p class=\"text-danger font-bold-3d\" style=\"font-size:30px;\">\n            \n          </p>\n        </div>\n      </div>\n    \n      <div class=\"carousel-item \">\n        <img src=\"file/img/Sin_imagen.png\" class=\"d-block w-100\" \n             alt=\"Imagen 10\" \n             height=\"500px\">\n        <div class=\"carousel-caption text-center\">\n          <h2 class=\"text-danger font-bold-3d\" style=\"font-size:70px;\">\n            \n          </h2>\n          <p class=\"text-danger font-bold-3d\" style=\"font-size:30px;\">\n            \n          </p>\n        </div>\n      </div>\n    \n      </div>\n      <button class=\"carousel-control-prev\" type=\"button\" \n              data-bs-target=\"#modal-carousel\" data-bs-slide=\"prev\">\n        <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>\n        <span class=\"visually-hidden\">Previous</span>\n      </button>\n      <button class=\"carousel-control-next\" type=\"button\" \n              data-bs-target=\"#modal-carousel\" data-bs-slide=\"next\">\n        <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>\n        <span class=\"visually-hidden\">Next</span>\n      </button>\n    </div>\n  "
     },
     "carousel": {
       "cards": [
         {
           "index": "1",
-          "image": "monitor.jpg",
-          "title": "monitor",
-          "header": "monitor para su pc gamer"
+          "image": "tablet.jpg",
+          "title": "Teclado",
+          "header": "Teclado para su pc gamer "
         },
         {
           "index": "2",
-          "image": "teclado.jpg",
-          "title": "teclado",
-          "header": "teclado para su pc gamer!"
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
         },
         {
           "index": "3",
-          "image": "tablet.jpg",
-          "title": "tablet",
-          "header": "tablet para su negocio"
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
         },
         {
           "index": "4",
-          "image": "memory-8141642_1280.jpg",
-          "title": "meroria ram",
-          "header": "meroria ram"
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
         },
         {
           "index": "5",
-          "image": "smartphone.jpg",
-          "title": "Smartphone",
-          "header": "Smartphone"
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
+        },
+        {
+          "index": "6",
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
+        },
+        {
+          "index": "7",
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
+        },
+        {
+          "index": "8",
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
+        },
+        {
+          "index": "9",
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
+        },
+        {
+          "index": "10",
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
+        },
+        {
+          "index": "11",
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
+        },
+        {
+          "index": "12",
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
+        },
+        {
+          "index": "13",
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
+        },
+        {
+          "index": "14",
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
+        },
+        {
+          "index": "15",
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
+        },
+        {
+          "index": "16",
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
+        },
+        {
+          "index": "17",
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
+        },
+        {
+          "index": "18",
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
+        },
+        {
+          "index": "19",
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
+        },
+        {
+          "index": "20",
+          "image": "Sin_imagen.png",
+          "title": "",
+          "header": ""
         }
       ],
       "styles": {
         "size": "500",
-        "color": "text-secondary",
-        "font": "font-code",
-        "titleSize": "50",
+        "color": "text-danger",
+        "font": "font-bold-3d",
+        "titleSize": "70",
         "headerSize": "30",
-        "positionWord": "text-center"
+        "positionWord": "text-center",
+        "numberCard": "10"
       },
       "id": "main",
-      "html": "\n    <div id=\"main\" class=\"carousel slide\" data-bs-ride=\"main\">\n      <div class=\"carousel-indicators\">\n        \n    <button type=\"button\" data-bs-target=\"#main\" \n            data-bs-slide-to=\"0\" class=\"active\" \n            aria-current=\"true\" aria-label=\"Slide 1\">\n    </button>\n  \n    <button type=\"button\" data-bs-target=\"#main\" \n            data-bs-slide-to=\"1\" class=\"\" \n            aria-current=\"false\" aria-label=\"Slide 2\">\n    </button>\n  \n    <button type=\"button\" data-bs-target=\"#main\" \n            data-bs-slide-to=\"2\" class=\"\" \n            aria-current=\"false\" aria-label=\"Slide 3\">\n    </button>\n  \n    <button type=\"button\" data-bs-target=\"#main\" \n            data-bs-slide-to=\"3\" class=\"\" \n            aria-current=\"false\" aria-label=\"Slide 4\">\n    </button>\n  \n    <button type=\"button\" data-bs-target=\"#main\" \n            data-bs-slide-to=\"4\" class=\"\" \n            aria-current=\"false\" aria-label=\"Slide 5\">\n    </button>\n  \n      </div>\n      <div class=\"carousel-inner\">\n        \n      <div class=\"carousel-item active\">\n        <img src=\"file/img/monitor.jpg\" class=\"d-block w-100\" \n             alt=\"monitor\" \n             height=\"500px\">\n        <div class=\"carousel-caption text-center\">\n          <h2 class=\"text-secondary font-code\" style=\"font-size:50px;\">\n            monitor\n          </h2>\n          <p class=\"text-secondary font-code\" style=\"font-size:30px;\">\n            monitor para su pc gamer\n          </p>\n        </div>\n      </div>\n    \n      <div class=\"carousel-item \">\n        <img src=\"file/img/teclado.jpg\" class=\"d-block w-100\" \n             alt=\"teclado\" \n             height=\"500px\">\n        <div class=\"carousel-caption text-center\">\n          <h2 class=\"text-secondary font-code\" style=\"font-size:50px;\">\n            teclado\n          </h2>\n          <p class=\"text-secondary font-code\" style=\"font-size:30px;\">\n            teclado para su pc gamer!\n          </p>\n        </div>\n      </div>\n    \n      <div class=\"carousel-item \">\n        <img src=\"file/img/tablet.jpg\" class=\"d-block w-100\" \n             alt=\"tablet\" \n             height=\"500px\">\n        <div class=\"carousel-caption text-center\">\n          <h2 class=\"text-secondary font-code\" style=\"font-size:50px;\">\n            tablet\n          </h2>\n          <p class=\"text-secondary font-code\" style=\"font-size:30px;\">\n            tablet para su negocio\n          </p>\n        </div>\n      </div>\n    \n      <div class=\"carousel-item \">\n        <img src=\"file/img/memory-8141642_1280.jpg\" class=\"d-block w-100\" \n             alt=\"meroria ram\" \n             height=\"500px\">\n        <div class=\"carousel-caption text-center\">\n          <h2 class=\"text-secondary font-code\" style=\"font-size:50px;\">\n            meroria ram\n          </h2>\n          <p class=\"text-secondary font-code\" style=\"font-size:30px;\">\n            meroria ram\n          </p>\n        </div>\n      </div>\n    \n      <div class=\"carousel-item \">\n        <img src=\"file/img/smartphone.jpg\" class=\"d-block w-100\" \n             alt=\"Smartphone\" \n             height=\"500px\">\n        <div class=\"carousel-caption text-center\">\n          <h2 class=\"text-secondary font-code\" style=\"font-size:50px;\">\n            Smartphone\n          </h2>\n          <p class=\"text-secondary font-code\" style=\"font-size:30px;\">\n            Smartphone\n          </p>\n        </div>\n      </div>\n    \n      </div>\n      <button class=\"carousel-control-prev\" type=\"button\" \n              data-bs-target=\"#main\" data-bs-slide=\"prev\">\n        <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>\n        <span class=\"visually-hidden\">Previous</span>\n      </button>\n      <button class=\"carousel-control-next\" type=\"button\" \n              data-bs-target=\"#main\" data-bs-slide=\"next\">\n        <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>\n        <span class=\"visually-hidden\">Next</span>\n      </button>\n    </div>\n  "
+      "html": "\n    <div id=\"main\" class=\"carousel slide\" data-bs-ride=\"carousel\">\n      <div class=\"carousel-indicators\">\n        \n    <button type=\"button\" data-bs-target=\"#main\" \n            data-bs-slide-to=\"0\" class=\"active\" \n            aria-current=\"true\" aria-label=\"Slide 1\">\n    </button>\n  \n    <button type=\"button\" data-bs-target=\"#main\" \n            data-bs-slide-to=\"1\" class=\"\" \n            aria-current=\"false\" aria-label=\"Slide 2\">\n    </button>\n  \n    <button type=\"button\" data-bs-target=\"#main\" \n            data-bs-slide-to=\"2\" class=\"\" \n            aria-current=\"false\" aria-label=\"Slide 3\">\n    </button>\n  \n    <button type=\"button\" data-bs-target=\"#main\" \n            data-bs-slide-to=\"3\" class=\"\" \n            aria-current=\"false\" aria-label=\"Slide 4\">\n    </button>\n  \n    <button type=\"button\" data-bs-target=\"#main\" \n            data-bs-slide-to=\"4\" class=\"\" \n            aria-current=\"false\" aria-label=\"Slide 5\">\n    </button>\n  \n    <button type=\"button\" data-bs-target=\"#main\" \n            data-bs-slide-to=\"5\" class=\"\" \n            aria-current=\"false\" aria-label=\"Slide 6\">\n    </button>\n  \n    <button type=\"button\" data-bs-target=\"#main\" \n            data-bs-slide-to=\"6\" class=\"\" \n            aria-current=\"false\" aria-label=\"Slide 7\">\n    </button>\n  \n    <button type=\"button\" data-bs-target=\"#main\" \n            data-bs-slide-to=\"7\" class=\"\" \n            aria-current=\"false\" aria-label=\"Slide 8\">\n    </button>\n  \n    <button type=\"button\" data-bs-target=\"#main\" \n            data-bs-slide-to=\"8\" class=\"\" \n            aria-current=\"false\" aria-label=\"Slide 9\">\n    </button>\n  \n    <button type=\"button\" data-bs-target=\"#main\" \n            data-bs-slide-to=\"9\" class=\"\" \n            aria-current=\"false\" aria-label=\"Slide 10\">\n    </button>\n  \n      </div>\n      <div class=\"carousel-inner\">\n        \n      <div class=\"carousel-item active\">\n        <img src=\"file/img/tablet.jpg\" class=\"d-block w-100\" \n             alt=\"Teclado\" \n             height=\"500px\">\n        <div class=\"carousel-caption text-center\">\n          <h2 class=\"text-danger font-bold-3d\" style=\"font-size:70px;\">\n            Teclado\n          </h2>\n          <p class=\"text-danger font-bold-3d\" style=\"font-size:30px;\">\n            Teclado para su pc gamer \n          </p>\n        </div>\n      </div>\n    \n      <div class=\"carousel-item \">\n        <img src=\"file/img/Sin_imagen.png\" class=\"d-block w-100\" \n             alt=\"Imagen 2\" \n             height=\"500px\">\n        <div class=\"carousel-caption text-center\">\n          <h2 class=\"text-danger font-bold-3d\" style=\"font-size:70px;\">\n            \n          </h2>\n          <p class=\"text-danger font-bold-3d\" style=\"font-size:30px;\">\n            \n          </p>\n        </div>\n      </div>\n    \n      <div class=\"carousel-item \">\n        <img src=\"file/img/Sin_imagen.png\" class=\"d-block w-100\" \n             alt=\"Imagen 3\" \n             height=\"500px\">\n        <div class=\"carousel-caption text-center\">\n          <h2 class=\"text-danger font-bold-3d\" style=\"font-size:70px;\">\n            \n          </h2>\n          <p class=\"text-danger font-bold-3d\" style=\"font-size:30px;\">\n            \n          </p>\n        </div>\n      </div>\n    \n      <div class=\"carousel-item \">\n        <img src=\"file/img/Sin_imagen.png\" class=\"d-block w-100\" \n             alt=\"Imagen 4\" \n             height=\"500px\">\n        <div class=\"carousel-caption text-center\">\n          <h2 class=\"text-danger font-bold-3d\" style=\"font-size:70px;\">\n            \n          </h2>\n          <p class=\"text-danger font-bold-3d\" style=\"font-size:30px;\">\n            \n          </p>\n        </div>\n      </div>\n    \n      <div class=\"carousel-item \">\n        <img src=\"file/img/Sin_imagen.png\" class=\"d-block w-100\" \n             alt=\"Imagen 5\" \n             height=\"500px\">\n        <div class=\"carousel-caption text-center\">\n          <h2 class=\"text-danger font-bold-3d\" style=\"font-size:70px;\">\n            \n          </h2>\n          <p class=\"text-danger font-bold-3d\" style=\"font-size:30px;\">\n            \n          </p>\n        </div>\n      </div>\n    \n      <div class=\"carousel-item \">\n        <img src=\"file/img/Sin_imagen.png\" class=\"d-block w-100\" \n             alt=\"Imagen 6\" \n             height=\"500px\">\n        <div class=\"carousel-caption text-center\">\n          <h2 class=\"text-danger font-bold-3d\" style=\"font-size:70px;\">\n            \n          </h2>\n          <p class=\"text-danger font-bold-3d\" style=\"font-size:30px;\">\n            \n          </p>\n        </div>\n      </div>\n    \n      <div class=\"carousel-item \">\n        <img src=\"file/img/Sin_imagen.png\" class=\"d-block w-100\" \n             alt=\"Imagen 7\" \n             height=\"500px\">\n        <div class=\"carousel-caption text-center\">\n          <h2 class=\"text-danger font-bold-3d\" style=\"font-size:70px;\">\n            \n          </h2>\n          <p class=\"text-danger font-bold-3d\" style=\"font-size:30px;\">\n            \n          </p>\n        </div>\n      </div>\n    \n      <div class=\"carousel-item \">\n        <img src=\"file/img/Sin_imagen.png\" class=\"d-block w-100\" \n             alt=\"Imagen 8\" \n             height=\"500px\">\n        <div class=\"carousel-caption text-center\">\n          <h2 class=\"text-danger font-bold-3d\" style=\"font-size:70px;\">\n            \n          </h2>\n          <p class=\"text-danger font-bold-3d\" style=\"font-size:30px;\">\n            \n          </p>\n        </div>\n      </div>\n    \n      <div class=\"carousel-item \">\n        <img src=\"file/img/Sin_imagen.png\" class=\"d-block w-100\" \n             alt=\"Imagen 9\" \n             height=\"500px\">\n        <div class=\"carousel-caption text-center\">\n          <h2 class=\"text-danger font-bold-3d\" style=\"font-size:70px;\">\n            \n          </h2>\n          <p class=\"text-danger font-bold-3d\" style=\"font-size:30px;\">\n            \n          </p>\n        </div>\n      </div>\n    \n      <div class=\"carousel-item \">\n        <img src=\"file/img/Sin_imagen.png\" class=\"d-block w-100\" \n             alt=\"Imagen 10\" \n             height=\"500px\">\n        <div class=\"carousel-caption text-center\">\n          <h2 class=\"text-danger font-bold-3d\" style=\"font-size:70px;\">\n            \n          </h2>\n          <p class=\"text-danger font-bold-3d\" style=\"font-size:30px;\">\n            \n          </p>\n        </div>\n      </div>\n    \n      </div>\n      <button class=\"carousel-control-prev\" type=\"button\" \n              data-bs-target=\"#main\" data-bs-slide=\"prev\">\n        <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>\n        <span class=\"visually-hidden\">Previous</span>\n      </button>\n      <button class=\"carousel-control-next\" type=\"button\" \n              data-bs-target=\"#main\" data-bs-slide=\"next\">\n        <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>\n        <span class=\"visually-hidden\">Next</span>\n      </button>\n    </div>\n  "
     },
     "localStyles": [
       "css/styles.css",

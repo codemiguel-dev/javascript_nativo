@@ -1,3 +1,4 @@
+
 let pageData; 
 
 fetch('data/page.json')
@@ -25,6 +26,11 @@ fetch('data/page.json')
       });
     }
     document.getElementById("dynamic-title-image").innerHTML = data.page.titleimage.html;
+
+    // Mostrar contenido inicial
+    document.getElementById("body").innerHTML = data.page.body.html;
+    document.getElementById("endbody").innerHTML = data.page.endbody.html;
+    console.log(data.page.body.html)
 
     // Mostrar contenido de navbar modal
     document.getElementById("container-nav").innerHTML =   data.page.container.html + data.page.title.html +

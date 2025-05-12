@@ -4,7 +4,6 @@ import { showJSON } from "./function/show_page.js";
 
 // Variable global para almacenar los datos
 let pageData = null;
-const numberOfCards = 5; // Número de tarjetas del carrusel
 
 // Configuración inicial del carrusel
 let currentSize = "";
@@ -13,6 +12,9 @@ let currentFontWords = "";
 let currentTitleSize = "";
 let currentHeaderSize = "";
 let currentPositionWords = "";
+let currentQuantitytCard = "";
+
+
 
 // Inicializar al cargar la página
 document.addEventListener("DOMContentLoaded", async () => {
@@ -25,7 +27,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     await loadPageData();
     initializeControls();
     setupEventListeners();
-
 });
 
 
@@ -262,7 +263,7 @@ function generateQuantityCard() {
   const Container = document.querySelector(".quantity-card-design");
   Container.innerHTML = "";
 
-  const cantidades = [1, 2, 3, 4, 5]; // Puedes ajustar los valores según lo necesario
+  const cantidades = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 ,18, 19 , 20]; // Puedes ajustar los valores según lo necesario
 
   let optionsHTML = cantidades
     .map((cantidad) => `<option value="${cantidad}">${cantidad} tarjeta${cantidad > 1 ? "s" : ""}</option>`)
@@ -270,8 +271,8 @@ function generateQuantityCard() {
 
   const HTML = `
     <div class="mb-3">
-      <label for="selectCantidaddesign" class="form-label text-dark">Cantidad de tarjetas:</label>
-      <select class="form-select" id="selectCantidaddesign" name="carouselCardQuantitydesign">
+      <label for="selectQuantitydesign" class="form-label text-dark">Cantidad de tarjetas:</label>
+      <select class="form-select" id="selectQuantitydesign" name="carouselCardQuantitydesign">
         ${optionsHTML}
       </select>
     </div>
@@ -296,6 +297,8 @@ async function loadPageData() {
       currentTitleSize = pageData.page.carousel.styles.titleSize || "";
       currentHeaderSize = pageData.page.carousel.styles.headerSize || "";
       currentPositionWords = pageData.page.carousel.styles.positionWord || "";
+      currentQuantitytCard = pageData.page.carousel.styles.numberCard || "";
+
     }
 
     // Restaurar datos de las tarjetas si existen
@@ -351,6 +354,13 @@ function initializeControls() {
     }
   }
 
+  if (currentQuantitytCard){
+    const quantitySelect = document.getElementById("selectQuantitydesign"); // o usa el ID que tengas
+    if (quantitySelect) {
+      quantitySelect.value = currentQuantitytCard;
+    }
+  }
+
   if (currentFontWords) {
     const previewElement = document.getElementById("fontPreviewdesign");
     if (previewElement) {
@@ -398,7 +408,9 @@ async function handleCarouselUpdate() {
       fontwords: document.getElementById("selectFontWorddesign")?.value || currentFontWords,
       titleSize: document.getElementById("titleSizeSelectdesign")?.value || currentTitleSize || "24",
       headerSize: document.getElementById("headerSizeSelectdesign")?.value || currentHeaderSize || "16",
-      positionWord: getSelectedValue("radioGroupCarouselPositionWorddesign") || "text-start"
+      positionWord: getSelectedValue("radioGroupCarouselPositionWorddesign") || "text-start",
+      numberCard: document.getElementById("selectQuantitydesign")?.value || currentQuantitytCard
+
     };
 
     const allCards = getCard();
@@ -412,7 +424,9 @@ async function handleCarouselUpdate() {
         font: config.fontwords,
         titleSize: config.titleSize,
         headerSize: config.headerSize,
-        positionWord: config.positionWord
+        positionWord: config.positionWord,
+        numberCard: config.numberCard
+
       }
     };
 

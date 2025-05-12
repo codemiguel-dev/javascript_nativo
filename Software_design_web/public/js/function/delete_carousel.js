@@ -1,47 +1,38 @@
+// 1. Función para actualizar UI
+const updateUI = () => {
+  const container = document.getElementById("container-carousel");
+  container.innerHTML = `
+    ${pageData.page.container.html}
+    ${pageData.page.title.html}
+    ${pageData.page.endcontainer.html}
+  `;
+};
 
+// 2. Manejador de eliminación
+document.getElementById("deletecarousel").addEventListener("click", async () => {
+  try {
+    if (!pageData?.page?.carousel) return;
 
+    // Optimista: Actualiza UI primero
+    updateUI();
 
-document.getElementById("deletecarousel").addEventListener("click", () => {
-    if (!pageData || !pageData.page || !pageData.page.navbar) {
-      console.warn("Datos no válidos: pageData o navbar no encontrado");
-      return;
-    }
-  
-    // ID del navbar que quieres borrar (podría venir de un input o ser fijo)
-    const navbarIdToDelete = 1; // Este sería el ID 1 que aparece en tu JSON
-  
-    // Verificar si el navbar existe y coincide con el ID
-    if (pageData.page.carousel.id === navbarIdToDelete) {
-  
-     // Mostrar contenido inicial
-    document.getElementById("container-carousel").innerHTML =   pageData.page.container.html +  pageData.page.title.html +   pageData.page.carousel.html +   pageData.page.endcontainer.html;
-      
-      // 2. Actualizar el JSON (ambas opciones disponibles)
-      // Opción A: Eliminar completamente el objeto navbar
-      //delete pageData.page.navbar;
-      
-      // Opción B: Mantener la estructura vacía (descomenta si prefieres esta)
-      pageData.page.carousel = { id: 1, html: "" };
-  
-      // 3. Enviar cambios al servidor
-      fetch('/guardar-json', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(pageData)
-      })
-      .then(response => {
-        if (!response.ok) throw new Error("Error en la respuesta del servidor");
-        return response.json();
-      })
-      .then(data => {
-        console.log("Carousel eliminado correctamente", data);
-        // Opcional: Recargar datos o actualizar UI
-      })
-      .catch(error => {
-        console.error("Error:", error);
-        // Opcional: Mostrar mensaje al usuario
-      });
-    } else {
-      console.warn(`No se encontró navbar con ID ${navbarIdToDelete}`);
-    }
-  });
+    // En paralelo: Actualiza y envía datos
+    pageData.page.carousel.html = "";
+    const response = await fetch('/guardar-json', {
+      method: 'POST',
+      body: JSON.stringify(pageData)
+    });
+
+    if (!response.ok) throw new Error("Error en servidor");
+    console.log("Eliminado en 1 click");
+    
+  } catch (error) {
+    console.error(error);
+    // Rollback UI si falla
+    document.getElementById("container-carousel").innerHTML = 
+      pageData.page.container.html + 
+      pageData.page.title.html + 
+      pageData.page.carousel.html + 
+      pageData.page.endcontainer.html;
+  }
+});

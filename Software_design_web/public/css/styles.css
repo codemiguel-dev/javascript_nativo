@@ -557,3 +557,58 @@ html {
   padding-right: 10px; /* opcional: evita que el scroll tape el contenido */
 }
 
+
+/* Colores claros */
+.body-bg-white {
+  background-color: #ffffff;
+}
+
+.body-bg-light {
+  background-color: #f8f9fa;
+}
+
+.body-bg-lighter-gray {
+  background-color: #e9ecef;
+}
+
+.body-bg-light-gray {
+  background-color: #dee2e6;
+}
+
+/* Colores oscuros */
+.body-bg-dark {
+  background-color: #343a40;
+}
+
+.body-bg-darker {
+  background-color: #212529;
+}
+
+.body-bg-black {
+  background-color: #000000;
+}
+
+/* Colores primarios */
+.body-bg-primary {
+  background-color: #007bff;
+}
+
+.body-bg-secondary {
+  background-color: #6c757d;
+}
+
+.body-bg-success {
+  background-color: #28a745;
+}
+
+.body-bg-danger {
+  background-color: #dc3545;
+}
+
+.body-bg-warning {
+  background-color: #ffc107;
+}
+
+.body-bg-info {
+  background-color: #17a2b8;
+}

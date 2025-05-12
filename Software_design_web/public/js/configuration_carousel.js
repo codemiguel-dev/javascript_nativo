@@ -5,7 +5,6 @@ import { showJSON } from "./function/show_page.js";
 
 // Variable global para almacenar los datos
 let pageData = null;
-const numberOfCards = 5; // Número de tarjetas del carrusel
 
 // Configuración inicial del carrusel
 let currentSize = "";
@@ -14,6 +13,10 @@ let currentFontWords = "";
 let currentTitleSize = "";
 let currentHeaderSize = "";
 let currentPositionWords = "";
+let currentQuantitytCard = "";
+
+const numberOfCards = 20; // Número máximo de tarjetas
+
 
 // Inicializar al cargar la página
 document.addEventListener("DOMContentLoaded", async () => {
@@ -307,7 +310,7 @@ function generateQuantityCard() {
   const Container = document.querySelector(".quantity-card");
   Container.innerHTML = "";
 
-  const cantidades = [1, 2, 3, 4, 5]; // Puedes ajustar los valores según lo necesario
+  const cantidades = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 ,18, 19 , 20]; // Puedes ajustar los valores según lo necesario
 
   let optionsHTML = cantidades
     .map((cantidad) => `<option value="${cantidad}">${cantidad} tarjeta${cantidad > 1 ? "s" : ""}</option>`)
@@ -315,8 +318,8 @@ function generateQuantityCard() {
 
   const HTML = `
     <div class="mb-3">
-      <label for="selectCantidad" class="form-label text-dark">Cantidad de tarjetas:</label>
-      <select class="form-select" id="selectCantidad" name="carouselCardQuantity">
+      <label for="selectQuantity" class="form-label text-dark">Cantidad de tarjetas:</label>
+      <select class="form-select" id="selectQuantity" name="carouselCardQuantity">
         ${optionsHTML}
       </select>
     </div>
@@ -382,6 +385,7 @@ async function loadPageData() {
       currentTitleSize = pageData.page.carousel.styles.titleSize || "";
       currentHeaderSize = pageData.page.carousel.styles.headerSize || "";
       currentPositionWords = pageData.page.carousel.styles.positionWord || "";
+      currentQuantitytCard = pageData.page.carousel.styles.numberCard || "";
     }
 
     // Restaurar datos de las tarjetas si existen
@@ -434,6 +438,13 @@ function initializeControls() {
     const fontSelect = document.getElementById("selectFontWord"); // o usa el ID que tengas
     if (fontSelect) {
       fontSelect.value = currentFontWords;
+    }
+  }
+
+  if (currentQuantitytCard){
+    const quantitySelect = document.getElementById("selectQuantity"); // o usa el ID que tengas
+    if (quantitySelect) {
+      quantitySelect.value = currentQuantitytCard;
     }
   }
 
@@ -497,8 +508,10 @@ async function handleCarouselUpdate() {
       fontwords: document.getElementById("selectFontWord")?.value || currentFontWords,
       titleSize: document.getElementById("titleSizeSelect")?.value || currentTitleSize || "24",
       headerSize: document.getElementById("headerSizeSelect")?.value || currentHeaderSize || "16",
-      positionWord: getSelectedValue("radioGroupCarouselPositionWord") || "text-start"
+      positionWord: getSelectedValue("radioGroupCarouselPositionWord") || "text-start",
+      numberCard: document.getElementById("selectQuantity")?.value || currentQuantitytCard
     };
+
 
     const allCards = getCard();
 
@@ -511,21 +524,22 @@ async function handleCarouselUpdate() {
         font: config.fontwords,
         titleSize: config.titleSize,
         headerSize: config.headerSize,
-        positionWord: config.positionWord
+        positionWord: config.positionWord,
+        numberCard: config.numberCard
       }
     };
 
     // Actualizar ambos carruseles
     pageData.page.carouselmodal = {
-      ...carouselConfig,
       id: modalId,
-      html: generateCarouselHTML(allCards, config, modalId)
+      html: generateCarouselHTML(allCards, config, modalId),
+      ...carouselConfig
     };
 
     pageData.page.carousel = {
-      ...carouselConfig,
       id: mainId,
-      html: generateCarouselHTML(allCards, config, mainId)
+      html: generateCarouselHTML(allCards, config, mainId),
+      ...carouselConfig
     };
 
     await guardarJSON(pageData);
